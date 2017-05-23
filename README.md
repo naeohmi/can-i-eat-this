@@ -60,10 +60,10 @@ Here is the initial thinking we started with:
 - Google Cloud Optical Character Recognition (OCR) API
 
 - POTENTIAL APIs: 
-https://www.textibility.com 
-https://www.foodallergy.org
-https://www.nutritionix.com
-http://developer.clarifai.com
+- https://www.textibility.com 
+- https://www.foodallergy.org
+- https://www.nutritionix.com
+- http://developer.clarifai.com
 
 ### Middleware:
 - nodemon
