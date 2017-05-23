@@ -10,13 +10,13 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 ----------
 
 ### Homepage:
-![homepage](homepage.png)
+![homepage](./images/homepage.png)
 
 ### Product-Info Page:
-![product-info](product-info.png)
+![product-info](./images/product-info.png)
 
 ### User-Profile:
-![user-profile](user-profile.png)
+![user-profile](./images/user-profile.png)
 
 ## User Stories
 ------------
@@ -33,7 +33,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 ----------
 
 Here is the initial thinking we started with:
-![initial-thinking](initial-thinking.jpg)
+![initial-thinking](./images/initial-thinking.jpg)
 
 
 ## ERD or other visual representation of your database
