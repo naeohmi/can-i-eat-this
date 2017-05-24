@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body {
+	margin: 0 auto;
+}
+
+/* Navigation (App.js) */
+
+nav {
+	display: inline-block;
+	width: 100%;
+}
+
+ul {
+	list-style: none;
+	text-align: right;
+}
+
+ul > li {
+	display: inline-block;
+}
+
+li > a {
+	color: #262524;
+	font-size: 18px;
+	padding: 16px;
+	text-decoration: none;
+	font-family: 'Quicksand', sans-serif;
+}
