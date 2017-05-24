@@ -9,6 +9,7 @@ class Profile extends Component {
 		<div className="row">
 		<div className="column">
 		  <h3><input type="checkbox" name="peanuts" value="peanuts"/>Peanuts</h3>
+		  	<h6>
 		    Artificial nuts<br/>
 		    Beer nuts<br/>
 		    Ground nuts<br/>
@@ -20,7 +21,9 @@ class Profile extends Component {
 		    Peanut butter<br/>
 			Peanut flour<br/>
 			Peanut oil<br/>
+			</h6>
 		  <h3><input type="checkbox" name="treenuts" value="treenuts"/>Tree nuts</h3>
+		    <h6>
 			Almond<br/>
 			Artificial nuts<br/>
 			Almond paste<br/>
@@ -51,7 +54,9 @@ class Profile extends Component {
 			Praline<br/>
 			Shea nut<br/>
 			Walnut<br/>
+			</h6>
 		  <h3><input type="checkbox" name="shellfish" value="shellfish"/>Shell Fish</h3>
+		    <h6>
 		  	Barnacle<br/>
 		    Crab<br/>
 		    Crawfish<br/>
@@ -59,9 +64,11 @@ class Profile extends Component {
 		    Lobster<br/>
 		    Prawns<br/>
 		    Shrimp<br/>
+		    </h6>
 		</div>
 		<div className="column">
 		  <h3><input type="checkbox" name="fish" value="fish"/>Fish</h3>
+		    <h6>
 		    Anchovies<br/>
 			Bass<br/>
 			Catfish<br/>
@@ -84,7 +91,9 @@ class Profile extends Component {
 			Tilapia<br/>
 			Trout<br/>
 			Tuna<br/>
+			</h6>
 		  <h3><input type="checkbox" name="wheat" value="wheat"/>Sesame</h3>
+		    <h6>
 		    Benne, benne seed, benniseed<br/>
 		    Gingelly<br/>
 		    Gomasio<br/>
@@ -100,7 +109,9 @@ class Profile extends Component {
 		   	Sim sim<br/>
 		    Tahini, Tahina, Tehina<br/>
 		    Til<br/>
+		    </h6>
 		  <h3><input type="checkbox" name="wheat" value="wheat"/>Wheat</h3>
+		    <h6>
 		    Breed crumbs<br/>
 		    Bulgur<br/>
 		    Cereal extract<br/>
@@ -113,9 +124,11 @@ class Profile extends Component {
 		    Farina<br/>
 		    Flour<br/>
 		    Hydrolyzed wheat protein<br/>
+		    </h6>
 		</div>
 		<div className="column">
 		  <h3><input type="checkbox" name="egg" value="egg"/>Egg</h3>
+		    <h6>
 		    Albumin<br/>
 			Egg<br/>
 			Eggnog<br/>
@@ -124,7 +137,9 @@ class Profile extends Component {
 			Meringue<br/>
 			Ovalbumin<br/>
 			Surimi<br/>
+			</h6>
 	      <h3><input type="checkbox" name="milk" value="milk"/>Milk</h3>
+	        <h6>
 			Butter<br/>
 			Buttermilk<br/>
 			Casein<br/>
@@ -152,7 +167,9 @@ class Profile extends Component {
 			Tagatose<br/>
 			Whey<br/>
 			Yogurt<br/>
+			</h6>
 		  <h3><input type="checkbox" name="soy" value="soy"/>Soy</h3>
+		    <h6>
 		  	Edamame<br/>
 		    Miso<br/>
 		    Natto<br/>
@@ -166,6 +183,7 @@ class Profile extends Component {
 		    Tempeh<br/>
 		    Textured vegetable protein<br/>
 		    Tofu<br/>
+		    </h6>
 		</div>
 		</div>
 		<button className="savePreferences">Save</button>

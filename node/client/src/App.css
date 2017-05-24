@@ -11,16 +11,39 @@ h2 {
 	font-family: 'Quicksand', sans-serif;
 }
 
+h3 {
+	margin: 10px 0;
+	font-family: helvetica;
+}
+
+h6 {
+	margin: 0;
+	padding: 0 0 0 20px;
+	font-size: 14px;
+	font-family: helvetica;
+	font-weight: normal;
+}
+
 /* Navigation Component */
+
+.nav {
+	height: 110px;
+}
+
+.logo {
+	display: inline-block;
+	width: 25%;
+	float: left;
+}
 
 nav {
 	display: inline-block;
-	width: 100%;
+	width: 75%;
 }
 
 ul {
 	list-style: none;
-	text-align: right;
+	float: right;
 }
 
 ul > li {
@@ -30,9 +53,13 @@ ul > li {
 li > a {
 	color: #262524;
 	font-size: 20px;
-	padding: 16px;
+	padding: 20px;
 	text-decoration: none;
 	font-family: 'Quicksand', sans-serif;
+}
+
+li > a:hover {
+	color: #319DEA;
 }
 
 /* Home Component */
@@ -64,6 +91,10 @@ input[type=text] {
 
 /* Result Component */
 
+.result {
+	display: flex;
+}
+
 .right {
 	display: inline-block;
 	width: 300px;
@@ -81,13 +112,14 @@ input[type=text] {
 }
 
 table {
-	width: 100%;
+	border: 1px solid #D1D1D1;
 }
 
 th {
 	text-align: center;
 	font-family: 'Quicksand', sans-serif;
 	font-size: 18px;
+	padding: 20px;
 }
 
 td {
@@ -95,6 +127,10 @@ td {
 }
 
 /* Profile Component */
+
+form {
+	
+}
 
 .row {
 	display: flex;
