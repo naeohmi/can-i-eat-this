@@ -24,6 +24,10 @@ h6 {
 	font-weight: normal;
 }
 
+p {
+	font-family: helvetica;
+}
+
 /* Navigation Component */
 
 .nav {
@@ -80,13 +84,19 @@ input[type=text] {
     font-family: 'Quicksand', sans-serif;
 }
 
-.searchProduct, .savePreferences {
+.searchProduct {
 	width: auto;
 	padding: 7px 10px;
 	margin: 5px;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
     text-align: center;
+    border: none;
+	background-color: #E0E0E0;
+}
+
+.searchProduct:hover {
+	background-color: #149ECC;
 }
 
 /* Result Component */
@@ -128,14 +138,26 @@ td {
 
 /* Profile Component */
 
-form {
-	
-}
-
 .row {
 	display: flex;
 }
 
 .column {
 	flex: 1;
+}
+
+.savePreferences {
+    width: auto;
+	padding: 7px 10px;
+	margin: 50px 100px;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+	float: right;
+	border: none;
+	background-color: #E0E0E0;
+}
+
+.savePreferences:hover {
+	background-color: #149ECC;
 }
