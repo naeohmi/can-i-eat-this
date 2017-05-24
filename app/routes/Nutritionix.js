@@ -2,19 +2,17 @@ var config = require('../config.js');
 
 class Nutritionix {
     constructor() {}
-    firstCall (upc) {
+    firstCall(upc) {
         return config.axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=463fe736&appKey=8c512edcb05e0b6539ff12807328a4b6`)
     };
-
-    secondCall () {
+    secondCall() {
         var configHeader = {
             headers: {
             }
         };
         return config.axios.get(``, configHeader)
     };
-
-    allCall () {
+    allCall() {
         config.axios.all([this.firstCall(), this.secondCall()])
             .then(config.axios.spread((first, second) => {
                 var data1 = first.data.etc;
