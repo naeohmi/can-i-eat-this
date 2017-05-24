@@ -6,7 +6,7 @@ class History extends Component {
       <div className="history">
 		<h2>History</h2>
       </div>
-    )
+    );
   }
 }
 
