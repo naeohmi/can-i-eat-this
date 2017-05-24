@@ -5,6 +5,7 @@ class Profile extends Component {
     return (
       <div className="profile">
        <h2>User Preferences</h2>
+       <p>Please, select the allergens that you would like to avoid.</p>
 		<form>
 		<div className="row">
 		<div className="column">

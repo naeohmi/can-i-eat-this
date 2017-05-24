@@ -6,7 +6,7 @@ class Result extends Component {
         <div className="result">
       	  <div className="left">
       	    <h2>Product Name</h2>
-      	    <a href="http://placehold.it"><img src="http://placehold.it/300x300" /></a>
+      	    <a href="http://placehold.it"><img src="http://placehold.it/300x300" alt="Product"/></a>
       	  <div className="issues"></div>
       	</div>
       	<div className="right">
