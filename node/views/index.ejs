@@ -10,13 +10,54 @@
     <body>
                 <%= title %>
 
+
+<h1 id="bigOne"></h1>
+
         <div id='container'>
             <form id="sentenceForm">
                 <input id="toDefine" type="text" name="barcode" placeholder="enter a word">
                 <input type="submit" class="clickdis">
 
 
+
+<div class="container">
+    <input id="txtEmail" type="email" placeholder="email">
+
+    <input id="txtPassword" type="password" placeholder="password">
+
+    <button id="btnLogin" class="btn btn-action">Log-In</button>
+
+    <button id="btnSignUp" class="btn btn-secondary">Sign-Up</button>
+
+    <button id="btnLogout" class="btn btn-action hide">Log-Out</button>
+
+</div>
+
+
+
     </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBfMTg4yZcOzahDU1jPB0oxkMhMQgpT_Sw",
+    authDomain: "project3-918a8.firebaseapp.com",
+    databaseURL: "https://project3-918a8.firebaseio.com",
+    projectId: "project3-918a8",
+    storageBucket: "project3-918a8.appspot.com",
+    messagingSenderId: "308425811049"
+  };
+  firebase.initializeApp(config);
+
+var bigOne = document.getElementById('bigOne');
+var dbRef = firebase.database().ref().child('text');
+dbRef.on('value', snap => bigOne.innerText = snap.val());
+
+
+</script>
 
 </html>
