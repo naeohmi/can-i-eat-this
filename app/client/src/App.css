@@ -1,19 +1,53 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-
 body {
 	margin: 0 auto;
 }
 
-/* Navigation (App.js) */
+/* Text */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+h2 {
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+}
+
+h3 {
+	margin: 10px 0;
+	font-family: helvetica;
+}
+
+h6 {
+	margin: 0;
+	padding: 0 0 0 20px;
+	font-size: 14px;
+	font-family: helvetica;
+	font-weight: normal;
+}
+
+p {
+	font-family: helvetica;
+}
+
+/* Navigation Component */
+
+.nav {
+	height: 110px;
+}
+
+.logo {
+	display: inline-block;
+	width: 25%;
+	float: left;
+}
 
 nav {
 	display: inline-block;
-	width: 100%;
+	width: 75%;
 }
 
 ul {
 	list-style: none;
-	text-align: right;
+	float: right;
 }
 
 ul > li {
@@ -22,8 +56,108 @@ ul > li {
 
 li > a {
 	color: #262524;
-	font-size: 18px;
-	padding: 16px;
+	font-size: 20px;
+	padding: 20px;
 	text-decoration: none;
 	font-family: 'Quicksand', sans-serif;
+}
+
+li > a:hover {
+	color: #319DEA;
+}
+
+/* Home Component */
+
+.home {
+	text-align: center;
+}
+
+label {
+	font-family: 'Quicksand', sans-serif;
+}
+
+input[type=text] {
+	width: 200px;
+	padding: 5px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.searchProduct {
+	width: auto;
+	padding: 7px 10px;
+	margin: 5px;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    border: none;
+	background-color: #E0E0E0;
+}
+
+.searchProduct:hover {
+	background-color: #149ECC;
+}
+
+/* Result Component */
+
+.result {
+	display: flex;
+}
+
+.right {
+	display: inline-block;
+	width: 300px;
+}
+
+.left {
+	display: inline-block;
+	width: auto;
+}
+
+.issues {
+	width: 300px;
+	height: auto;
+	background-color: #F7F7F7;
+}
+
+table {
+	border: 1px solid #D1D1D1;
+}
+
+th {
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 18px;
+	padding: 20px;
+}
+
+td {
+	font-family: 'Quicksand', sans-serif;
+}
+
+/* Profile Component */
+
+.row {
+	display: flex;
+}
+
+.column {
+	flex: 1;
+}
+
+.savePreferences {
+    width: auto;
+	padding: 7px 10px;
+	margin: 50px 100px;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+	float: right;
+	border: none;
+	background-color: #E0E0E0;
+}
+
+.savePreferences:hover {
+	background-color: #149ECC;
 }

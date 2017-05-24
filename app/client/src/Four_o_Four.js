@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class Four_o_Four extends Component {
+class FourOFour extends Component {
   render() {
     return (
-    	<div>Error 404.</div>
+    	<div className="errorMessage">Error 404.</div>
     )
   }
 }
 
-export default Four_o_Four;
+export default FourOFour;
