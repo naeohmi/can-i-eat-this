@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-
 body {
 	margin: 0 auto;
 }
 
-/* Navigation (App.js) */
+/* Text */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+h2 {
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+}
+
+/* Navigation Component */
 
 nav {
 	display: inline-block;
@@ -22,8 +29,77 @@ ul > li {
 
 li > a {
 	color: #262524;
-	font-size: 18px;
+	font-size: 20px;
 	padding: 16px;
 	text-decoration: none;
 	font-family: 'Quicksand', sans-serif;
+}
+
+/* Home Component */
+
+.home {
+	text-align: center;
+}
+
+label {
+	font-family: 'Quicksand', sans-serif;
+}
+
+input[type=text] {
+	width: 200px;
+	padding: 5px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.searchProduct, .savePreferences {
+	width: auto;
+	padding: 7px 10px;
+	margin: 5px;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+/* Result Component */
+
+.right {
+	display: inline-block;
+	width: 300px;
+}
+
+.left {
+	display: inline-block;
+	width: auto;
+}
+
+.issues {
+	width: 300px;
+	height: auto;
+	background-color: #F7F7F7;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	text-align: center;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 18px;
+}
+
+td {
+	font-family: 'Quicksand', sans-serif;
+}
+
+/* Profile Component */
+
+.row {
+	display: flex;
+}
+
+.column {
+	flex: 1;
 }
