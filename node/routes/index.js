@@ -8,6 +8,7 @@ router.get('/', (req, res, next) => {
 
         //HARD CODING THIS NOW JUST FOR TESTING PURPOSES//
         api.getInfo(048500021125);
+
     // }
     console.log('awake');
     res.render('index', {

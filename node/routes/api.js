@@ -42,6 +42,7 @@ let getInfo = (upc) => {
             };
             // console.log(info)
 
+
         })
         .catch((err) => {
             console.log(`err: ${err}`);
