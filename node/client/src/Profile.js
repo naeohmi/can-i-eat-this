@@ -4,70 +4,169 @@ class Profile extends Component {
   render() {
     return (
       <div className="profile">
+       <h2>User Preferences</h2>
 		<form>
 		<div className="row">
 		<div className="column">
-		  <h3>Peanuts</h3>
-			<input type="checkbox" name="peanuts" value="peanuts"/>Peanuts<br/>
-			<input type="checkbox" name="artificial_nuts" value="artificial_nuts"/>Artificial nuts<br/>
-			<input type="checkbox" name="beer_nuts" value="beer_nuts"/>Beer nuts<br/>
-			<input type="checkbox" name="peanut_oil" value="peanut_oil"/>Peanut oil<br/>
-			<input type="checkbox" name="goobers" value="peanuts"/>Goobers<br/>
-			<input type="checkbox" name="ground_nuts" value="artificial_nuts"/>Ground nuts<br/>
-			<input type="checkbox" name="mandelonas" value="beer_nuts"/>Mandelonas<br/>
-			<input type="checkbox" name="mixed_nuts" value="peanut_oil"/>Mixed nuts<br/>
-			<input type="checkbox" name="monkey_nuts" value="artificial_nuts"/>Monkey nuts<br/>
-			<input type="checkbox" name="nut_meat" value="beer_nuts"/>Nut meat<br/>
-			<input type="checkbox" name="nut_pieces" value="peanut_oil"/>Nut pieces<br/>
-			<input type="checkbox" name="peanut_butter" value="artificial_nuts"/>Peanut butter<br/>
-			<input type="checkbox" name="peanut_flour" value="beer_nuts"/>Peanut flour<br/>
-			<input type="checkbox" name="peanut_protein_hydrolysate" value="peanut_oil"/>Peanut protein hydrolysate<br/>
-		  <h3>Eggs</h3>
-		    <input type="checkbox" name="albumin" value="albumin"/>Albumin<br/>
-			<input type="checkbox" name="egg" value="egg"/>Egg (dried, powdered, solids, white, yolk)<br/>
-			<input type="checkbox" name="eggnog" value="eggnog"/>Eggnog<br/>
-			<input type="checkbox" name="lysozyme" value="lysozyme"/>Lysozyme<br/>
-			<input type="checkbox" name="mayonnaise" value="mayonnaise"/>Mayonnaise<br/>
-			<input type="checkbox" name="meringue" value="meringue"/>Meringue (meringue powder)<br/>
-			<input type="checkbox" name="ovalbumin" value="ovalbumin"/>Ovalbumin<br/>
-			<input type="checkbox" name="surimi" value="surimi"/>Surimi<br/>
+		  <h3><input type="checkbox" name="peanuts" value="peanuts"/>Peanuts</h3>
+		    Artificial nuts<br/>
+		    Beer nuts<br/>
+		    Ground nuts<br/>
+		    Mandelonas<br/>
+		    Mixed nuts<br/>
+		    Monkey nuts<br/>
+		    Nut meat<br/>
+		    Nut pieces<br/>
+		    Peanut butter<br/>
+			Peanut flour<br/>
+			Peanut oil<br/>
+		  <h3><input type="checkbox" name="treenuts" value="treenuts"/>Tree nuts</h3>
+			Almond<br/>
+			Artificial nuts<br/>
+			Almond paste<br/>
+			Brazil nut<br/>
+			Beechnut<br/>
+			Butternut<br/>
+			Cashew<br/>
+			Chestnut<br/>
+			Chinquapin nut<br/>
+			Coconut<br/>
+			Gianduja<br/>
+			Ginkgo nut<br/>
+			Hazelnut<br/>
+			Hickory nut<br/>
+			Lychee nut<br/>
+			Macadamia nut<br/>
+			Nangai nut<br/>
+			Natural nut extract<br/>
+			Nut butters<br/>
+			Nut meal<br/>
+			Nut milk<br/>
+			Nut paste<br/>
+			Pecan<br/>
+			Pesto<br/>
+			Pili nut<br/>
+			Pine nut<br/>
+			Pistachio<br/>
+			Praline<br/>
+			Shea nut<br/>
+			Walnut<br/>
+		  <h3><input type="checkbox" name="shellfish" value="shellfish"/>Shell Fish</h3>
+		  	Barnacle<br/>
+		    Crab<br/>
+		    Crawfish<br/>
+		    Krill<br/>
+		    Lobster<br/>
+		    Prawns<br/>
+		    Shrimp<br/>
 		</div>
 		<div className="column">
-		  <h3>Tree nut</h3>
-			<input type="checkbox" name="almond" value="almond"/>Almond<br/>
-			<input type="checkbox" name="artificial_nuts" value="artificial_nuts"/>Artificial nuts<br/>
-			<input type="checkbox" name="brazil_nut" value="brazil_nut"/>Brazil nut<br/>
-			<input type="checkbox" name="beechnut" value="beechnut"/>Beechnut<br/>
-			<input type="checkbox" name="butternut" value="butternut"/>Butternut<br/>
-			<input type="checkbox" name="cashew" value="cashew"/>Cashew<br/>
-			<input type="checkbox" name="chestnut" value="chestnut"/>Chestnut<br/>
-			<input type="checkbox" name="chinquapin_nut" value="chinquapin_nut"/>Chinquapin nut<br/>
-			<input type="checkbox" name="coconut" value="coconut"/>Coconut<br/>
-			<input type="checkbox" name="gianduja" value="gianduja"/>Gianduja<br/>
-			<input type="checkbox" name="ginkgo_nut" value="ginkgo_nut"/>Ginkgo nut<br/>
-			<input type="checkbox" name="hazelnut" value="hazelnut"/>Hazelnut<br/>
-			<input type="checkbox" name="hyckory_nut" value="hyckory_nut"/>Hickory nut<br/>
-			<input type="checkbox" name="lychee_nut" value="lychee_nut"/>Litchi/lichee/lychee nut<br/>
-			<input type="checkbox" name="macadamia_nut" value="macadamia_nut"/>Macadamia nut<br/>
-			<input type="checkbox" name="marzipan/almond_paste" value="almond_paste"/>Marzipan/Almond paste<br/>
-			<input type="checkbox" name="nangai_nut" value="nangai_nut"/>Nangai nut<br/>
-			<input type="checkbox" name="natural_nut_extract" value="natural_nut_extract"/>Natural nut extract<br/>
-			<input type="checkbox" name="nut_butters" value="nut_butters"/>Nut butters<br/>
-			<input type="checkbox" name="nut_meal" value="nut_meal"/>Nut meal<br/>
-			<input type="checkbox" name="nut_meat" value="nut_meat"/>Nut meat<br/>
-			<input type="checkbox" name="nut_milk" value="nut_milk"/>Nut milk<br/>
-			<input type="checkbox" name="nut_paste" value="nut_paste"/>Nut paste<br/>
-			<input type="checkbox" name="nut_pieces" value="nut_pieces"/>Nut pieces<br/>
-			<input type="checkbox" name="pecan" value="pecan"/>Pecan<br/>
-			<input type="checkbox" name="pesto" value="pesto"/>Pesto<br/>
-			<input type="checkbox" name="pili_nut" value="pili_nut"/>Pili nut<br/>
-			<input type="checkbox" name="pine_nut" value="pine_nut"/>Pine nut<br/>
-			<input type="checkbox" name="pistachio" value="pistachio"/>Pistachio<br/>
-			<input type="checkbox" name="praline" value="praline"/>Praline<br/>
-			<input type="checkbox" name="shea_nut" value="shea_nut"/>Shea nut<br/>
-			<input type="checkbox" name="walnut" value="walnut"/>Walnut<br/>
+		  <h3><input type="checkbox" name="fish" value="fish"/>Fish</h3>
+		    Anchovies<br/>
+			Bass<br/>
+			Catfish<br/>
+			Cod<br/>
+			Flounder<br/>
+			Grouper<br/>
+			Haddock<br/>
+			Hake<br/>
+			Halibut<br/>
+			Herring<br/>
+			Mahi Mahi<br/>
+			Perch<br/>
+			Pike<br/>
+			Pollock<br/>
+			Salmon<br/>
+			Scrod<br/>
+			Swordfish<br/>
+			Sole<br/>
+			Snapper<br/>
+			Tilapia<br/>
+			Trout<br/>
+			Tuna<br/>
+		  <h3><input type="checkbox" name="wheat" value="wheat"/>Sesame</h3>
+		    Benne, benne seed, benniseed<br/>
+		    Gingelly<br/>
+		    Gomasio<br/>
+		    Halvah<br/>
+		    Sesame flour<br/>
+		    Sesame oil<br/>
+		    Sesame paste<br/>
+		    Sesame salt<br/>
+		    Sesame seed<br/>
+		    Sesamol<br/>
+		    Sesamum indicum<br/>
+		    Sesemolina<br/>
+		   	Sim sim<br/>
+		    Tahini, Tahina, Tehina<br/>
+		    Til<br/>
+		  <h3><input type="checkbox" name="wheat" value="wheat"/>Wheat</h3>
+		    Breed crumbs<br/>
+		    Bulgur<br/>
+		    Cereal extract<br/>
+		    Club wheat<br/>
+		    Couscous<br/>
+		    Cracker meal<br/>
+		    Durun<br/>
+		    Einkorn<br/>
+		    Emmer<br/>
+		    Farina<br/>
+		    Flour<br/>
+		    Hydrolyzed wheat protein<br/>
 		</div>
-
+		<div className="column">
+		  <h3><input type="checkbox" name="egg" value="egg"/>Egg</h3>
+		    Albumin<br/>
+			Egg<br/>
+			Eggnog<br/>
+			Lysozyme<br/>
+			Mayonnaise<br/>
+			Meringue<br/>
+			Ovalbumin<br/>
+			Surimi<br/>
+	      <h3><input type="checkbox" name="milk" value="milk"/>Milk</h3>
+			Butter<br/>
+			Buttermilk<br/>
+			Casein<br/>
+			Casein hydrolysate<br/>
+			Caseinates<br/>
+			Cheese<br/>
+			Cottage cheese<br/>
+			Cream<br/>
+			Curds<br/>
+			Custard<br/>
+			Diacetyl<br/>
+			Ghee<br/>
+			Half-and-half<br/>
+			Lactalbumin<br/>
+			Llactoferrin<br/>
+			Lactose<br/>
+			Lactulose<br/>
+			Milk<br/>
+			Milk protein hydrolysate<br/>
+			Pudding<br/>
+			Recaldent<br/>
+			Rennet casein<br/>
+			Sour cream<br/>
+			Sour milk solids<br/>
+			Tagatose<br/>
+			Whey<br/>
+			Yogurt<br/>
+		  <h3><input type="checkbox" name="soy" value="soy"/>Soy</h3>
+		  	Edamame<br/>
+		    Miso<br/>
+		    Natto<br/>
+		    Shoyu<br/>
+		    Soy<br/>
+		    Soya<br/>
+		    Soybean<br/>
+		    Soy protein<br/>
+		    Soy sauce<br/>
+		    Tamari<br/>
+		    Tempeh<br/>
+		    Textured vegetable protein<br/>
+		    Tofu<br/>
+		</div>
 		</div>
 		<button className="savePreferences">Save</button>
 		</form>
