@@ -1,9 +1,15 @@
-var express = require('express');
-var router = express.Router();
-const App = require('../App.js'); 
+const express = require('express');
+const router = express.Router();
+const app = require('../app.js'); 
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', (req, res, next) => {
+    if (req.query.word != null) {
+        app.getUpc(req, res, next);
+    }
+    res.render('index', {
+        title: 'Project3',
+    })
 });
 
 module.exports = router;
