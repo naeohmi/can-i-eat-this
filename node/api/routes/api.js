@@ -12,11 +12,11 @@ router.get('/allergies/:userid', db.getuserpref);
 router.post('/allergies', db.adduserpref);
 router.get('/allergies', db.allusers);
 router.put('/allergies/:userid', db.editpref);
-router.post('/products', db.addnewproduct);
-router.post('/information', db.addresult);
 
-router.get('/information', db.history);
-router.delete('/products/:id', db.deleteproduct);
+router.post('/information', db.addproduct);
+router.get('/information', db.information);
+router.get('/information/:userid', db.userhistory);
+router.delete('/information/:id', db.deleteproduct);
 
 
 module.exports = router;
