@@ -161,4 +161,8 @@ module.exports = {
   information  : information,     //read
   deleteproduct: deleteproduct,   //DELETE
  // getaproduct  : getaproduct,    
+<<<<<<< HEAD:node/api/db/queries.js
 };
+=======
+};
+>>>>>>> 45f5723c645f4e16a3e13a28c34bdb766535263e:node/db/queries.js
