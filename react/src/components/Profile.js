@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Profile extends Component {
   constructor(props){
     super(props)
-    console.log(this.props.issues);
+    // console.log(this.props.issues);
     this.userPreferences = this.userPreferences.bind(this)
   }
 
@@ -21,6 +21,7 @@ class Profile extends Component {
   }
 
   render() {
+  	// console.log(this.props.issues[0]);
     return (
       <div className="profile">
        <h2>User Preferences</h2>
