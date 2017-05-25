@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigation from './Navigation';
-import Home from './Home';
-import Profile from './Profile';
-import Result from './Result';
-import History from './History';
-import FourOFour from './Four_o_Four';
-import { BrowserRouter as Router, 
-	     Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import Result from './components/Result';
+import History from './components/History';
+import FourOFour from './components/Four_o_Four';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+  } from 'react-router-dom';
 
 console.log("App.js is working.");
 

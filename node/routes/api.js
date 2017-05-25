@@ -34,15 +34,13 @@ let getInfo = (upc) => {
             let listArr = ingredientList.split(" ");
             
             var info = {
-                "userid": 123456789,
+                "userid": 123456,
                 "upc": `${upc}`,
                 "productname": `${productName}`,
                 "ingredientlist": [`${listArr}`],
-                "issues": [false, false, false, false, false, false, false, false, false],
+                // "issues": [false, false, false, false, false, false, false, false, false],
             };
             // console.log(info)
-
-
         })
         .catch((err) => {
             console.log(`err: ${err}`);
