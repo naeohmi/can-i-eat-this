@@ -2,6 +2,7 @@ const firebase = require("firebase");
 
 let userAuth = () => {
     const config = {
+        //my unique firebase config keys
         apiKey: "AIzaSyBfMTg4yZcOzahDU1jPB0oxkMhMQgpT_Sw",
         authDomain: "project3-918a8.firebaseapp.com",
         databaseURL: "https://project3-918a8.firebaseio.com",
@@ -18,9 +19,7 @@ let userAuth = () => {
     const btnSignUp = document.getElementById('btnSignUp');
     const btnLogout = document.getElementById('btnLogout');
 
-
-    //add click event
-
+    //add click event to login
     btnLogin.addEventListener('click', e => {
         //get email and password
         const email = txtEmail.value;
@@ -51,14 +50,25 @@ let userAuth = () => {
 
     })
 
-
-    firebase.auth().onAuthStateChanged(firebaseUser => {
+    //USER OBSERVER
+    //(good cause observer ensures Auth object not in intermediate state)
+    firebase.auth().onAuthStateChanged((user) => {
     //check if user is logged in or not
-        if (firebaseUser) {
-            console.log(firebaseUser); //if user logged in 
+        if (user) {
+            //USER SIGNED IN! yay :)
+            // console.log(user); //if user logged in 
             btnLogout.classList.remove('hide'); //if the user is logged in, display the log out button
 
+            //grab the user data
+            let displayName = user.displayName;
+            let email = user.email;
+            let emailVerified = user.emailVerified;
+            let isAnonymous = user.isAnonymous;
+            let uid = user.uid; //might need to use user.getToken instead if we add this to the backend server db
+            let providerData = user.providerData;
+
         } else {
+            //USER OUTTA THERE
             console.log('not logged in'); //not user logged in
             btnLogout.classList.add('hide'); //dont show logout if no user is logged in
         }
