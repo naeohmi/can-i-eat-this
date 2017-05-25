@@ -8,7 +8,6 @@ class Home extends Component {
           upc: undefined,
           productName: undefined,
           ingredientList: [],
-          
         }
         this.handleCreate = this.handleCreate.bind(this);
         this.getIngred = this.getIngred.bind(this);
@@ -22,8 +21,7 @@ class Home extends Component {
     }
 
     getIngred(upc) {
-        console.log('getIngred woke up');
-        console.log(upc);
+        console.log(`getIngred woke: ${upc}`);
         const appId = '51857eb3';
         const appKey = 'be5d49bb734cca8a5980f4f8776ea657';
         
@@ -37,12 +35,17 @@ class Home extends Component {
                 productName: res.data.item_name,
                 ingredientList: ingredientListArr,
               })
+
               console.log(ingredientListArr);
-            // .catch((err) => {
-            //     console.log(`err: ${err}`);
-            // });
-      });
+              // window.location.reload();
+              });
+              
+              // .catch((err) => {
+                // console.log(`err: ${err}`);
+              // });
     };
+
+
 
   render() {
     return (
