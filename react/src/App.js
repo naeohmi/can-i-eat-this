@@ -7,10 +7,10 @@ import Result from './components/Result';
 import History from './components/History';
 import FourOFour from './components/Four_o_Four';
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-  } from 'react-router-dom';
+        BrowserRouter as Router,
+        Route,
+        Switch
+        } from 'react-router-dom';
 
 console.log("App.js is working.");
 
@@ -24,11 +24,8 @@ class App extends Component {
   }
 
   selectedCheckboxes(issues) {
-    this.state.issues.push({
-      issues
-    })
-    this.setState({ issues: this.state.issues })
-    console.log(this.state.issues);
+    this.setState({ issues: issues })
+    // console.log(this.state.issues);
   }
 
   render() {
@@ -38,7 +35,8 @@ class App extends Component {
 	    <Navigation />
         <Switch>
           <Route path="/" exact component={() => (<Home />) }/>
-          <Route path="/profile" exact component={() => (<Profile selectedCheckboxes={this.selectedCheckboxes}/>) }/>
+          <Route path="/profile" exact component={() => (<Profile selectedCheckboxes={this.selectedCheckboxes} 
+                                                                  issues={this.state.issues}/>) }/>
           <Route path="/result" exact component={() => (<Result />) }/>
           <Route path="/history" exact component={() => (<History />) }/>
           <Route path="/*" component={() => (<FourOFour />) }/>

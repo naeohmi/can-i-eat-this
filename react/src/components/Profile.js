@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Profile extends Component {
   constructor(props){
     super(props)
+    console.log(this.props.issues);
     this.userPreferences = this.userPreferences.bind(this)
   }
 
@@ -27,7 +28,8 @@ class Profile extends Component {
 		<form onSubmit={this.userPreferences}>
 		<div className="row">
 		<div className="column">
-		  <h3><input type="checkbox" name="peanuts" ref="peanuts"/>Peanuts</h3>
+		  <h3><input type="checkbox" name="peanuts" ref="peanuts" 
+		  checked={this.props.issues[3]} readOnly/>Peanuts</h3>
 		  	<h6>
 		    Artificial nuts<br/>
 		    Beer nuts<br/>
@@ -41,7 +43,8 @@ class Profile extends Component {
 			Peanut flour<br/>
 			Peanut oil<br/>
 			</h6>
-		  <h3><input type="checkbox" name="treenuts" ref="treenuts"/>Tree nuts</h3>
+		  <h3><input type="checkbox" name="treenuts" ref="treenuts" 
+		  checked={this.props.issues[7]} readOnly/>Tree nuts</h3>
 		    <h6>
 			Almond<br/>
 			Artificial nuts<br/>
@@ -74,7 +77,8 @@ class Profile extends Component {
 			Shea nut<br/>
 			Walnut<br/>
 			</h6>
-		  <h3><input type="checkbox" name="shellfish" ref="shellfish"/>Shell Fish</h3>
+		  <h3><input type="checkbox" name="shellfish" ref="shellfish" 
+		  checked={this.props.issues[5]} readOnly/>Shell Fish</h3>
 		    <h6>
 		  	Barnacle<br/>
 		    Crab<br/>
@@ -86,7 +90,8 @@ class Profile extends Component {
 		    </h6>
 		</div>
 		<div className="column">
-		  <h3><input type="checkbox" name="fish" ref="fish"/>Fish</h3>
+		  <h3><input type="checkbox" name="fish" ref="fish" 
+		  checked={this.props.issues[1]} readOnly/>Fish</h3>
 		    <h6>
 		    Anchovies<br/>
 			Bass<br/>
@@ -111,7 +116,8 @@ class Profile extends Component {
 			Trout<br/>
 			Tuna<br/>
 			</h6>
-		  <h3><input type="checkbox" name="sesame" ref="sesame"/>Sesame</h3>
+		  <h3><input type="checkbox" name="sesame" ref="sesame" 
+		  checked={this.props.issues[4]} readOnly/>Sesame</h3>
 		    <h6>
 		    Benne, benne seed, benniseed<br/>
 		    Gingelly<br/>
@@ -129,7 +135,8 @@ class Profile extends Component {
 		    Tahini, Tahina, Tehina<br/>
 		    Til<br/>
 		    </h6>
-		  <h3><input type="checkbox" name="wheat" ref="wheat"/>Wheat</h3>
+		  <h3><input type="checkbox" name="wheat" ref="wheat" 
+		  checked={this.props.issues[8]} readOnly/>Wheat</h3>
 		    <h6>
 		    Breed crumbs<br/>
 		    Bulgur<br/>
@@ -146,7 +153,8 @@ class Profile extends Component {
 		    </h6>
 		</div>
 		<div className="column">
-		  <h3><input type="checkbox" name="egg" ref="egg"/>Egg</h3>
+		  <h3><input type="checkbox" name="egg" ref="egg" 
+		  checked={this.props.issues[0]} readOnly/>Egg</h3>
 		    <h6>
 		    Albumin<br/>
 			Egg<br/>
@@ -157,7 +165,8 @@ class Profile extends Component {
 			Ovalbumin<br/>
 			Surimi<br/>
 			</h6>
-	      <h3><input type="checkbox" name="milk" ref="milk"/>Milk</h3>
+	      <h3><input type="checkbox" name="milk" ref="milk" 
+	      checked={this.props.issues[2]} readOnly/>Milk</h3>
 	        <h6>
 			Butter<br/>
 			Buttermilk<br/>
@@ -187,7 +196,8 @@ class Profile extends Component {
 			Whey<br/>
 			Yogurt<br/>
 			</h6>
-		  <h3><input type="checkbox" name="soy" ref="soy"/>Soy</h3>
+		  <h3><input type="checkbox" name="soy" ref="soy" 
+		  checked={this.props.issues[6]} readOnly/>Soy</h3>
 		    <h6>
 		  	Edamame<br/>
 		    Miso<br/>
