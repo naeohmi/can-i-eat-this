@@ -5,8 +5,9 @@ let connString = process.env.DATABASE_URL
 // connect  db promise to my database
 let db = pgp(connString);
 
+// get all one user issues
 function getuserpref(req, res, next) {
-  // parse the requested url to get the required tweed id using pg-promise method one , then
+  // parse the requested url to get the required userid using pg-promise method one , then
   let userid = parseInt(req.params.userid);
     db.one('select * from allergies where userid = $1', userid)
     .then(function(data) {
@@ -14,7 +15,7 @@ function getuserpref(req, res, next) {
         .json({
           status: 'success',
           data: data,
-          message: 'One user preference was retrieved'
+          message: 'One user issues was retrieved'
         });
     })
     .catch(function(err) {
@@ -22,6 +23,7 @@ function getuserpref(req, res, next) {
     });
 }
 
+// add new user with new issues to the database
 function adduserpref(req, res, next) {
   console.log(req);
   console.log('req.body ===>', req.body)
@@ -32,7 +34,7 @@ function adduserpref(req, res, next) {
       res.status(200)
         .json({
           status: 'success',
-          message: 'One user preference was added'
+          message: 'One user was added'
         });
     })
     .catch(function(err) {
@@ -41,6 +43,7 @@ function adduserpref(req, res, next) {
     });
 }
 
+// change one user issue
 function editpref(req, res, next) {
   console.log(req);
   db.none('update allergies set eggsallergy=$1, fishallergy=$2, milkallergy=$3, peanutsallergy=$4, sesameallergy=$5 ,shellfishallergy=$6 , soyallergy=$7,  treenutsallergy=$8 , wheatallergy=$9  where userid=$10', [req.body.eggsallergy, req.body.fishallergy, req.body.milkallergy, req.body.peanutsallergy, req.body.sesameallergy, req.body.shellfishallergy, req.body.soyallergy, req.body.treenutsallergy, req.body.wheatallergy , req.params.userid
@@ -49,7 +52,7 @@ function editpref(req, res, next) {
       res.status(200)
         .json({
           status: 'success',
-          message: ' one user preference was Updated'
+          message: ' user issues list was Updated'
         });
     })
     .catch(function(err) {
@@ -57,9 +60,9 @@ function editpref(req, res, next) {
       return next(err);
     });
 }
-
+// get all users with there issues in the database
+// show me what I have in user table
 function allusers(req, res, next) {
-  // parse the requested url to get the required tweed id using pg-promise method one , then
     db.many('select * from allergies')
     .then(function(data) {
       res.status(200)
@@ -74,6 +77,7 @@ function allusers(req, res, next) {
     });
 }
 
+// insert a product with the result of comparing the ingred to the user issues
 function addproduct(req, res, next) {
   console.log(req);
   console.log('req.body ===>', req.body)
@@ -93,8 +97,9 @@ function addproduct(req, res, next) {
     });
 }
 
+
+// get all the products scanned by a certain user
 function userhistory(req, res, next) {
-  // return all the records from the database using pg-promise method any , then
   let userid = parseInt(req.params.userid);
   db.any('SELECT information.id , information.product , information.result FROM information where userid = $1', userid)
     .then(function(data) {
@@ -111,6 +116,7 @@ function userhistory(req, res, next) {
     });
 }
 
+// show me what I have in information table
 function information(req, res, next) {
   // return all the records from the database using pg-promise method any , then
   db.any('SELECT * FROM information ;')
@@ -127,7 +133,7 @@ function information(req, res, next) {
       return next(err);
     });
 }
-
+// delete certain product from the database
 function deleteproduct(req, res, next) {
   let id = parseInt(req.params.id);
   db.result('delete from information where id = $1', id)
@@ -143,68 +149,16 @@ function deleteproduct(req, res, next) {
     });
 }
 
-
-
-
-
-
-
-
-
-
-/*
-http://localhost:3000/api/allergies
-{
-  "userid" : 123456,
-    "eggsallergy": true,
-    "fishallergy": false,
-    "milkallergy": true,
-    "peanutsallergy": false,
-    "sesameallergy": false,
-    "shellfishallergy": false,
-    "soyallergy": false,
-    "treenutsallergy": false,
-    "wheatallergy": false
-  }
-);*/
-
-
-
-
-
-
-
-// change the information inside the database
-/*
-http://localhost:3000/api/allergies/123456
- put
-  {
-
-    "eggsallergy": false,
-    "fishallergy": true,
-    "milkallergy": true,
-    "peanutsallergy": true,
-    "sesameallergy": true,
-    "shellfishallergy": true,
-    "soyallergy": true,
-    "treenutsallergy": true,
-    "wheatallergy": true
-  }
-*/
-
-// this function delete the tweeds which it's id was after url
-
-
 //CRUD
 module.exports = {
-  getuserpref  : getuserpref,    //read
+  getuserpref  : getuserpref,    //read:userid
   adduserpref  : adduserpref,    //add
-  editpref     : editpref,   
-  allusers     : allusers, 
+  editpref     : editpref,       //edit
+  allusers     : allusers,       //read
 
-  addproduct   : addproduct,  //add
-  userhistory  : userhistory,      //add
-  information  : information,        //read
+  addproduct   : addproduct,      //add
+  userhistory  : userhistory,     //read:userid
+  information  : information,     //read
   deleteproduct: deleteproduct,   //DELETE
  // getaproduct  : getaproduct,    
 };
