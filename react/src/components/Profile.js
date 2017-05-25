@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 
 class Profile extends Component {
+  constructor(props){
+    super(props)
+    this.userPreferences = this.userPreferences.bind(this)
+  }
+
+  userPreferences(event){
+    event.preventDefault();
+
+    let issues = 
+    	[ this.refs.egg.checked, this.refs.fish.checked,
+    	this.refs.milk.checked, this.refs.peanuts.checked,
+    	this.refs.sesame.checked, this.refs.treenuts.checked,
+    	this.refs.shellfish.checked, this.refs.soy.checked,
+    	this.refs.wheat.checked ]
+    	
+    this.props.selectedCheckboxes(issues);
+  }
+
   render() {
     return (
       <div className="profile">
        <h2>User Preferences</h2>
        <p>Please, select the allergens that you would like to avoid.</p>
-		<form>
+		<form onSubmit={this.userPreferences}>
 		<div className="row">
 		<div className="column">
-		  <h3><input type="checkbox" name="peanuts" value="peanuts"/>Peanuts</h3>
+		  <h3><input type="checkbox" name="peanuts" ref="peanuts"/>Peanuts</h3>
 		  	<h6>
 		    Artificial nuts<br/>
 		    Beer nuts<br/>
@@ -23,7 +41,7 @@ class Profile extends Component {
 			Peanut flour<br/>
 			Peanut oil<br/>
 			</h6>
-		  <h3><input type="checkbox" name="treenuts" value="treenuts"/>Tree nuts</h3>
+		  <h3><input type="checkbox" name="treenuts" ref="treenuts"/>Tree nuts</h3>
 		    <h6>
 			Almond<br/>
 			Artificial nuts<br/>
@@ -56,7 +74,7 @@ class Profile extends Component {
 			Shea nut<br/>
 			Walnut<br/>
 			</h6>
-		  <h3><input type="checkbox" name="shellfish" value="shellfish"/>Shell Fish</h3>
+		  <h3><input type="checkbox" name="shellfish" ref="shellfish"/>Shell Fish</h3>
 		    <h6>
 		  	Barnacle<br/>
 		    Crab<br/>
@@ -68,7 +86,7 @@ class Profile extends Component {
 		    </h6>
 		</div>
 		<div className="column">
-		  <h3><input type="checkbox" name="fish" value="fish"/>Fish</h3>
+		  <h3><input type="checkbox" name="fish" ref="fish"/>Fish</h3>
 		    <h6>
 		    Anchovies<br/>
 			Bass<br/>
@@ -93,7 +111,7 @@ class Profile extends Component {
 			Trout<br/>
 			Tuna<br/>
 			</h6>
-		  <h3><input type="checkbox" name="wheat" value="wheat"/>Sesame</h3>
+		  <h3><input type="checkbox" name="sesame" ref="sesame"/>Sesame</h3>
 		    <h6>
 		    Benne, benne seed, benniseed<br/>
 		    Gingelly<br/>
@@ -111,7 +129,7 @@ class Profile extends Component {
 		    Tahini, Tahina, Tehina<br/>
 		    Til<br/>
 		    </h6>
-		  <h3><input type="checkbox" name="wheat" value="wheat"/>Wheat</h3>
+		  <h3><input type="checkbox" name="wheat" ref="wheat"/>Wheat</h3>
 		    <h6>
 		    Breed crumbs<br/>
 		    Bulgur<br/>
@@ -128,7 +146,7 @@ class Profile extends Component {
 		    </h6>
 		</div>
 		<div className="column">
-		  <h3><input type="checkbox" name="egg" value="egg"/>Egg</h3>
+		  <h3><input type="checkbox" name="egg" ref="egg"/>Egg</h3>
 		    <h6>
 		    Albumin<br/>
 			Egg<br/>
@@ -139,7 +157,7 @@ class Profile extends Component {
 			Ovalbumin<br/>
 			Surimi<br/>
 			</h6>
-	      <h3><input type="checkbox" name="milk" value="milk"/>Milk</h3>
+	      <h3><input type="checkbox" name="milk" ref="milk"/>Milk</h3>
 	        <h6>
 			Butter<br/>
 			Buttermilk<br/>
@@ -169,7 +187,7 @@ class Profile extends Component {
 			Whey<br/>
 			Yogurt<br/>
 			</h6>
-		  <h3><input type="checkbox" name="soy" value="soy"/>Soy</h3>
+		  <h3><input type="checkbox" name="soy" ref="soy"/>Soy</h3>
 		    <h6>
 		  	Edamame<br/>
 		    Miso<br/>
