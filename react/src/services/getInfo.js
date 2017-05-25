@@ -1,61 +1,49 @@
-// CONFIG = 
-// const axios = require('axios');
-// const promise = require('bluebird');
-// const options = { promiseLib: promise };
-// const pgp = require('pg-promise')(options)
-// const connectionString = 'postgres://localhost:5432/project3';
-// const db = pgp(connectionString);
+import React, { Component } from 'react';
+import axios from 'axios';
 
-// module.exports = {
-//     db: db,
-//     axios: axios
-// };
+class GetInfo extends Component {
+    constructor(props) {
+        super(props);
+        this.setState = {
+            state: state,
+        }
+        this.getIngred = this.getIngred.bind(this);
+    }
 
-// // const config = require('../config.js');
+    getIngred(upc) {
+        console.log('getinfo woke up');
+        const appId = '51857eb3';
+        const appKey = 'be5d49bb734cca8a5980f4f8776ea657';
+        return axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
+            .then((res) => {
+                var productName = res.data.item_name;
+                var ingredientList = res.data.nf_ingredient_statement;
+                // console.log(`name: ${productName}`);
+                // console.log(`list: ${ingredientList}`);
 
-// // console.log('api has awoken!');
-// // let getUpc = (req, res) => {
+                let listArr = ingredientList.split(" ");
+                
+                var info = {
+                    "userid": 123456,
+                    "upc": `${upc}`,
+                    "productname": `${productName}`,
+                    "ingredientlist": [`${listArr}`],
+                    // "issues": [false, false, false, false, false, false, false, false, false],
+                };
+                // console.log(info)
+            })
+            .catch((err) => {
+                console.log(`err: ${err}`);
+            });
+    }
 
-// // //I COMMENTED THIS OUT FOR TESTING PURPOSES TO ENSURE THE JSON PAYLOAD FROM THE 
-// // //NUTRIONIX API IS EXACT AND CORRECT, WILL UPDATE LATER
+  render() {
+    return (
+      <div className="get-info">
+		<h2>GetInfo</h2>
+      </div>
+    );
+  }
+}
 
-// //     // const barcode = req.query.barcode;
-// //     // config.db.one(
-// //     //     "INSERT INTO DB (upc)" + "VALUES ($1);", [barcode]
-// //     //     )
-// //         // .then(
-// //             // getInfo()
-// //         // )
-// //         // res.redirect('/')
-
-// //         // .catch((err) => {
-// //             // console.log(err);
-// //         // });
-// // };
-
-// // let getInfo = (upc) => {
-// //     console.log('getinfo woke up');
-// //     const appId = '51857eb3';
-// //     const appKey = 'be5d49bb734cca8a5980f4f8776ea657';
-// //     return config.axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
-// //         .then((res) => {
-// //             var productName = res.data.item_name;
-// //             var ingredientList = res.data.nf_ingredient_statement;
-// //             // console.log(`name: ${productName}`);
-// //             // console.log(`list: ${ingredientList}`);
-
-// //             let listArr = ingredientList.split(" ");
-            
-// //             var info = {
-// //                 "userid": 123456,
-// //                 "upc": `${upc}`,
-// //                 "productname": `${productName}`,
-// //                 "ingredientlist": [`${listArr}`],
-// //                 // "issues": [false, false, false, false, false, false, false, false, false],
-// //             };
-// //             // console.log(info)
-// //         })
-// //         .catch((err) => {
-// //             console.log(`err: ${err}`);
-// //         });
-// //     };
+export default GetInfo;
