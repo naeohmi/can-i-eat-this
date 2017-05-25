@@ -26,18 +26,21 @@ let getInfo = (upc) => {
     const appKey = 'be5d49bb734cca8a5980f4f8776ea657';
     return config.axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
         .then((res) => {
-            var ingredientName = res.data.item_name;
+            var productName = res.data.item_name;
             var ingredientList = res.data.nf_ingredient_statement;
-            console.log(`name: ${ingredientName}`);
-            console.log(`list: ${ingredientList}`);
+            // console.log(`name: ${productName}`);
+            // console.log(`list: ${ingredientList}`);
 
-            // config.db.none(
-            //     "INSERT INTO DB (upc, name, ingredient)" +
-            //     "VALUES ($1, $2, $3);", [upc, ingredientName, ingredientList]
-            //     )
-
+            let listArr = ingredientList.split(" ");
             
-
+            var info = {
+                "userid": 123456,
+                "upc": `${upc}`,
+                "productname": `${productName}`,
+                "ingredientlist": [`${listArr}`],
+                // "issues": [false, false, false, false, false, false, false, false, false],
+            };
+            // console.log(info)
         })
         .catch((err) => {
             console.log(`err: ${err}`);

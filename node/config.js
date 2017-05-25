@@ -7,5 +7,5 @@ const db = pgp(connectionString);
 
 module.exports = {
     db: db,
-    axios: axios,
-}
+    axios: axios
+};
