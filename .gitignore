@@ -20,7 +20,6 @@ coverage
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
 
 # Dependency directory
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
@@ -38,7 +37,6 @@ npm-debug.log
 /coverage
 
 # production
-/build
 
 # misc
 .DS_Store
