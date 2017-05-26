@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import Webcam from 'react-webcam';
 import WebcamCapture from './WebcamCapture';
+import { Link, NavLink } from 'react-router-dom';
 
 class Home extends Component {
   constructor(props) {
@@ -24,8 +25,8 @@ class Home extends Component {
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-        const appId = '51857eb3';
-        const appKey = 'be5d49bb734cca8a5980f4f8776ea657';
+        const appId = '96f2d669';
+        const appKey = '2562fcee62c25db749bd19f566a76be3';
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
@@ -37,48 +38,39 @@ class Home extends Component {
                 productName: res.data.item_name,
                 ingredientList: ingredientListArr,
               })
-
-              console.log(ingredientListArr);
-
+              // console.log(ingredientListArr);
               this.props.grabData(this.state.upc, this.state.productName, this.state.ingredientList);
-
               // window.location.reload();
               });
-              
               // .catch((err) => {
               //   console.log(`err: ${err}`);
               // });
     };
 
-
-
-  render() {
-    return (
-      <div className="home">
-        <form className="upc-photo-input">
-          <label>Take a photo of the barcode from your camera:</label>
-
-          <WebcamCapture />
-
-        </form>
-        <form 
-          className="upc-text-input"
-          onSubmit={this.handleCreate}
+    render() {
+      return (
+        <div className="home">
+          <form className="upc-photo-input">
+            <label>Take a photo of the barcode from your camera:</label>
+            <WebcamCapture />
+          </form>
+          <form 
+            className="upc-text-input"
+            onSubmit={this.handleCreate}
           >
-          
-          <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
-          
-          <input
-            type="text"
-            placeholder="Look up by barcode"
-            ref="barcode"
-            className="barcode"
+            <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
+            <input
+              type="text"
+              placeholder="Look up by barcode"
+              ref="barcode"
+              className="barcode"
             />
-          <button className="searchProduct" >Search</button>
-        </form>
-      </div>
-    );
-  }
+            <button className="searchProduct" >Search</button>
+          </form>
+          <li className="displayResult"><NavLink to="/result">View Results!</NavLink></li>
+        </div>
+      );
+   };
 };
 
 export default Home;
