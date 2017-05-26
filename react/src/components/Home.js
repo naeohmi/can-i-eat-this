@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import Webcam from 'react-webcam';
+import WebcamCapture from './WebcamCapture';
 
 class Home extends Component {
   constructor(props) {
@@ -52,10 +54,22 @@ class Home extends Component {
       <div className="home">
 		    <form className="upc-photo-input">
       	  <label>Take a photo of the barcode from your camera:</label>
+
+          <WebcamCapture />
+
       	</form>
-		    <form className="upc-text-input" onSubmit={this.handleCreate}>
-	        <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
-          <input type="text" placeholder="Look up by barcode." ref="barcode" className="barcode" />
+		    <form 
+          className="upc-text-input"
+          onSubmit={this.handleCreate}>
+	        
+          <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
+          
+          <input
+            type="text"
+            placeholder="Look up by barcode"
+            ref="barcode"
+            className="barcode"
+            />
           <button className="searchProduct">Search</button>
         </form>
       </div>
