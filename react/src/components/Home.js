@@ -39,11 +39,14 @@ class Home extends Component {
               })
 
               console.log(ingredientListArr);
+
+              this.props.grabData(this.state.upc, this.state.productName, this.state.ingredientList);
+
               // window.location.reload();
               });
               
               // .catch((err) => {
-                // console.log(`err: ${err}`);
+              //   console.log(`err: ${err}`);
               // });
     };
 
@@ -60,7 +63,8 @@ class Home extends Component {
       	</form>
 		    <form 
           className="upc-text-input"
-          onSubmit={this.handleCreate}>
+          onSubmit={this.handleCreate}
+          >
 	        
           <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
           
@@ -70,7 +74,7 @@ class Home extends Component {
             ref="barcode"
             className="barcode"
             />
-          <button className="searchProduct">Search</button>
+          <button className="searchProduct" >Search</button>
         </form>
       </div>
     );

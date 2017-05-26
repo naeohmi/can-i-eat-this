@@ -19,10 +19,26 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      upc: undefined,
+      productName: undefined,
+      ingredientList: [],
       issues: [null, null, null, null, null, null, null, null, null]
     }
-    this.selectedCheckboxes = this.selectedCheckboxes.bind(this)
+        this.selectedCheckboxes = this.selectedCheckboxes.bind(this);
+        this.grabData = this.grabData.bind(this);
   }
+
+    grabData(upc, productName, ingredientList) {
+      this.setState({
+        upc: upc,
+        productName: productName,
+        ingredientList: ingredientList,
+      }, function() {
+        console.log(this.state.upc);
+        console.log(this.state.productName);
+        console.log(this.state.ingredientList);
+        });
+    }
 
   // Receiving the "issues" array from Profile component.
   selectedCheckboxes(issues) {
@@ -63,7 +79,11 @@ class App extends Component {
     <div className="wrapper">
 	    <Navigation />
         <Switch>
-          <Route path="/" exact component={() => (<Home />) }/>
+          <Route path="/" exact component={() => (<Home
+                  grabData={this.grabData}
+                  
+                  />)
+                  }/>
           <Route path="/profile" exact component={() => (<Profile selectedCheckboxes={this.selectedCheckboxes} 
                                                                   issues={this.state.issues}/>) }/>
           <Route path="/result" exact component={() => (<Result />) }/>
