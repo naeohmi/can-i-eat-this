@@ -42,7 +42,7 @@ this.userhistory();
 		<h2>History</h2>
 			<table>
 			
-					<Row product={this.state.product} objArray={this.state.objArray} result={this.state.result} id={this.state.id}/>
+					<Row objArray={this.state.objArray}/>
 	  		
 	  		</table>
       </div>

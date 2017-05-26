@@ -23,11 +23,11 @@ class App extends Component {
       ingredientList: [],
       issues: [null, null, null, null, null, null, null, null, null]
     }
-        this.selectedCheckboxes = this.selectedCheckboxes.bind(this);
-        this.grabData = this.grabData.bind(this);
+    this.selectedCheckboxes = this.selectedCheckboxes.bind(this);
+    this.grabData = this.grabData.bind(this);
   }
 
-    grabData(upc, productName, ingredientList) {
+   grabData(upc, productName, ingredientList) {
       this.setState({
         upc: upc,
         productName: productName,
@@ -36,7 +36,7 @@ class App extends Component {
         console.log(this.state.upc);
         console.log(this.state.productName);
         console.log(this.state.ingredientList);
-        });
+      });
     }
 
   // Receiving the "issues" array from Profile component.
@@ -79,13 +79,17 @@ class App extends Component {
       <Navigation />
         <Switch>
           <Route path="/" exact component={() => (<Home
-                  grabData={this.grabData}
-                  
-                  />)
-                  }/>
-          <Route path="/profile" exact component={() => (<Profile selectedCheckboxes={this.selectedCheckboxes} 
-                                                                  issues={this.state.issues}/>) }/>
-          <Route path="/result" exact component={() => (<Result />) }/>
+                 grabData={this.grabData}
+                 />) }/>
+          <Route path="/profile" exact component={() => (<Profile 
+                 selectedCheckboxes={this.selectedCheckboxes}
+                 issues={this.state.issues}
+                 />) }/>
+          <Route path="/result" exact component={() => (<Result 
+                 upc={this.state.upc}
+                 productName={this.state.productName}
+                 ingredientList={this.state.ingredientList}
+                 />) }/>
           <Route path="/history" exact component={() => (<History />) }/>
           <Route path="/*" component={() => (<FourOFour />) }/>
         </Switch>
