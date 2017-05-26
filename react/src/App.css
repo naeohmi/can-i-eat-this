@@ -34,9 +34,10 @@ p {
 	height: 110px;
 }
 
-.logo {
+.logo img {
 	display: inline-block;
-	width: 25%;
+	width: 100px;
+	height: 100px;
 	float: left;
 }
 

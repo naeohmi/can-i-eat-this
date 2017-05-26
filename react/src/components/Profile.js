@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Profile extends Component {
   constructor(props){
     super(props)
-    // console.log(this.props.issues);
+    console.log(this.props.issues);
     this.userPreferences = this.userPreferences.bind(this)
   }
 

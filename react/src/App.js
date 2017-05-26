@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -25,7 +26,29 @@ class App extends Component {
 
   selectedCheckboxes(issues) {
     this.setState({ issues: issues })
+    this.addAllergies();
     // console.log(this.state.issues);
+  }
+
+  addAllergies(){
+    axios.post('https://caneatthis.herokuapp.com/api/allergies/', {
+      userid: 12345,
+      eggsallergy: this.state.issues[0],
+      fishallergy: false,
+      milkallergy: false,
+      peanutsallergy: false,
+      sesameallergy: false,
+      shellfishallergy: false,
+      soyallergy: true,
+      treenutsallergy: false,
+      wheatallergy: false
+      })
+    .then((res) => {
+      console.log(res);
+      })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   render() {

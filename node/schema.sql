@@ -4,12 +4,6 @@ DROP TABLE IF EXISTS products;
 
 
 
-
-CREATE TABLE products(
-    barcode VARCHAR PRIMARY KEY NOT NULL, 
-    product VARCHAR NOT NULL
-);
-
 CREATE TABLE allergies(
     userid int PRIMARY KEY NOT NULL,
     eggsallergy BOOLEAN NOT NULL,
@@ -27,7 +21,8 @@ CREATE TABLE allergies(
 CREATE TABLE information (
     id SERIAL PRIMARY KEY NOT NULL,
     userid  int REFERENCES allergies(userid) NOT NULL,
-    barcode VARCHAR REFERENCES products(barcode) NOT NULL,
+    product VARCHAR NOT NULL,
+    barcode VARCHAR  NOT NULL,
     eggs BOOLEAN NOT NULL,
     fish BOOLEAN NOT NULL,
     milk BOOLEAN NOT NULL,
@@ -41,16 +36,12 @@ CREATE TABLE information (
 );
 
 
-INSERT INTO products(barcode,product) VALUES
-('034000470204','Reeses Minis Peanut Butter Cups Candy'),
-('040000380962','M&M Party Size Pouch Pretzel');
-
 INSERT INTO allergies(userid,eggsallergy,fishallergy,milkallergy, peanutsallergy,sesameallergy,shellfishallergy,soyallergy,treenutsallergy,wheatallergy) VALUES
 (123456, FALSE ,TRUE, FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE),
 (987987, FALSE ,FALSE, FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE);
 
 
-INSERT INTO information (userid, barcode, eggs, fish , milk, peanuts, sesame, shellfish , soy, treenuts,wheat , result) VALUES
-(123456,'034000470204', FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE),
-(987987,'040000380962', FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE);
+INSERT INTO information (userid, barcode,product, eggs, fish , milk, peanuts, sesame, shellfish , soy, treenuts,wheat , result) VALUES
+(123456,'034000470204','Reeses Minis Peanut Butter Cups Candy' , FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE),
+(987987,'040000380962','M&M Party Size Pouch Pretzel',FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,TRUE);
 
