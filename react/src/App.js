@@ -13,12 +13,13 @@ import {
         Switch
         } from 'react-router-dom';
 
+
 console.log("App.js is working.");
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      upc: undefined,
+      upc: "chicken",
       productName: undefined,
       ingredientList: [],
       issues: [null, null, null, null, null, null, null, null, null]
@@ -85,7 +86,9 @@ class App extends Component {
                   }/>
           <Route path="/profile" exact component={() => (<Profile selectedCheckboxes={this.selectedCheckboxes} 
                                                                   issues={this.state.issues}/>) }/>
-          <Route path="/result" exact component={() => (<Result />) }/>
+          <Route path="/result" exact component={() => (<Result upc= {this.state.upc}
+                                                                productName= {this.state.productName}
+                                                                ingredientList= {this.state.ingredientList} />) }/>
           <Route path="/history" exact component={() => (<History />) }/>
           <Route path="/*" component={() => (<FourOFour />) }/>
         </Switch>

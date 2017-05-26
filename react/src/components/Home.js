@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import Webcam from 'react-webcam';
 import WebcamCapture from './WebcamCapture';
-
+import { BrowserRouter } from 'react-router-dom';
+import { push } from 'react-router-redux';
 class Home extends Component {
   constructor(props) {
         super(props);
@@ -19,13 +20,15 @@ class Home extends Component {
       console.log('handleCreate woke')
       event.preventDefault();
       this.getIngred(this.refs.barcode.value);
-      this.refs.barcode.value = "";
-    }
+        }
+
+     
+    
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-        const appId = '51857eb3';
-        const appKey = 'be5d49bb734cca8a5980f4f8776ea657';
+        const appId = '96f2d669';
+        const appKey = '2562fcee62c25db749bd19f566a76be3';
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
@@ -41,9 +44,11 @@ class Home extends Component {
               console.log(ingredientListArr);
 
               this.props.grabData(this.state.upc, this.state.productName, this.state.ingredientList);
-
-              // window.location.reload();
-              });
+              }).then( () => {
+          
+             this.props.dispatch(push('/result'));
+                }
+              )
               
               // .catch((err) => {
               //   console.log(`err: ${err}`);
@@ -64,6 +69,7 @@ class Home extends Component {
         <form 
           className="upc-text-input"
           onSubmit={this.handleCreate}
+          to={`/result`} 
           >
           
           <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>

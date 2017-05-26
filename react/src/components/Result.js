@@ -1,5 +1,36 @@
 import React, { Component } from 'react';
+
 class Result extends Component {
+
+   constructor(props) {
+    console.log(props)
+    super(props)
+  this.state = {
+      upc: undefined,
+      productName: undefined,
+      ingredientList: [],
+      issues: [null, null, null, null, null, null, null, null, null]
+    }
+     this.grabData = this.grabData.bind(this);
+  }
+
+grabData() {
+      this.setState({
+        upc: this.props.upc,
+        productName: this.props.productName,
+        ingredientList: this.props.ingredientList,
+      }, function() {
+        console.log(this.props.upc);
+        console.log(this.props.productName);
+        console.log(this.props.ingredientList);
+        });
+    }
+
+
+
+  componentDidMount(){
+    this.grabData();
+  }
   render() {
     return (
         <div className="result">
