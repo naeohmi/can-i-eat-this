@@ -5,29 +5,28 @@ class WebcamCapture extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            savedPhoto: undefined,
+            screenshot: null,
         }
-        this.handlePhoto = this.handlePhoto.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.setState = this.setState.bind(this);
     };
 
-    handlePhoto(event) {
+    handleClick(event) {
         event.preventDefault();
-        this.setState(event);
-        // this.refs.photo.value = "";
+        const screenshot = this.webcam.getScreenshot();
+        this.setState({
+            screenshot
+        })
     }
     
-    setState(photo) {
-        photo.preventDefault();
-        console.log('setState awoke!')
-        console.log(photo);
-        const savedPhoto = this.photo.getScreenshot();
-        console.log(savedPhoto);
+    // setState(photo) {
+    //     photo.preventDefault();
+    //     console.log('setState awoke!')
+    //     console.log(photo);
+    //     const savedPhoto = this.photo.getScreenshot();
+    //     console.log(savedPhoto);
 
-        this.setState({
-            savedPhoto: savedPhoto,
-        })
-    };
+    // };
     
     render() {
         return (
@@ -35,17 +34,17 @@ class WebcamCapture extends Component {
                 <div className="webcam">
                     <Webcam
                         audio={false}
-                        height={350}
-                        ref="photo"
+                        height={400}
+                        ref={node => this.webcam = node}
                         screenshotFormat="image/jpeg"
-                        width={350}
+                        width={400}
                     />
-                    <button className="searchProduct" onClick={this.setState}>Capture photo</button>
+                    <br/>
+                    <button className="searchProduct" onClick={this.handleClick}>Capture photo</button>
                 </div>
 
             <div className="sceenshot">
-                {this.state.photo ? <img src={this.state.photo} /> : null}
-            
+                {this.state.screenshot ? <img src={this.state.screenshot} /> : null}
             </div>
         </div>
             );
