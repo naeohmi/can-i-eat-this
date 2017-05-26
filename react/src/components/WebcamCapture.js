@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Webcam from 'react-webcam';
 
-class WebcamCapture extends React.Component {
+class WebcamCapture extends Component {
     constructor(props) {
         super(props);
         this.state = {
