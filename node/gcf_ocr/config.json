@@ -1,0 +1,7 @@
+{
+  "RESULT_TOPIC": "project3-result_topic",
+  "RESULT_BUCKET": "project3-bucket3",
+  "TRANSLATE_TOPIC": "project3-translate-topic",
+  "TRANSLATE": true,
+  "TO_LANG": ["en", "fr", "es", "ja", "ru"]
+}
