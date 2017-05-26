@@ -18,7 +18,11 @@ class WebcamCapture extends React.Component {
     }
     
     setState(photo) {
+        photo.preventDefault();
+        console.log('setState awoke!')
+        console.log(photo);
         const savedPhoto = this.photo.getScreenshot();
+        console.log(savedPhoto);
 
         this.setState({
             savedPhoto: savedPhoto,
