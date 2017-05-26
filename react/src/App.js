@@ -19,29 +19,35 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      issues: []
+      issues: [null, null, null, null, null, null, null, null, null]
     }
     this.selectedCheckboxes = this.selectedCheckboxes.bind(this)
   }
 
+  // Receiving the "issues" array from Profile component.
   selectedCheckboxes(issues) {
-    this.setState({ issues: issues })
-    this.addAllergies();
-    // console.log(this.state.issues);
+    // console.log(issues);
+    // Changing the state of the issues array.
+    this.setState({ issues: issues }, function() {
+      // console.log(this.state.issues);
+      // Calling the method to make a post to the database.
+      this.addAllergies();
+    });
   }
 
   addAllergies(){
+    console.log(this.state.issues);
     axios.post('https://caneatthis.herokuapp.com/api/allergies/', {
-      userid: 12345,
-      eggsallergy: this.state.issues[0],
-      fishallergy: false,
-      milkallergy: false,
-      peanutsallergy: false,
-      sesameallergy: false,
-      shellfishallergy: false,
-      soyallergy: true,
-      treenutsallergy: false,
-      wheatallergy: false
+      userid: Math.floor((Math.random() * 99999999) + 1),
+      eggsallergy: this.state.issues[0] === true ? true : false,
+      fishallergy: this.state.issues[1] === true ? true : false,
+      milkallergy: this.state.issues[2] === true ? true : false,
+      peanutsallergy: this.state.issues[3] === true ? true : false,
+      sesameallergy: this.state.issues[4] === true ? true : false,
+      shellfishallergy: this.state.issues[5] === true ? true : false,
+      soyallergy: this.state.issues[6] === true ? true : false,
+      treenutsallergy: this.state.issues[7] === true ? true : false,
+      wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
       console.log(res);

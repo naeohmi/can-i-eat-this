@@ -3,20 +3,23 @@ import React, { Component } from 'react';
 class Profile extends Component {
   constructor(props){
     super(props)
-    console.log(this.props.issues);
+    // console.log(this.props.issues);
     this.userPreferences = this.userPreferences.bind(this)
   }
 
   userPreferences(event){
     event.preventDefault();
 
+    // Creating an array of true/false results, in alphabetical order.
     let issues = 
     	[ this.refs.egg.checked, this.refs.fish.checked,
     	this.refs.milk.checked, this.refs.peanuts.checked,
     	this.refs.sesame.checked, this.refs.treenuts.checked,
     	this.refs.shellfish.checked, this.refs.soy.checked,
     	this.refs.wheat.checked ]
-    	
+    
+    // console.log(issues);
+    // Passing the array "issues" to the seletedCheckboxes method.	
     this.props.selectedCheckboxes(issues);
   }
 
