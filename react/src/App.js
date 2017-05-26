@@ -14,7 +14,6 @@ import {
         } from 'react-router-dom';
 
 console.log("App.js is working.");
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -75,9 +74,9 @@ class App extends Component {
 
   render() {
     return (
-	  <Router>
+    <Router>
     <div className="wrapper">
-	    <Navigation />
+      <Navigation />
         <Switch>
           <Route path="/" exact component={() => (<Home
                   grabData={this.grabData}
