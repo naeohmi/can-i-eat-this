@@ -35,11 +35,12 @@ class WebcamCapture extends React.Component {
                 <div className="webcam">
                     <Webcam
                         audio={false}
-                        height={350}
+                        height={400}
                         ref="photo"
                         screenshotFormat="image/jpeg"
-                        width={350}
+                        width={400}
                     />
+                    <br/>
                     <button className="searchProduct" onClick={this.setState}>Capture photo</button>
                 </div>
 
