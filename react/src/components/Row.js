@@ -31,7 +31,7 @@ class Row extends Component{
       if(d.result)
         advice="yes you can eat it";
         else
-          advice="No you can Not it";
+          advice="No you can Not eat it";
       return( 
               <tr key={d.id} >
               <td >{d.product}</td>
