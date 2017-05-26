@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class Result extends Component {
   render() {
     return (
@@ -17,6 +16,7 @@ class Result extends Component {
                 <th>Ingredient</th>
                 <th>Can I use this?</th>
                 </tr>
+        
               </thead>
             </table>
       	</div>

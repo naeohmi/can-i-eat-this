@@ -161,3 +161,18 @@ td {
 .savePreferences:hover {
 	background-color: #149ECC;
 }
+
+table{
+	margin: 0 auto;
+	text-align: center;
+}
+ th.history{
+	border: 1 solid black;
+	width: 500px;
+}
+.historyRow tr{
+	border: 1 solid black;
+	width: 500px;
+	text-align: left;
+	padding: 30px;
+}
