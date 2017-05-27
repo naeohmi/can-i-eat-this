@@ -51,10 +51,10 @@ class WebcamCapture extends Component {
                     />
                     <br/>
                     <button className="searchProduct" onClick={this.handleClick}>Capture photo</button>
-                </div>
 
             <div className="sceenshot">
-                {this.state.screenshot ? <img src={this.state.screenshot} alt="webcam" /> : null}
+                {this.state.photo ? <img src={this.state.photo} alt="webcam" /> : null}
+            </div>
             </div>
         </div>
             );
