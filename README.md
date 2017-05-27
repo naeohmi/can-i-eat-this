@@ -1,4 +1,6 @@
+<a name="goback">
 # Project 3 (Can I Eat This?)
+</a>
 
 ### Group 7: Esraa, Francheska, Naomi
 
@@ -133,3 +135,5 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 URL 
 </a>
+
+[Go Back to the Table of Content](#goback)
