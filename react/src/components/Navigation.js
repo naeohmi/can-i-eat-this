@@ -10,9 +10,9 @@ class Navigation extends Component {
         </div>
     	  <nav>
     	     <ul>
-    	       <li><Link to="/">Home</Link></li>
-    	       <li><NavLink to="/profile">Profile</NavLink></li>
-    	       <li><NavLink to="/history">History</NavLink></li>
+    	       <li className="navLi"><Link to="/">Home</Link></li>
+    	       <li className="navLi"><NavLink to="/profile">Profile</NavLink></li>
+    	       <li className="navLi"><NavLink to="/history">History</NavLink></li>
           </ul>
     	  </nav>
 	    </div>

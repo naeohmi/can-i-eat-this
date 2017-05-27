@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import Webcam from 'react-webcam';
 import WebcamCapture from './WebcamCapture';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Home extends Component {
   constructor(props) {
@@ -67,7 +67,7 @@ class Home extends Component {
             />
             <button className="searchProduct" >Search</button>
           </form>
-          <li className="displayResult"><NavLink to="/result">View Results!</NavLink></li>
+          <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
         </div>
       );
    };
