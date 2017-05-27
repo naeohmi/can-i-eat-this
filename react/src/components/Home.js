@@ -9,8 +9,10 @@ class Home extends Component {
         super(props);
         this.state = {
           upc: undefined,
+          productBrand: " ",
           productName: undefined,
           ingredientList: [],
+          ingredientString: " ",
         }
         this.handleCreate = this.handleCreate.bind(this);
         this.getIngred = this.getIngred.bind(this);
@@ -30,6 +32,7 @@ class Home extends Component {
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
+             let productBrand=res.data.brand_name;
               let ingredientListRes = res.data.nf_ingredient_statement;
               let ingredientListArr = ingredientListRes.split(" ");
 
@@ -37,6 +40,8 @@ class Home extends Component {
                 upc: upc,
                 productName: res.data.item_name,
                 ingredientList: ingredientListArr,
+                ingredientString: ingredientListRes,
+                productBrand:productBrand,
               })
               // console.log(ingredientListArr);
               this.props.grabData(this.state.upc, this.state.productName, this.state.ingredientList);
