@@ -4,6 +4,7 @@ import axios from 'axios';
 import WebcamCapture from './WebcamCapture';
 import { NavLink } from 'react-router-dom';
 
+
 class Home extends Component {
   constructor(props) {
         super(props);
@@ -43,8 +44,6 @@ class Home extends Component {
                 ingredientString: ingredientListRes,
                 productBrand:productBrand,
               })
-            
-
               // console.log(ingredientListArr);
               this.props.grabData(this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString);
               // window.location.reload();
@@ -54,45 +53,33 @@ class Home extends Component {
               // });
     }
 
-    // ocr() {
-    //   console.log('ocr has awoken!');
-    //   const apiKey = "cfb3a32bd888957";
-    //   const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for now. this will be the screenshot data URL from WebcamCapture
+  render() {
+    return (
+      <div className="home">
+		    <form className="upc-photo-input">
+      	  <label>Take a photo of the barcode from your camera:</label>
 
-    //   axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photoUrl}`)
-    //     .then((res) => {
-    //       let upcFromPhoto = res.data.ParsedResults.ParsedText;
-    //       console.log(`yay from pic: ${upcFromPhoto}`);
-    //     })
+          <WebcamCapture />
 
-    // }
-
-
-
-    render() {
-      return (
-        <div className="home">
-          <form className="upc-photo-input">
-            <label>Take a photo of the barcode from your camera:</label>
-            <WebcamCapture />
-          </form>
-          <form 
-            className="upc-text-input"
-            onSubmit={this.handleCreate}
-          >
-            <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
-            <input
-              type="text"
-              placeholder="Look up by barcode"
-              ref="barcode"
-              className="barcode"
+      	</form>
+		    <form 
+          className="upc-text-input"
+          onSubmit={this.handleCreate}>
+	        
+          <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
+          
+          <input
+            type="text"
+            placeholder="Look up by barcode"
+            ref="barcode"
+            className="barcode"
             />
-            <button className="searchProduct" >Search</button>
-          </form>
+          <button className="searchProduct">Search</button>
           <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
-        </div>
-      );
-   };
+        </form>
+      </div>
+    );
+  }
 };
 
 export default Home;
