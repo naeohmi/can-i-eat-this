@@ -58,19 +58,19 @@ ul {
 	float: right;
 }
 
-ul > li {
+.navLi {
 	display: inline-block;
 	padding: 20px 30px;
 }
 
-li > a {
-	color: #0880C6;
+.navLi a {
+	color: #088s0C6;
 	font-size: 20px;
 	text-decoration: none;
 	font-family: 'Ubuntu', sans-serif;
 }
 
-li > a:hover {
+.navLi a:hover {
 	color: #319DEA;
 }
 
@@ -109,6 +109,15 @@ input[type=text] {
 	background-color: #FF241C;
 }
 
+.displayResult {
+	float: none;
+	padding: 0;
+}
+
+.displayResult a {
+	text-decoration: none;
+}
+
 /* Webcam */
 
 /* Result Component */
@@ -133,7 +142,7 @@ input[type=text] {
 	background-color: #F7F7F7;
 }
 
-table {
+.tableResult {
 	border: 1px solid #D1D1D1;
 }
 
@@ -166,14 +175,16 @@ td {
 	flex: 1;
 }
 
+.buttons {
+	text-align: center;
+}
+
 .savePreferences {
     width: auto;
 	padding: 7px 20px;
-	margin: 50px 100px;
     font-size: 16px;
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
-	float: right;
 	border: none;
 	color: #FFFFFF;
 	background-color: #D92821;
@@ -196,7 +207,7 @@ input[type=checkbox] {
 	padding: 10px 0px;
 }
 
-table {
+.tableHistory {
 	margin: 0 auto;
 	text-align: center;
 }
@@ -212,16 +223,42 @@ th.history {
 	text-align: left;
 	padding: 30px;
 }
+.result{
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+}
+.productPic{
+  flex:1;
+}
+.resultTable{
+  flex:2;
+  height: 300px;
+}
+.resultcontainer img{
+   display: block;
+
+}
+
+/* 404 Page */
+
+.errorMessage {
+	text-align: center;
+}
 
 /* Mobile */
 
 @media only screen and (max-width: 500px) {
-	.logo img {
-	float: none;
-	}
 	.nav {
 	height: auto;
-	padding: 0px;
+	}
+	.logo img {
+	float: none;
+	display: block;
+	position: relative;
+	}
+	nav {
+	display: block;	
 	}
 	ul {
 	text-align: center;
@@ -241,6 +278,10 @@ th.history {
 	}
 	.savePreferences {
 	  margin: 0px 25%;
-	  width: 50%;
+	  width: 40%;
+	}
+	.image404 {
+	  width: 100%;
+	  height: auto;
 	}
 }

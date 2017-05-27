@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import Webcam from 'react-webcam';
 import WebcamCapture from './WebcamCapture';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Home extends Component {
   constructor(props) {
         super(props);
         this.state = {
           upc: undefined,
+          productBrand: " ",
           productName: undefined,
           ingredientList: [],
+          ingredientString: " ",
         }
         this.handleCreate = this.handleCreate.bind(this);
         this.getIngred = this.getIngred.bind(this);
@@ -30,6 +32,7 @@ class Home extends Component {
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
+             let productBrand=res.data.brand_name;
               let ingredientListRes = res.data.nf_ingredient_statement;
               let ingredientListArr = ingredientListRes.split(" ");
 
@@ -37,6 +40,8 @@ class Home extends Component {
                 upc: upc,
                 productName: res.data.item_name,
                 ingredientList: ingredientListArr,
+                ingredientString: ingredientListRes,
+                productBrand:productBrand,
               })
               // console.log(ingredientListArr);
               this.props.grabData(this.state.upc, this.state.productName, this.state.ingredientList);
@@ -67,7 +72,7 @@ class Home extends Component {
             />
             <button className="searchProduct" >Search</button>
           </form>
-          <li className="displayResult"><NavLink to="/result">View Results!</NavLink></li>
+          <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
         </div>
       );
    };
