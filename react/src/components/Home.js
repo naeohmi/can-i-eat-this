@@ -27,8 +27,8 @@ class Home extends Component {
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-        const appId = '96f2d669';
-        const appKey = '2562fcee62c25db749bd19f566a76be3';
+        const appId = '30b6d41b';
+        const appKey = 'c334fe810b4d85dd339fb8229c2763da';
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
@@ -43,8 +43,10 @@ class Home extends Component {
                 ingredientString: ingredientListRes,
                 productBrand:productBrand,
               })
+            
+
               // console.log(ingredientListArr);
-              this.props.grabData(this.state.upc, this.state.productName, this.state.ingredientList);
+              this.props.grabData(this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString);
               // window.location.reload();
               });
               // .catch((err) => {
