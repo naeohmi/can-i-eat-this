@@ -9,8 +9,10 @@ class Home extends Component {
         super(props);
         this.state = {
           upc: undefined,
+          productBrand: " ",
           productName: undefined,
           ingredientList: [],
+          ingredientString: " ",
         }
         this.handleCreate = this.handleCreate.bind(this);
         this.getIngred = this.getIngred.bind(this);
@@ -25,11 +27,12 @@ class Home extends Component {
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-        const appId = '96f2d669';
-        const appKey = '2562fcee62c25db749bd19f566a76be3';
+        const appId = '30b6d41b';
+        const appKey = 'c334fe810b4d85dd339fb8229c2763da';
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
+              let productBrand = res.data.brand_name;
               let ingredientListRes = res.data.nf_ingredient_statement;
               let ingredientListArr = ingredientListRes.split(" ");
 
@@ -37,15 +40,34 @@ class Home extends Component {
                 upc: upc,
                 productName: res.data.item_name,
                 ingredientList: ingredientListArr,
+                ingredientString: ingredientListRes,
+                productBrand:productBrand,
               })
+            
+
               // console.log(ingredientListArr);
-              this.props.grabData(this.state.upc, this.state.productName, this.state.ingredientList);
+              this.props.grabData(this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString);
               // window.location.reload();
               });
               // .catch((err) => {
               //   console.log(`err: ${err}`);
               // });
-    };
+    }
+
+    // ocr() {
+    //   console.log('ocr has awoken!');
+    //   const apiKey = "cfb3a32bd888957";
+    //   const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for now. this will be the screenshot data URL from WebcamCapture
+
+    //   axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photoUrl}`)
+    //     .then((res) => {
+    //       let upcFromPhoto = res.data.ParsedResults.ParsedText;
+    //       console.log(`yay from pic: ${upcFromPhoto}`);
+    //     })
+
+    // }
+
+
 
     render() {
       return (

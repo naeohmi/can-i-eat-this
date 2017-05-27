@@ -22,22 +22,27 @@ class App extends Component {
       productName: undefined,
       ingredientList: [],
       issues: [],
-      readOnly: false
+      readOnly: false,
+      ingredientString: " ",
     }
     this.selectedCheckboxes = this.selectedCheckboxes.bind(this);
     this.changeState = this.changeState.bind(this);
     this.grabData = this.grabData.bind(this);
   }
 
-   grabData(upc, productName, ingredientList) {
+   grabData(productBrand,upc, productName, ingredientList , ingredientString) {
       this.setState({
         upc: upc,
         productName: productName,
         ingredientList: ingredientList,
+        ingredientString:ingredientString,
+        productBrand:productBrand,
       }, function() {
         console.log(this.state.upc);
         console.log(this.state.productName);
         console.log(this.state.ingredientList);
+        console.log(this.state.ingredientString);
+        console.log(this.state.productBrand);
       });
     }
 
@@ -106,6 +111,8 @@ class App extends Component {
                  upc={this.state.upc}
                  productName={this.state.productName}
                  ingredientList={this.state.ingredientList}
+                 productBrand={this.state.productBrand}
+                 ingredientString={this.state.ingredientString}
                  />) }/>
           <Route path="/history" exact component={() => (<History />) }/>
           <Route path="/*" component={() => (<FourOFour />) }/>

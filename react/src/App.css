@@ -223,6 +223,22 @@ th.history {
 	text-align: left;
 	padding: 30px;
 }
+.result{
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+}
+.productPic{
+  flex:1;
+}
+.resultTable{
+  flex:2;
+  height: 300px;
+}
+.resultcontainer img{
+   display: block;
+
+}
 
 /* 404 Page */
 
