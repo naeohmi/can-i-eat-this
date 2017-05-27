@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Webcam from 'react-webcam';
+import axios from 'axios';
+
 
 class WebcamCapture extends Component {
     constructor(props) {
@@ -8,7 +10,7 @@ class WebcamCapture extends Component {
             screenshot: null,
         }
         this.handleClick = this.handleClick.bind(this);
-        this.setState = this.setState.bind(this);
+        this.ocr = this.ocr.bind(this);
     };
 
     handleClick(event) {
@@ -17,18 +19,25 @@ class WebcamCapture extends Component {
         this.setState({
             screenshot
         })
-        console.log(<img src="this.state.screenshot" />);
+        console.log('after handleclick');
+        this.ocr();
+   
     }
-    
-    // setState(photo) {
-    //     photo.preventDefault();
-    //     console.log('setState awoke!')
-    //     console.log(photo);
-    //     const savedPhoto = this.photo.getScreenshot();
-    //     console.log(savedPhoto);
 
-    // };
-    
+    ocr() {
+      console.log('ocr has awoken!');
+      const apiKey = "cfb3a32bd888957";
+      const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for testing, this will be the screenshot data URL from WebcamCapture
+
+      axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photoUrl}`)
+        .then((res) => {
+            // console.log(res);
+            let upcFromPhoto = res.data.ParsedResults[0].ParsedText;
+            console.log(`yay! from pic: ${upcFromPhoto}`);
+        })
+
+    }
+
     render() {
         return (
             <div className="container">

@@ -32,7 +32,7 @@ class Home extends Component {
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
-             let productBrand=res.data.brand_name;
+              let productBrand = res.data.brand_name;
               let ingredientListRes = res.data.nf_ingredient_statement;
               let ingredientListArr = ingredientListRes.split(" ");
 
@@ -50,7 +50,22 @@ class Home extends Component {
               // .catch((err) => {
               //   console.log(`err: ${err}`);
               // });
-    };
+    }
+
+    // ocr() {
+    //   console.log('ocr has awoken!');
+    //   const apiKey = "cfb3a32bd888957";
+    //   const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for now. this will be the screenshot data URL from WebcamCapture
+
+    //   axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photoUrl}`)
+    //     .then((res) => {
+    //       let upcFromPhoto = res.data.ParsedResults.ParsedText;
+    //       console.log(`yay from pic: ${upcFromPhoto}`);
+    //     })
+
+    // }
+
+
 
     render() {
       return (
