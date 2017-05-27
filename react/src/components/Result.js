@@ -16,7 +16,7 @@ class Result extends Component {
         </div>
         <div className="right">
           <h2>Product Description</h2>
-            <table>
+            <table className="tableResult">
               <thead>
                 <tr>
                 <th>Ingredient</th>
