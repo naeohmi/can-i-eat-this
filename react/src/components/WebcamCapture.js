@@ -20,12 +20,15 @@ class WebcamCapture extends Component {
             screenshot
         })
         console.log('after handleclick');
+        console.log(`handleClick() here: ${this.state.screenshot}`);
+        // this.ocr(this.state.screenshot);
         this.ocr();
    
     }
 
-    ocr() {
+    ocr(photo) {
       console.log('ocr has awoken!');
+      console.log(`ocr() here: ${this.state.screenshot}`);
       const apiKey = "cfb3a32bd888957";
       const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for testing, this will be the screenshot data URL from WebcamCapture
 
