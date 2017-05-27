@@ -17,6 +17,7 @@ class WebcamCapture extends Component {
         this.setState({
             screenshot
         })
+        console.log(<img src="this.state.screenshot" />);
     }
     
     // setState(photo) {
