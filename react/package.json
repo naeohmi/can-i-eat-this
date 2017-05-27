@@ -6,13 +6,10 @@
     "axios": "^0.16.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-<<<<<<< HEAD
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.8",
-=======
     "react-router-dom": "^4.1.1",
->>>>>>> Francheska
     "react-webcam": "^0.2.0"
   },
   "devDependencies": {
