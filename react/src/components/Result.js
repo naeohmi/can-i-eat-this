@@ -310,7 +310,7 @@ this.userPref();
                   <h2>result</h2>
                   <div></div>
                 </div>
-                </div>
+              </div>
     );
   }
 }

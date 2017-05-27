@@ -17,6 +17,7 @@ class WebcamCapture extends Component {
         this.setState({
             screenshot
         })
+        console.log(<img src="this.state.screenshot" />);
     }
     
     // setState(photo) {
@@ -44,7 +45,7 @@ class WebcamCapture extends Component {
                 </div>
 
             <div className="sceenshot">
-                {this.state.screenshot ? <img src={this.state.screenshot} /> : null}
+                {this.state.screenshot ? <img src={this.state.screenshot} alt="webcam" /> : null}
             </div>
         </div>
             );
