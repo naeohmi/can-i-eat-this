@@ -311,8 +311,9 @@ this.userPref();
                   <div></div>
                 </div>
                 </div>
-    );
+
+                );
   }
-}
+};
 
 export default Result;
