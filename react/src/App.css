@@ -179,7 +179,7 @@ td {
 	text-align: center;
 }
 
-.savePreferences {
+.savePreferences, .editPreferences {
     width: auto;
 	padding: 7px 20px;
     font-size: 16px;
@@ -190,7 +190,7 @@ td {
 	background-color: #D92821;
 }
 
-.savePreferences:hover {
+.savePreferences:hover, .editPreferences:hover {
 	background-color: #FF241C;
 }
 
@@ -260,8 +260,8 @@ th.history {
 	.row {
 	  display: block;
 	}
-	.savePreferences {
-	  margin: 0px 25%;
+	.savePreferences, .editPreferences {
+	  margin: 0px 5%;
 	  width: 40%;
 	}
 	.image404 {

@@ -21,9 +21,11 @@ class App extends Component {
       upc: undefined,
       productName: undefined,
       ingredientList: [],
-      issues: [null, null, null, null, null, null, null, null, null]
+      issues: [],
+      readOnly: false
     }
     this.selectedCheckboxes = this.selectedCheckboxes.bind(this);
+    this.changeState = this.changeState.bind(this);
     this.grabData = this.grabData.bind(this);
   }
 
@@ -40,13 +42,26 @@ class App extends Component {
     }
 
   // Receiving the "issues" array from Profile component.
-  selectedCheckboxes(issues) {
+  selectedCheckboxes(issues, readOnly) {
     // console.log(issues);
     // Changing the state of the issues array.
-    this.setState({ issues: issues }, function() {
+    this.setState({ 
+      issues: issues,
+      readOnly: readOnly
+    }, function() {
       // console.log(this.state.issues);
       // Calling the method to make a post to the database.
-      this.addAllergies();
+    this.addAllergies();
+    });
+  }
+
+  // For editing purposes.
+  changeState(readOnly){
+    this.setState({
+      issues: [],
+      readOnly: readOnly
+    }, function() {
+       console.log("The state of readOnly has been changed to " + this.state.readOnly);
     });
   }
 
@@ -84,6 +99,8 @@ class App extends Component {
           <Route path="/profile" exact component={() => (<Profile 
                  selectedCheckboxes={this.selectedCheckboxes}
                  issues={this.state.issues}
+                 readOnly={this.state.readOnly}
+                 changeState={this.changeState}
                  />) }/>
           <Route path="/result" exact component={() => (<Result 
                  upc={this.state.upc}
