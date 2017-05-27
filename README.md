@@ -1,10 +1,12 @@
 <a name="goback">
-#Project 3 (Can I Eat This?)
+
+# Project 3 (Can I Eat This?)
+
 </a>
 
-###Group 7: Esraa, Francheska, Naomi
+### Group 7: Esraa, Francheska, Naomi
 
-##Table of Content
+## Table of Content
 
 1. [App description](#appdescription)
 2. [User Stories](#userstories)
@@ -18,7 +20,8 @@
 10. [Ways to see the project](#project)
 
 <a name="appdescription">
-##App description
+
+## App description
 
 An app for people who care about the ingredients they're buying! Quickly and easily take a picture of the ingredient list or barcode of a product such as cereal, snacks, or pretty much anything, and the app will give you more information about each ingredient from that long and hard to read list of ingredients.
 
@@ -26,7 +29,8 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 </a>
 
 <a name="userstories">
-##User Stories
+
+## User Stories
 
 - As a user, I want to quickly and easily take a picture of the info section of a product and immediately see if the product contains any ingredients I don't want to buy. 
 
@@ -35,44 +39,53 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 - As a user, I want to login to my account where I can save my unique preferences and ingredient list in a user profile.
 
 - As a user, I want to be able to edit/update/delete my saved product ingredients on my user profile.
+
+
 </a>
 
 <a name="wireframesweb">
-##Wireframes (Web Version)
 
-###Here is the initial thinking we started with:
+## Wireframes (Web Version)
+
+### Here is the initial thinking we started with:
 
 ![initial-thinking](./images/initial-thinking.jpg)
 
-###Homepage:
+### Homepage:
 ![homepage](./images/homepage.png)
 
-###Product Info:
+### Product Info:
 ![product-info](./images/product-info.png)
 
 ### User Profile:
 ![user-profile](./images/user-profile.png)
 
-###History:
+### History:
 ![history](./images/history.png)
+
 </a>
 
 <a name="wireframesmobile">
-##Wireframes (Mobile Version)
+
+## Wireframes (Mobile Version)
 
 ###Homepage, Scan Barcode and Product Info:
 ![mobile1-3](./images/mobile1-3.png)
 
-###User Profile and History:
+### User Profile and History:
 ![mobile4-5](./images/mobile4-5.png)
+
 </a>
 
 <a name="pseudocode">
-##Pseudocode
+
+## Pseudocode
+
 </a>
 
 <a name="workflow">
-##Workflow
+
+## Workflow
 
 1. Grab the item barcode (by scanning the UPC number, or write it in an input field).
 2. Make an axios call to find the product information (product name, ingredients).
@@ -82,18 +95,22 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 6. Display the result to the user.
 
 ![workflow](./images/workflow.jpeg)
+
 </a>
 
 <a name="database">
-##ERD or other visual representation of your database
+
+## ERD or other visual representation of your database
 
 ![database](./images/database.png)
+
 </a>
 
 <a name="technologies">
-##Technologies used
 
-###Core Stack:
+## Technologies used
+
+### Core Stack:
 - HTML
 - CSS
 - JavaScript
@@ -105,7 +122,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 - Heroku
 - GitHub
 
-###Middleware:
+### Middleware:
 
 - nodemon
 - pg-promise
@@ -114,14 +131,16 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 - CSS Frameworks
 - and more...
 
-###APIs:
+### APIs:
 
 - Google Cloud Optical Character Recognition (OCR) API
 - https://www.nutritionix.com
+
 </a>
 
 <a name="project">
-##Ways to see the project
+
+## Ways to see the project
 
 ### Download Project & Install
 
@@ -131,9 +150,10 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 4. Make sure to npm install nodemon --save
 5. Run nodemon, and app should be available on localhost:3000
 
-###Live Deployment Here: 
+### Live Deployment Here: 
 
 URL 
+
 </a>
 
 [Go Back to the Table of Content](#goback)
