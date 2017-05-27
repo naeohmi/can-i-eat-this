@@ -40,7 +40,7 @@ this.userhistory();
     return (
       <div className="history">
 		<h2>History</h2>
-			<table>
+			<table className="tableHistory">
 			
 					<Row objArray={this.state.objArray}/>
 	  		
