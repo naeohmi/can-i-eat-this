@@ -246,12 +246,6 @@ th.history {
 	text-align: center;
 }
 
-/* 404 Page */
-
-.errorMessage {
-	text-align: center;
-}
-
 /* Mobile */
 
 @media only screen and (max-width: 500px) {
