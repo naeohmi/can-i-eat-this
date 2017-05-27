@@ -289,7 +289,7 @@ this.userPref();
     var Name = this.state.findings.product;
     var barcode=this.state.findings.barcode;
     var productBrand=this.state.productBrand;
-    var result
+    var result;
     return (
            <div className="resultContainer">
               <div className="result">
