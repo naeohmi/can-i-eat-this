@@ -1,25 +1,12 @@
-# Project 3 (name TBD) - Group: Esraa, Francheska, Naomi
------------------------
+# Project 3 (Can I Eat This?)
+
+## Group 7: Esraa, Francheska, Naomi
 
 An app for people who care about the ingredients they're buying! Quickly and easily take a picture of the ingredient list or barcode of a product such as shampoo, energy bar, baby food, soap, chap stick, cookie, or pretty much anything, and the app will give you more information about each ingredient from that long and hard to read list of ingredients.
 
 If you have any kind of allergies, dietary restrictions, such as gluten-free, vegetarian, lactose-intolerant, or cultural preferences such as Halal or Kosher you can easily log in, build a user profile, and save your unique preferences.
 
-
-## Wireframes
-----------
-
-### Homepage:
-![homepage](./images/homepage.png)
-
-### Product-Info Page:
-![product-info](./images/product-info.png)
-
-### User-Profile:
-![user-profile](./images/user-profile.png)
-
 ## User Stories
-------------
 
 - As a user, I want to quickly and easily take a picture of the info section of a product and immediately see if the product contains any ingredients I don't want to buy. 
 
@@ -29,43 +16,65 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 - As a user, I want to be able to edit/update/delete my saved product ingredients on my user profile.
 
-##  Pseudocode
-----------
+## Wireframes (Web Version)
 
-Here is the initial thinking we started with:
+### Here is the initial thinking we started with:
+
 ![initial-thinking](./images/initial-thinking.jpg)
 
+### Homepage:
+![homepage](./images/homepage.png)
+
+### Product Info:
+![product-info](./images/product-info.png)
+
+### User Profile:
+![user-profile](./images/user-profile.png)
+
+### History:
+![history](./images/history.png)
+
+## Wireframes (Mobile Version)
+
+### Homepage, Scan Barcode and Product Info:
+![mobile1-3](./images/mobile1-3.png)
+
+### User Profile and History:
+![mobile4-5](./images/mobile4-5.png)
+
+## Pseudocode
+
+## Workflow
+
+1. Grab the item barcode (by scanning the UPC number, or write it in an input field).
+2. Make an axios call to find the product information (product name, ingredients).
+3. Save the product information in the database.
+4. Get the user allergies information, and save it the database.
+5. Compare the product ingredients with the user allergies, and generate a result.
+6. Display the result to the user.
+
+![workflow](./images/workflow.jpeg)
 
 ## ERD or other visual representation of your database
----
 
-** Need to add this on Tuesday **
+![database](./images/database.png)
 
-## Technologies used/npm Modules
------------
+## Technologies used
 
 ### Core Stack:
+- HTML
+- CSS
+- JavaScript
+- jQuery
 - React
 - Node
 - Express
 - PostgreSQL
-- JavaScript
-- jQuery
-- HTML
-- CSS
-
-### Additional components:
-
-### APIs:
-- Google Cloud Optical Character Recognition (OCR) API
-
-- POTENTIAL APIs: 
-- https://www.textibility.com 
-- https://www.foodallergy.org
-- https://www.nutritionix.com
-- http://developer.clarifai.com
+- Heroku
+- GitHub
 
 ### Middleware:
+
 - nodemon
 - pg-promise
 - AuthO
@@ -73,9 +82,12 @@ Here is the initial thinking we started with:
 - CSS Frameworks
 - and more...
 
+### APIs:
+
+- Google Cloud Optical Character Recognition (OCR) API
+- https://www.nutritionix.com
 
 ## Download Project & Install
-----------------
 
 1. Git clone or download this project
 2. Create a PostgreSQL database called 'TBD'
