@@ -1,48 +1,56 @@
 body {
 	margin: 0 auto;
+	background-color: #F2F0EF;
 }
 
 /* Text */
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed%7CUbuntu+Mono:400,400i,700,700i%7CUbuntu:300,300i,400,400i,500,500i,700,700i');
 
 h2 {
+	font-size: 30px;
 	text-align: center;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
+	color: #003B5E;
 }
 
 h3 {
+	font-size: 28px;
 	margin: 10px 0;
+	color: #003B5E;
 	font-family: helvetica;
+	font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 h6 {
 	margin: 0;
 	padding: 0 0 0 20px;
-	font-size: 14px;
-	font-family: helvetica;
+	font-size: 15px;
+	font-family: 'Ubuntu', sans-serif;
 	font-weight: normal;
 }
 
 p {
-	font-family: helvetica;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 /* Navigation Component */
 
 .nav {
-	height: 110px;
+	height: 100px;
 }
 
-.logo {
+.logo img {
+	position: absolute;
 	display: inline-block;
-	width: 25%;
+	width: 100px;
+	height: 100px;
 	float: left;
 }
 
 nav {
 	display: inline-block;
-	width: 75%;
+	width: 100%;
 }
 
 ul {
@@ -50,19 +58,19 @@ ul {
 	float: right;
 }
 
-ul > li {
+.navLi {
 	display: inline-block;
+	padding: 20px 30px;
 }
 
-li > a {
-	color: #262524;
+.navLi a {
+	color: #088s0C6;
 	font-size: 20px;
-	padding: 20px;
 	text-decoration: none;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
-li > a:hover {
+.navLi a:hover {
 	color: #319DEA;
 }
 
@@ -70,10 +78,11 @@ li > a:hover {
 
 .home {
 	text-align: center;
+	padding: 10px 0px;
 }
 
 label {
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 input[type=text] {
@@ -81,7 +90,7 @@ input[type=text] {
 	padding: 5px 20px;
     margin: 5px;
     font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .searchProduct {
@@ -89,15 +98,27 @@ input[type=text] {
 	padding: 7px 10px;
 	margin: 5px;
     font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     text-align: center;
     border: none;
-	background-color: #E0E0E0;
+    color: #FFFFFF;
+	background-color: #D92821;
 }
 
 .searchProduct:hover {
-	background-color: #149ECC;
+	background-color: #FF241C;
 }
+
+.displayResult {
+	float: none;
+	padding: 0;
+}
+
+.displayResult a {
+	text-decoration: none;
+}
+
+/* Webcam */
 
 /* Result Component */
 
@@ -121,43 +142,130 @@ input[type=text] {
 	background-color: #F7F7F7;
 }
 
-table {
+.tableResult {
 	border: 1px solid #D1D1D1;
 }
 
 th {
 	text-align: center;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 18px;
 	padding: 20px;
 }
 
 td {
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 /* Profile Component */
 
+.profile {
+	padding: 10px 50px;
+}
+
 .row {
 	display: flex;
+	background-color: #FFFFFF;
+	padding: 20px;
+	color: #3F3D3B;
+	opacity: .9;
 }
 
 .column {
 	flex: 1;
 }
 
+.buttons {
+	text-align: center;
+}
+
 .savePreferences {
     width: auto;
-	padding: 7px 10px;
-	margin: 50px 100px;
+	padding: 7px 20px;
     font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     text-align: center;
-	float: right;
 	border: none;
-	background-color: #E0E0E0;
+	color: #FFFFFF;
+	background-color: #D92821;
 }
 
 .savePreferences:hover {
-	background-color: #149ECC;
+	background-color: #FF241C;
+}
+
+input[type=checkbox] {
+	width: 40px 10px;
+	margin: 10px 10px;
+	background: #FCFFF4;
+    border-radius: 4px;
+}
+
+/* History */
+
+.history {
+	padding: 10px 0px;
+}
+
+.tableHistory {
+	margin: 0 auto;
+	text-align: center;
+}
+
+th.history {
+	border: 1px solid black;
+	width: 500px;
+}
+
+.historyRow tr {
+	border: 1px solid black;
+	width: 500px;
+	text-align: left;
+	padding: 30px;
+}
+
+/* 404 Page */
+
+.errorMessage {
+	text-align: center;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 500px) {
+	.nav {
+	height: auto;
+	}
+	.logo img {
+	float: none;
+	display: block;
+	position: relative;
+	}
+	nav {
+	display: block;	
+	}
+	ul {
+	text-align: center;
+	list-style: none;
+	float: none;
+	padding: 0px;
+	}
+	ul > li {
+	  display: block;
+	  padding: 10px 20px;
+	}
+	.profile {
+	  padding: 10px 0px;
+	}
+	.row {
+	  display: block;
+	}
+	.savePreferences {
+	  margin: 0px 25%;
+	  width: 40%;
+	}
+	.image404 {
+	  width: 100%;
+	  height: auto;
+	}
 }
