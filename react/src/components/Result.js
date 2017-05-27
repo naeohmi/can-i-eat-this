@@ -40,13 +40,22 @@ class Result extends Component {
         ingredientList: this.props.ingredientList,
         ingredientString:this.props.ingredientString,
         productBrand:this.props.productBrand,
+        upc : this.props.upc,
       }
         ,function() {
-        this.setState.findings.barcode(this.props.upc);
-        this.setState.findings.product(this.props.productName);//console.log(this.state.upc);
+        //this.setState.findings.barcode(this.props.upc);
+        //this.setState.findings.product(this.props.productName);//console.log(this.state.upc);
         //console.log(this.state.productName);
         //console.log(this.state.ingredientList);
          //console.log(this.state.ingredientString);
+         this.setState((previousState) => {
+            previousState.findings.barcode = this.props.upc;
+            return previousState;
+          });
+         this.setState((previousState) => {
+            previousState.findings.product = this.props.productName;
+            return previousState;
+          });
          this.filter()
       });
           }
