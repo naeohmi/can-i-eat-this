@@ -15,21 +15,37 @@ class WebcamCapture extends Component {
 
     handleClick(event) {
         event.preventDefault();
-        const screenshot = this.webcam.getScreenshot();
-        this.setState({
-            screenshot
-        })
-        console.log('after handleclick');
-        this.ocr();
-   
+        const screenshot = this.webcam.getScreenshot()
+        // this.setState({
+        //     screenshot
+        // })
+            console.log(`after handleclick ${screenshot}`);
+
+        // if (this.state.screenshot != null) {
+        //     console.log(`after handleclick ${screenshot}`);
+        //     this.ocr(screenshot);
+        // } else {
+        //     console.log('nah');
+        // }
+
+        // console.log(`handleClick() here: ${this.state.screenshot}`);
+        this.ocr(screenshot);
+
+        // setTimeout(function() {
+        //     this.setState({screenshot: 1})
+        //     }.bind(this), 3000);
+
     }
 
-    ocr() {
-      console.log('ocr has awoken!');
-      const apiKey = "cfb3a32bd888957";
-      const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for testing, this will be the screenshot data URL from WebcamCapture
+    
 
-      axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photoUrl}`)
+    ocr(photo) {
+      console.log('ocr has awoken!');
+    //   console.log(`ocr() here: ${this.state.screenshot}`);
+      const apiKey = "cfb3a32bd888957";
+    //   const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for testing, this will be the screenshot data URL from WebcamCapture
+
+      axios.post(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photo}`)
         .then((res) => {
             // console.log(res);
             let upcFromPhoto = res.data.ParsedResults[0].ParsedText;
