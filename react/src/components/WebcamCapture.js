@@ -45,7 +45,7 @@ class WebcamCapture extends Component {
                 </div>
 
             <div className="sceenshot">
-                {this.state.photo ? <img alt="UPC Barcode" src={this.state.photo} /> : null}
+                {this.state.photo ? <img src={this.state.photo} /> : null}
             
             </div>
         </div>
