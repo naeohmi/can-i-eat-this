@@ -37,36 +37,20 @@ class Profile extends Component {
 		  checked={this.props.issues[3]} readOnly/>Peanuts</h3>
 		  	<h6>
 		    Artificial nuts<br/>
-		    Beer nuts<br/>
-		    Ground nuts<br/>
+		    nuts<br/>
 		    Mandelonas<br/>
-		    Mixed nuts<br/>
-		    Monkey nuts<br/>
-		    Nut meat<br/>
-		    Nut pieces<br/>
-		    Peanut butter<br/>
-			Peanut flour<br/>
-			Peanut oil<br/>
+		    Peanut <br/>
 			</h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="treenuts" ref="treenuts" 
 		  checked={this.props.issues[7]} readOnly/>Tree nuts</h3>
 		    <h6>
 			Almond<br/>
-			Artificial nuts<br/>
-			Almond paste<br/>
-			Brazil nut<br/>
 			Beechnut<br/>
 			Butternut<br/>
 			Cashew<br/>
 			Chestnut<br/>
-			Chinquapin nut<br/>
-			Coconut<br/>
-			Gianduja<br/>
-			Ginkgo nut<br/>
 			Hazelnut<br/>
-			Hickory nut<br/>
-			Lychee nut<br/>
-			Macadamia nut<br/>
+			Macadamia<br/>
 			Nangai nut<br/>
 			Natural nut extract<br/>
 			Nut butters<br/>
