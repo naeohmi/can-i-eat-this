@@ -109,7 +109,7 @@ class Result extends Component {
     var soy= false;
     var treenuts= false;
     var wheat= false;
-    var result= true;
+    var result= false;
   console.log("I'm filtering");
   
   if(this.state.issues["eggsallergy"]){
