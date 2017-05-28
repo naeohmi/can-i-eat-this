@@ -224,36 +224,75 @@ input[type=checkbox] {
 }
 
 .tableHistory {
-	margin: 0 auto;
+	margin: 0px auto;
 	text-align: center;
+	padding: 20px;
+	background-color: #f2f2f2;
+	width: 100%;
 }
 
 th.history {
 	border: 1px solid black;
-	width: 500px;
+	width: 100%;
 }
 
 .historyRow tr {
-	border: 1px solid black;
-	width: 500px;
 	text-align: left;
 	padding: 30px;
 }
-.result{
-  display: flex;
-  text-align: center;
-  margin: 0 auto;
-}
-.productPic{
-  flex:1;
-}
-.resultTable{
-  flex:2;
-  height: 300px;
-}
-.resultcontainer img{
-   display: block;
 
+.result{
+	display: flex;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.productPic{
+	flex: 1;
+}
+
+.resultTable{
+	flex: 2;
+	height: 300px;
+}
+
+.resultcontainer img {
+	display: block;
+}
+
+.titleRow {
+	font-size: 28px;
+	color: #001928;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.action {
+	text-align: center;
+	font-size: 18px;
+	background-color: #D92821;
+	width: 20px;
+	height: 30px;
+	color: #FFFFFF;
+}
+
+.action:hover {
+	background-color: #FF241C;
+}
+
+.prod {
+	font-size: 18px;
+	font-family: 'Ubuntu', sans-serif;
+	flex: 3;
+	padding: 0px 20px;
+	color: #373738;
+}
+
+.advice {
+	font-size: 18px;
+	font-family: 'Ubuntu', sans-serif;
+	flex: 2;
+	padding: 0px 20px;
+	color: #373738;
 }
 
 /* 404 Page */
