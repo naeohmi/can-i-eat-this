@@ -75,7 +75,7 @@ class Profile extends Component {
     return (
       <div className="profile">
        <h2>User Preferences</h2>
-       <p>Please, select the allergens that you would like to avoid.</p>
+       <p className="paragraph">Please, select the allergens that you would like to avoid.</p>
 		<form onSubmit={this.userPreferences}>
 		<div className="row">
 		<div className="column">
@@ -90,14 +90,6 @@ class Profile extends Component {
 			Meringue<br/>
 			Ovalbumin<br/>
 			Surimi<br/>
-			</h6>
-		  <h3><input className="issuesCheckbox" type="checkbox" name="peanuts" ref="peanuts" 
-		  checked={this.props.issues[3]} readOnly={this.props.readOnly}/>Peanuts</h3>
-		  	<h6>
-		    Artificial nuts<br/>
-		    nuts<br/>
-		    Mandelonas<br/>
-		    Peanut <br/>
 			</h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="sesame" ref="sesame" 
 		  checked={this.props.issues[4]} readOnly={this.props.readOnly}/>Sesame</h3>
@@ -118,17 +110,30 @@ class Profile extends Component {
 		    Tahini, Tahina, Tehina<br/>
 		    Til<br/>
 		    </h6>
-		  <h3><input className="issuesCheckbox" type="checkbox" name="shellfish" ref="shellfish" 
-		  checked={this.props.issues[5]} readOnly={this.props.readOnly}/>Shell Fish</h3>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="wheat" ref="wheat" 
+		  checked={this.props.issues[8]} readOnly={this.props.readOnly}/>Wheat</h3>
 		    <h6>
-		  	Barnacle<br/>
-		    Crab<br/>
-		    Crawfish<br/>
-		    Krill<br/>
-		    Lobster<br/>
-		    Prawns<br/>
-		    Shrimp<br/>
+		    Breed crumbs<br/>
+		    Bulgur<br/>
+		    Cereal extract<br/>
+		    Club wheat<br/>
+		    Couscous<br/>
+		    Cracker meal<br/>
+		    Durun<br/>
+		    Einkorn<br/>
+		    Emmer<br/>
+		    Farina<br/>
+		    Flour<br/>
+		    Hydrolyzed wheat protein<br/>
 		    </h6>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="peanuts" ref="peanuts" 
+		  checked={this.props.issues[3]} readOnly={this.props.readOnly}/>Peanuts</h3>
+		  	<h6>
+		    Artificial nuts<br/>
+		    nuts<br/>
+		    Mandelonas<br/>
+		    Peanut <br/>
+			</h6>
 		</div>
 		<div className="column">
 		  <h3><input className="issuesCheckbox" type="checkbox" name="fish" ref="fish" 
@@ -215,6 +220,17 @@ class Profile extends Component {
 			Whey<br/>
 			Yogurt<br/>
 			</h6>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="shellfish" ref="shellfish" 
+		  checked={this.props.issues[5]} readOnly={this.props.readOnly}/>Shell Fish</h3>
+		    <h6>
+		  	Barnacle<br/>
+		    Crab<br/>
+		    Crawfish<br/>
+		    Krill<br/>
+		    Lobster<br/>
+		    Prawns<br/>
+		    Shrimp<br/>
+		    </h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="soy" ref="soy" 
 		  checked={this.props.issues[6]} readOnly={this.props.readOnly}/>Soy</h3>
 		    <h6>
@@ -231,22 +247,6 @@ class Profile extends Component {
 		    Tempeh<br/>
 		    Textured vegetable protein<br/>
 		    Tofu<br/>
-		    </h6>
-		  <h3><input className="issuesCheckbox" type="checkbox" name="wheat" ref="wheat" 
-		  checked={this.props.issues[8]} readOnly={this.props.readOnly}/>Wheat</h3>
-		    <h6>
-		    Breed crumbs<br/>
-		    Bulgur<br/>
-		    Cereal extract<br/>
-		    Club wheat<br/>
-		    Couscous<br/>
-		    Cracker meal<br/>
-		    Durun<br/>
-		    Einkorn<br/>
-		    Emmer<br/>
-		    Farina<br/>
-		    Flour<br/>
-		    Hydrolyzed wheat protein<br/>
 		    </h6>
 		</div>
 		</div>
