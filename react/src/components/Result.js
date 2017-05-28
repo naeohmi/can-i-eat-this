@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import UserResult from './UserResult';
@@ -7,7 +8,8 @@ class Result extends Component {
     //console.log(props)
     super(props);
      this.state = {
-          upc: undefined,
+          upc: " ",
+          image: " ",
           productName: undefined,
           ingredientList: [],
           ingredientString: undefined,
@@ -31,6 +33,7 @@ class Result extends Component {
         this.filter = this.filter.bind(this);
         this.search = this.search.bind(this);
         this.addproduct=this.addproduct.bind(this);
+        this.grabProductImage=this.grabProductImage.bind(this);
   }
 
   grabData() {
@@ -38,13 +41,33 @@ class Result extends Component {
         ingredientList: this.props.ingredientList,
         ingredientString:this.props.ingredientString,
         productBrand:this.props.productBrand,
-        upc : this.props.upc,
+        upc: this.props.upc,
         productName:this.props.productName,
       }
         ,function() {
          this.filter()
+         this.grabProductImage()
       });
-          }
+    }
+
+    //Make an axios call to grab image
+
+
+    grabProductImage() {
+  axios.get('http://world.openfoodfacts.org/api/v0/product/' + this.state.upc+".json")
+
+    .then((res) => {
+        if (res.data.product.image_url) {
+            var image = res.data.product.image_url;
+            this.setState({ image: image });
+            console.log(this.state.image);
+        } else {
+            console.log("empty");
+        }
+    });
+}
+
+
 
     userPref() {
     let targetURL = "https://caneatthis.herokuapp.com/api/allergies/"+this.state.userid;
@@ -487,7 +510,6 @@ class Result extends Component {
   componentDidMount(){
 this.userPref();
 
-
 }
 
 
@@ -514,7 +536,7 @@ this.userPref();
                    </table>
                   </div>
                  <div className="productPic">
-                    <a href="http://placehold.it"><img src="http://placehold.it/300x300" alt="Product"/></a>
+                    <img src={this.state.image} alt="Product"/>
                  </div>
                 </div>
                 <br/>
