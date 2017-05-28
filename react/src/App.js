@@ -14,6 +14,7 @@ import {
         } from 'react-router-dom';
 
 console.log("App.js is working.");
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -72,6 +73,21 @@ class App extends Component {
     // console.log(this.state.issues);
     // Calling the method to make a put to the database.
     this.updateAllergies();
+    });
+  }
+
+  // Read an existing profile.
+  readAllergies(userid) {
+    axios.get('/profile/:userid', {
+        params: {
+          userid: userid
+        }
+      })
+      .then(function (res) {
+        console.log(res);
+      })
+      .catch(function (error) {
+        console.log(error);
     });
   }
 
@@ -146,6 +162,14 @@ class App extends Component {
                  readOnly={this.state.readOnly}
                  changeState={this.changeState}
                  />) }/>
+          <Route path="/profile/:userid" component={() => (<Profile 
+                 selectedCheckboxesAdd={this.selectedCheckboxesAdd}
+                 selectedCheckboxesUpdate={this.selectedCheckboxesUpdate}
+                 userid={this.state.userid}
+                 issues={this.state.issues}
+                 readOnly={this.state.readOnly}
+                 changeState={this.changeState}
+                 />) } />
           <Route path="/result" exact component={() => (<Result 
                  upc={this.state.upc}
                  productName={this.state.productName}

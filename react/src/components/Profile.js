@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+console.log('Profile.js is working.');
+
 class Profile extends Component {
   constructor(props){
     super(props)
@@ -25,7 +27,7 @@ class Profile extends Component {
 	        this.refs.wheat.checked ]
 	    // console.log(issues);
 
-	    // Passing the array "issues" to the seletedCheckboxes method.	
+	    // Passing the array "issues" to the seletedCheckboxesAdd method.	
 	    this.props.selectedCheckboxesAdd(userid, issues, true);
 	  	}
 
@@ -41,6 +43,7 @@ class Profile extends Component {
 	        this.refs.soy.checked, this.refs.treenuts.checked,
 	        this.refs.wheat.checked ]
 
+	    // Passing the array "issues" to the seletedCheckboxesUpdate method.	
 	    this.props.selectedCheckboxesUpdate(userid, issues, true);
   	}
   }
