@@ -13,12 +13,14 @@ class Profile extends Component {
   userPreferences(event){
   event.preventDefault();
 
-  	// If user is saving information for first time (no userid):
+  	// If user is saving information for first time (meaning that have no userid):
   	if(this.props.userid === undefined) {
-	    // Random userid.
+
+	    // Then, generates a random userid.
 		let userid = Math.floor((Math.random() * 99999999) + 1);
 
 	    // Creating an array of true/false results, in alphabetical order.
+	    // True means checked, while false is not checked.
 		let issues =
 	        [ this.refs.egg.checked, this.refs.fish.checked,
 	        this.refs.milk.checked, this.refs.peanuts.checked,
