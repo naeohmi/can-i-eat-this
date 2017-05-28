@@ -22,8 +22,13 @@ class Home extends Component {
     handleCreate(event) {
       console.log('handleCreate woke')
       event.preventDefault();
+      var digit=this.refs.barcode.value.toString().length;
+      if(!parseInt(this.refs.barcode.value,10))
+        this.refs.barcode.value = "Only numbers"; 
+      else if(digit!==12)
+      this.refs.barcode.value = "Only 12 digits";  
+      else
       this.getIngred(this.refs.barcode.value);
-      this.refs.barcode.value = "";
     }
 
     getIngred(upc) {

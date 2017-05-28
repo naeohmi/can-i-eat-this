@@ -28,7 +28,7 @@ class Row extends Component{
     let advice;
     var result=this.props.objArray.map((d) => {
       
-      if(d.result)
+      if(!d.result)
         advice="yes you can eat it";
         else
           advice="No you can Not eat it";

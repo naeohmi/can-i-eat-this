@@ -15,6 +15,7 @@ class WebcamCapture extends Component {
 
     handleClick(event) {
         event.preventDefault();
+<<<<<<< HEAD
         const screenshot = this.webcam.getScreenshot()
         // this.setState({
         //     screenshot
@@ -35,6 +36,13 @@ class WebcamCapture extends Component {
         //     this.setState({screenshot: 1})
         //     }.bind(this), 3000);
 
+=======
+        const screenshot = this.webcam.getScreenshot();
+        this.setState({
+            screenshot
+        })
+        console.log(<img alt="barcode" src="this.state.screenshot" />);
+>>>>>>> 002816a9e55208e8c779b847159a8d0341d42a9d
     }
 
     
