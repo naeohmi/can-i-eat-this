@@ -125,6 +125,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 - Node
 - Express
 - PostgreSQL
+- Postman
 - Heroku
 - GitHub
 
@@ -132,6 +133,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 - nodemon
 - pg-promise
+- Axios
 - AuthO
 - React-Routers
 - CSS Frameworks

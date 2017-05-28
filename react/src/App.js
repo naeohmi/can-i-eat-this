@@ -77,18 +77,12 @@ class App extends Component {
   }
 
   // Read an existing profile.
-  readAllergies(userid) {
-    axios.get('/profile/:userid', {
-        params: {
-          userid: userid
-        }
-      })
-      .then(function (res) {
-        console.log(res);
-      })
-      .catch(function (error) {
-        console.log(error);
-    });
+  readAllergies() {
+    axios.get('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid)
+      .then((res) => {
+      var issues = res.data.data;
+      console.log(issues);
+    })
   }
 
   addAllergies(){
@@ -106,6 +100,7 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
+      console.log("First time user, record added:");
       console.log(res);
       })
     .catch((error) => {
@@ -128,6 +123,7 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
+      console.log("Existing user, record updated:");
       console.log(res);
       })
     .catch((error) => {
@@ -162,14 +158,6 @@ class App extends Component {
                  readOnly={this.state.readOnly}
                  changeState={this.changeState}
                  />) }/>
-          <Route path="/profile/:userid" component={() => (<Profile 
-                 selectedCheckboxesAdd={this.selectedCheckboxesAdd}
-                 selectedCheckboxesUpdate={this.selectedCheckboxesUpdate}
-                 userid={this.state.userid}
-                 issues={this.state.issues}
-                 readOnly={this.state.readOnly}
-                 changeState={this.changeState}
-                 />) } />
           <Route path="/result" exact component={() => (<Result 
                  upc={this.state.upc}
                  productName={this.state.productName}
