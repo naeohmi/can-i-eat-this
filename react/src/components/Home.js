@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import Webcam from 'react-webcam';
 import WebcamCapture from './WebcamCapture';
 import { NavLink } from 'react-router-dom';
 
@@ -21,6 +20,7 @@ class Home extends Component {
     handleCreate(event) {
       console.log('handleCreate woke')
       event.preventDefault();
+
       var digit=this.refs.barcode.value.toString().length;
       if(!parseInt(this.refs.barcode.value,10))
         this.refs.barcode.value = "Only numbers"; 
@@ -28,6 +28,7 @@ class Home extends Component {
       this.refs.barcode.value = "Only 12 digits";  
       else
       this.getIngred(this.refs.barcode.value);
+
     }
 
     getIngred(upc) {
@@ -37,52 +38,51 @@ class Home extends Component {
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
-             let productBrand=res.data.brand_name;
+              let productBrand = res.data.brand_name;
               let ingredientListRes = res.data.nf_ingredient_statement;
               let ingredientListArr = ingredientListRes.split(" ");
-
+              console.log(`${ingredientListArr}`)
               this.setState({
                 upc: upc,
                 productName: res.data.item_name,
                 ingredientList: ingredientListArr,
                 ingredientString: ingredientListRes,
-                productBrand:productBrand,
+                productBrand: productBrand,
               })
-            
-
               // console.log(ingredientListArr);
-              this.props.grabData(this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString);
-              // window.location.reload();
-              });
-              // .catch((err) => {
-              //   console.log(`err: ${err}`);
-              // });
-    };
+              this.props.grabData(
+                  this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString
+                );
+            });
+  }
 
-    render() {
-      return (
-        <div className="home">
-          <form className="upc-photo-input">
-            <label>Take a photo of the barcode from your camera:</label>
-            <WebcamCapture />
-          </form>
-          <form 
-            className="upc-text-input"
-            onSubmit={this.handleCreate}
-          >
-            <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
-            <input
-              type="text"
-              placeholder="Look up by barcode"
-              ref="barcode"
-              className="barcode"
+  render() {
+    return (
+      <div className="home">
+		    <form className="upc-photo-input">
+      	  <label>Take a photo of the barcode from your camera:</label>
+
+          <WebcamCapture />
+
+      	</form>
+		    <form 
+          className="upc-text-input"
+          onSubmit={this.handleCreate}>
+	        
+          <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
+          
+          <input
+            type="text"
+            placeholder="Look up by barcode"
+            ref="barcode"
+            className="barcode"
             />
-            <button className="searchProduct" >Search</button>
-          </form>
+          <button className="searchProduct">Search</button>
           <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
-        </div>
-      );
-   };
+        </form>
+      </div>
+    );
+  }
 };
 
-export default Home;
+export default Home; 
