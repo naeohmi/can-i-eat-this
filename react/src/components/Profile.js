@@ -30,15 +30,18 @@ class Profile extends Component {
     this.props.changeState(false);
   }
 
-  renderButtons() {
+  renderSave() {
   	if(this.props.readOnly === false) {
   	  return (
   	  	<button className="savePreferences">Save</button>
   	)}
-  	else {
-	  return (
-	  	<button className="editPreferences" onClick={this.handleEdit}>Edit</button>
-	)}
+  }
+
+  renderEdit() {
+  	if(this.props.readOnly === true) {
+  	  return (
+  	  	<button className="editPreferences" onClick={this.handleEdit}>Edit</button>
+  	)}
   }
 
   render() {
@@ -222,9 +225,12 @@ class Profile extends Component {
 		</div>
 		</div>
 		  <div className="buttons">
-		    {this.renderButtons()}
+		    {this.renderSave()}
 		  </div>
 		</form>
+		  <div className="buttons">
+			{this.renderEdit()}
+		  </div>
       </div>
     );
   }

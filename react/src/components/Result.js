@@ -38,13 +38,25 @@ class Result extends Component {
         ingredientList: this.props.ingredientList,
         ingredientString:this.props.ingredientString,
         productBrand:this.props.productBrand,
-        upc : this.props.upc,
+        upc: this.props.upc,
         productName:this.props.productName,
       }
         ,function() {
          this.filter()
+         // this.grabProductImage()
       });
-          }
+    }
+
+    // Make an axios call to grab image.
+    // grabProductImage() {
+    //   axios.get('' + this.upc)
+    //     .then(function(res) {
+    //       console.log(res);
+    //     })
+    //     .catch(function(error) {
+    //       console.log(error);
+    //   });
+    // }
 
     userPref() {
     let targetURL = "https://caneatthis.herokuapp.com/api/allergies/"+this.state.userid;
