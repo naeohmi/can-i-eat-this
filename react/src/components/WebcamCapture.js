@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
-import base64Img from 'base64-img';
+// import base64Img from 'base64-img';
+import Cloud from 'cloudinary';
 
 
 class WebcamCapture extends Component {
@@ -12,15 +13,16 @@ class WebcamCapture extends Component {
         }
         this.handleClick = this.handleClick.bind(this);
         this.ocr = this.ocr.bind(this);
+        this.convert64ToImg = this.convert64ToImg.bind(this);
     };
 
     handleClick(event) {
         event.preventDefault();
         const screenshot = this.webcam.getScreenshot()
-        // this.setState({
-        //     screenshot
-        // })
-            console.log(`after handleclick ${screenshot}`);
+        this.setState({
+            screenshot
+        })
+            // console.log(`after handleclick ${screenshot}`);
 
         // if (this.state.screenshot != null) {
         //     console.log(`after handleclick ${screenshot}`);
@@ -30,7 +32,8 @@ class WebcamCapture extends Component {
         // }
 
         // console.log(`handleClick() here: ${this.state.screenshot}`);
-        base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
+        // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
+        this.convert64ToImg(screenshot);
         this.ocr(screenshot);
 
         // setTimeout(function() {
@@ -39,8 +42,22 @@ class WebcamCapture extends Component {
 
     }
 
-    convert64ToImg() {
+    convert64ToImg(photo64) {
         // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
+        Cloud.config({
+            cloud_name: "dlhmylaz8",
+            api_key: "524257979483418",
+            api_secret: "T4Om9-7dWkG9YWplUDMtEbEHu6M",
+        })
+        Cloud.uploader.upload(photo64, function(result, err) {
+            if (result) {
+                console.log("result", result.url);
+                
+            } else {
+                
+                console.log(`err: ${err}`);
+            }
+        });
 
     }
 
@@ -50,7 +67,7 @@ class WebcamCapture extends Component {
       const apiKey = "cfb3a32bd888957";
     //   const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for testing, this will be the screenshot data URL from WebcamCapture
 
-      axios.post(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photo}`)
+      axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photo}`)
         .then((res) => {
             // console.log(res);
             let upcFromPhoto = res.data.ParsedResults[0].ParsedText;
@@ -74,7 +91,7 @@ class WebcamCapture extends Component {
                     <button className="searchProduct" onClick={this.handleClick}>Capture photo</button>
 
             <div className="sceenshot">
-                {this.state.photo ? <img src={this.state.photo} alt="webcam" /> : null}
+                {this.state.screenshot ? <img src={this.state.screenshot} alt="webcam" /> : null}
             </div>
             </div>
         </div>
