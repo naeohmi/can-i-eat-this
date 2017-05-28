@@ -16,6 +16,7 @@ class WebcamCapture extends Component {
         this.ocr = this.ocr.bind(this);
         // this.convert64ToImg = this.convert64ToImg.bind(this);
     };
+
     ocr(photo) {
       console.log('ocr has awoken!', photo);
     //   console.log(`ocr() here: ${this.state.screenshot}`);
@@ -36,14 +37,6 @@ class WebcamCapture extends Component {
         this.setState({
             screenshot
         })
-            // console.log(`after handleclick ${screenshot}`);
-
-        // if (this.state.screenshot != null) {
-        //     console.log(`after handleclick ${screenshot}`);
-        //     this.ocr(screenshot);
-        // } else {
-        //     console.log('nah');
-        // }
 
         // console.log(`handleClick() here: ${this.state.screenshot}`);
         // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
@@ -73,24 +66,6 @@ class WebcamCapture extends Component {
         // this.ocr(this.state.imgUrl);
         convert64ToImg(screenshot);
     }
-
-    // convert64ToImg(photo64) {
-    //     // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
-    //     Cloud.config({
-    //         cloud_name: "dlhmylaz8",
-    //         api_key: "524257979483418",
-    //         api_secret: "T4Om9-7dWkG9YWplUDMtEbEHu6M",
-    //     })
-    //     Cloud.uploader.upload(photo64, function(result, err) {
-    //         if (result) {
-    //             console.log("result", result.url);
-    //             let imgUrl = result.url;
-    //         } else {
-    //             console.log(`err: ${err}`);
-    //         }
-    //     });
-
-    // }
 
     render() {
         return (
