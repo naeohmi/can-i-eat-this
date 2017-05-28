@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import UserResult from './UserResult';
 class Result extends Component {
 
   constructor(props) { 
@@ -12,6 +13,7 @@ class Result extends Component {
           ingredientString: undefined,
           userid: 123456,
           issues: {},
+          finding:[ " "],
           productBrand: " ",
           eggs: false,
           fish: false,
@@ -40,11 +42,6 @@ class Result extends Component {
         productName:this.props.productName,
       }
         ,function() {
-        //this.setState.findings.barcode(this.props.upc);
-        //this.setState.findings.product(this.props.productName);//console.log(this.state.upc);
-        //console.log(this.state.productName);
-        //console.log(this.state.ingredientList);
-         //console.log(this.state.ingredientString);
          this.filter()
       });
           }
@@ -109,7 +106,8 @@ class Result extends Component {
     var soy= false;
     var treenuts= false;
     var wheat= false;
-    var result= true;
+    var result= false;
+    var finding=[];
   console.log("I'm filtering");
   
   if(this.state.issues["eggsallergy"]){
@@ -126,6 +124,7 @@ class Result extends Component {
       }
       else
         console.log("you can eat that");
+
       }
 
   if(this.state.issues["fishallergy"]){
@@ -456,7 +455,15 @@ class Result extends Component {
       else
         console.log("you can eat that")
       }
-
+      finding.push(eggs);
+      finding.push(fish);
+      finding.push(milk);
+      finding.push(peanuts);
+      finding.push(sesame);
+      finding.push(shellfish);
+      finding.push(soy);
+      finding.push(treenuts);
+      finding.push(wheat);
       this.setState({
         eggs: eggs,
         fish: fish,
@@ -468,18 +475,10 @@ class Result extends Component {
         treenuts: treenuts,
         wheat: wheat,
         result: result,
+        finding:finding,
       }
         ,function() {
-        console.log(this.state.eggs);
-        console.log(this.state.fish);
-        console.log(this.state.milk);
-        console.log(this.state.peanuts);
-        console.log(this.state.sesame);
-        console.log(this.state.shellfish);
-        console.log(this.state.soy);
-        console.log(this.state.treenuts);
-        console.log(this.state.wheat);
-        console.log(this.state.result);
+
         this.addproduct()
       });
   }
@@ -496,7 +495,6 @@ this.userPref();
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand=this.state.productBrand;
-    var result;
 
     return (
            <div className="resultContainer">
@@ -527,6 +525,7 @@ this.userPref();
                 <br/>
                 <div className="finalresult">
                   <h2>result</h2>
+                  <UserResult finding={this.state.finding} issues={this.state.issues}/>
                   <div></div>
                 </div>
                 </div>
