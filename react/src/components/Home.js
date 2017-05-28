@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import Webcam from 'react-webcam';
 import WebcamCapture from './WebcamCapture';
 import { NavLink } from 'react-router-dom';
-
 
 class Home extends Component {
   constructor(props) {
@@ -22,13 +20,15 @@ class Home extends Component {
     handleCreate(event) {
       console.log('handleCreate woke')
       event.preventDefault();
-      var digit=this.refs.barcode.value.toString().length;
-      if(!parseInt(this.refs.barcode.value))
-        this.refs.barcode.value = "Only numbers"; 
-      else if(digit!==12)
-      this.refs.barcode.value = "Only 12 digits";  
-      else
-      this.getIngred(this.refs.barcode.value);
+      const digit = this.refs.barcode.value.toString().length;
+      
+      if(!parseInt(this.refs.barcode.value)) {
+        this.refs.barcode.value = "Only numbers";
+      } else if(digit!==12) {
+        this.refs.barcode.value = "Only 12 digits";
+      } else {
+        this.getIngred(this.refs.barcode.value);
+      }
     }
 
     getIngred(upc) {
@@ -47,16 +47,13 @@ class Home extends Component {
                 productName: res.data.item_name,
                 ingredientList: ingredientListArr,
                 ingredientString: ingredientListRes,
-                productBrand:productBrand,
+                productBrand: productBrand,
               })
               // console.log(ingredientListArr);
-              this.props.grabData(this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString);
-              // window.location.reload();
-              });
-              // .catch((err) => {
-              //   console.log(`err: ${err}`);
-              // });
-              
+              this.props.grabData(
+                  this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString
+                );
+            });
   }
 
   render() {
