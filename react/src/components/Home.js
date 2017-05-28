@@ -41,7 +41,7 @@ class Home extends Component {
               let productBrand = res.data.brand_name;
               let ingredientListRes = res.data.nf_ingredient_statement;
               let ingredientListArr = ingredientListRes.split(" ");
-
+              console.log(`${ingredientListArr}`)
               this.setState({
                 upc: upc,
                 productName: res.data.item_name,
@@ -56,7 +56,8 @@ class Home extends Component {
               // .catch((err) => {
               //   console.log(`err: ${err}`);
               // });
-    }
+              
+  }
 
   render() {
     return (
