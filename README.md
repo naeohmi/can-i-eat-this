@@ -32,14 +32,19 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 ## User Stories
 
-- As a user, I want to quickly and easily take a picture of the info section of a product and immediately see if the product contains any ingredients I don't want to buy. 
+- As a user, I want to use the app in the mobile and/or browser.
+
+- As a user, I want to add and edit the ingredients I am careful about in the User Profile.
+
+- As a user, I want to quickly and easily take a picture of the info section of a product, and immediately see if the product contains any ingredients I don't want to buy. 
+
+- As a user, I want the option to write the barcode (maybe is the user's preferred way for security reasons, or camera doesn't work, etc), and immediately see if the product contains any ingredients I don't want to buy.
 
 - As a user, I want to 'red flag' ingredients I am careful about. Such as items I am allergic to examples include: peanuts, gluten, dairy, etc. and/or culturally/religiously specific items examples include: Halal, Kosher, vegetarian, etc..
 
+- As a user, I want a history of all the products I already look up, and be able to delete it.
+
 - As a user, I want to login to my account where I can save my unique preferences and ingredient list in a user profile.
-
-- As a user, I want to be able to edit/update/delete my saved product ingredients on my user profile.
-
 
 </a>
 
@@ -69,7 +74,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 ## Wireframes (Mobile Version)
 
-###Homepage, Scan Barcode and Product Info:
+### Homepage, Scan Barcode and Product Info:
 ![mobile1-3](./images/mobile1-3.png)
 
 ### User Profile and History:
@@ -111,6 +116,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 ## Technologies used
 
 ### Core Stack:
+
 - HTML
 - CSS
 - JavaScript
@@ -134,7 +140,8 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 ### APIs:
 
 - Google Cloud Optical Character Recognition (OCR) API
-- https://www.nutritionix.com
+- Get information of the product: https://www.nutritionix.com
+- Get image of the product:
 
 </a>
 
