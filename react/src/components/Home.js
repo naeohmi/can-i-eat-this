@@ -22,7 +22,7 @@ class Home extends Component {
       console.log('handleCreate woke')
       event.preventDefault();
       var digit=this.refs.barcode.value.toString().length;
-      if(!parseInt(this.refs.barcode.value))
+      if(!parseInt(this.refs.barcode.value,10))
         this.refs.barcode.value = "Only numbers"; 
       else if(digit!==12)
       this.refs.barcode.value = "Only 12 digits";  
