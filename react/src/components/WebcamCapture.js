@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
+import base64Img from 'base64-img';
 
 
 class WebcamCapture extends Component {
@@ -29,6 +30,7 @@ class WebcamCapture extends Component {
         // }
 
         // console.log(`handleClick() here: ${this.state.screenshot}`);
+        base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
         this.ocr(screenshot);
 
         // setTimeout(function() {
@@ -37,7 +39,10 @@ class WebcamCapture extends Component {
 
     }
 
-    
+    convert64ToImg() {
+        // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
+
+    }
 
     ocr(photo) {
       console.log('ocr has awoken!');
