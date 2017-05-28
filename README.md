@@ -116,6 +116,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 ## Technologies used
 
 ### Core Stack:
+
 - HTML
 - CSS
 - JavaScript
@@ -139,7 +140,8 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 ### APIs:
 
 - Google Cloud Optical Character Recognition (OCR) API
-- https://www.nutritionix.com
+- Get information of the product: https://www.nutritionix.com
+- Get image of the product:
 
 </a>
 
