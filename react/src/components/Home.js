@@ -20,15 +20,15 @@ class Home extends Component {
     handleCreate(event) {
       console.log('handleCreate woke')
       event.preventDefault();
-      const digit = this.refs.barcode.value.toString().length;
-      
-      if(!parseInt(this.refs.barcode.value)) {
-        this.refs.barcode.value = "Only numbers";
-      } else if(digit!==12) {
-        this.refs.barcode.value = "Only 12 digits";
-      } else {
-        this.getIngred(this.refs.barcode.value);
-      }
+
+      var digit=this.refs.barcode.value.toString().length;
+      if(!parseInt(this.refs.barcode.value,10))
+        this.refs.barcode.value = "Only numbers"; 
+      else if(digit!==12)
+      this.refs.barcode.value = "Only 12 digits";  
+      else
+      this.getIngred(this.refs.barcode.value);
+
     }
 
     getIngred(upc) {
@@ -85,4 +85,4 @@ class Home extends Component {
   }
 };
 
-export default Home;
+export default Home; 
