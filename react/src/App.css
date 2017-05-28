@@ -125,6 +125,7 @@ input[type=text] {
 
 .result {
 	display: flex;
+	padding: 20px;
 }
 
 .right {
@@ -145,6 +146,20 @@ input[type=text] {
 
 .tableResult {
 	border: 1px solid #D1D1D1;
+}
+
+.prodResult {
+	display: flex;
+	background-color: #e0dbdb;
+}
+
+.ingredient {
+	flex: 1.5;
+}
+
+.finalresult {
+	flex: 2;
+	background-color: #f4f4f4;
 }
 
 th {

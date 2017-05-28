@@ -97,15 +97,11 @@ class Result extends Component {
   }
 
 
-
-
  search(query) {
   return this.state.ingredientList.filter(function(el) {
       return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
   })
 }
-
-
 
 
   filter(){
@@ -136,7 +132,6 @@ class Result extends Component {
       }
       else
         console.log("you can eat that");
-
       }
 
   if(this.state.issues["fishallergy"]){
@@ -253,7 +248,6 @@ class Result extends Component {
       }
       else
         console.log("you can eat that");
-     
     }
     
   if(this.state.issues["milkallergy"]){
@@ -495,55 +489,55 @@ class Result extends Component {
       });
   }
 
-
   componentDidMount(){
-this.userPref();
-
-
+    this.userPref();
 }
-
 
   render() {
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand=this.state.productBrand;
 
-    return (
-           <div className="resultContainer">
-              <div className="result">
-                <div className="resultTable">
-                  <table>
-                   <tbody>
-                    <tr>
-                      <td><h2>Product Name:</h2></td>
-                      <td><h4>{Name}</h4></td>
-                    </tr>
-                    <tr>
-                      <td><h2>Product Brand:</h2></td>
-                      <td><h4>{productBrand}</h4></td>
-                    </tr>
-                     </tbody>
-                   </table>
-                  </div>
-                 <div className="productPic">
-                    <a href="http://placehold.it"><img src="http://placehold.it/300x300" alt="Product"/></a>
-                 </div>
-                </div>
-                <br/>
-                <div className="Ingredient">
-                  <h2>Ingredient</h2>
-                  <div>{ing}</div>
-                </div>
-                <br/>
-                <div className="finalresult">
-                  <h2>result</h2>
-                  <UserResult finding={this.state.finding} issues={this.state.issues}/>
-                  <div></div>
-                </div>
-                </div>
+  return (
+  <div className="resultContainer">
+    <div className="result">
+    <div className="resultTable">
+        <table>
+        <tbody>
+          <tr>
+            <td><h2>Product Name:</h2></td>
+            <td><h4>{Name}</h4></td>
+          </tr>
+          <tr>
+            <td><h2>Product Brand:</h2></td>
+            <td><h4>{productBrand}</h4></td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
 
-                );
+    <div className="productPic">
+      <a href="http://placehold.it"><img src="http://placehold.it/300x300" alt="Product"/></a>
+    </div>
+   </div>
+
+    <div className="prodResult">
+      <div className="ingredient">
+        <h2>Ingredient</h2>
+      <div className="ing">{ing}</div>
+    </div>
+
+    <div className="finalresult">
+      <h2>Result</h2>
+      <UserResult finding={this.state.finding} issues={this.state.issues}/>
+      <div></div>
+    </div>
+
+  </div>
+</div>
+
+    );
   }
-};
+}
 
 export default Result;
