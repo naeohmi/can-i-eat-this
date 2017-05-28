@@ -9,25 +9,46 @@ class Profile extends Component {
   }
 
   userPreferences(event){
-    event.preventDefault();
+  event.preventDefault();
 
-    // Creating an array of true/false results, in alphabetical order.
-	let issues =
-        [ this.refs.egg.checked, this.refs.fish.checked,
-        this.refs.milk.checked, this.refs.peanuts.checked,
-        this.refs.sesame.checked, this.refs.shellfish.checked,
-        this.refs.soy.checked, this.refs.treenuts.checked,
-        this.refs.wheat.checked ]
-    // console.log(issues);
+  	// If user is saving information for first time (no userid):
+  	if(this.props.userid === undefined) {
+	    // Random userid.
+		let userid = Math.floor((Math.random() * 99999999) + 1);
 
-    // Passing the array "issues" to the seletedCheckboxes method.	
-    this.props.selectedCheckboxes(issues, true);
+	    // Creating an array of true/false results, in alphabetical order.
+		let issues =
+	        [ this.refs.egg.checked, this.refs.fish.checked,
+	        this.refs.milk.checked, this.refs.peanuts.checked,
+	        this.refs.sesame.checked, this.refs.shellfish.checked,
+	        this.refs.soy.checked, this.refs.treenuts.checked,
+	        this.refs.wheat.checked ]
+	    // console.log(issues);
+
+	    // Passing the array "issues" to the seletedCheckboxes method.	
+	    this.props.selectedCheckboxesAdd(userid, issues, true);
+	  	}
+
+  	// Else, if user have an already userid:
+  	else {
+	  	// Passing the current state (basically no change in userid.)
+	  	let userid = this.props.userid;
+
+	  	let issues =
+	        [ this.refs.egg.checked, this.refs.fish.checked,
+	        this.refs.milk.checked, this.refs.peanuts.checked,
+	        this.refs.sesame.checked, this.refs.shellfish.checked,
+	        this.refs.soy.checked, this.refs.treenuts.checked,
+	        this.refs.wheat.checked ]
+
+	    this.props.selectedCheckboxesUpdate(userid, issues, true);
+  	}
   }
 
   // Call the method that turns readOnly false.
   handleEdit() {
   	// console.log('User press edit button.');
-    this.props.changeState(false);
+	this.props.changeState(false);
   }
 
   renderSave() {

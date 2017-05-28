@@ -49,7 +49,7 @@ class Result extends Component {
 
     // Make an axios call to grab image.
     // grabProductImage() {
-    //   axios.get('' + this.upc)
+    //   axios.get('http://world.openfoodfacts.org/api/v0/product/' + this.upc)
     //     .then(function(res) {
     //       console.log(res);
     //     })
