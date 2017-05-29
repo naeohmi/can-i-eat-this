@@ -32,20 +32,14 @@ class Home extends Component {
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        const appId = 'bf4d4714';
-        const appKey = '09b92398885352afcdd13377eacd7e5c';
-=======
-        const appId = 'faf14366';
-        const appKey = '8453458e60c6b7142453df695e20f6d5';
->>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
-=======
+        // const appId = 'bf4d4714'; //key one
+        // const appKey = '09b92398885352afcdd13377eacd7e5c'; //app one
 
-        const appId = 'faf14366';
-        const appKey = '8453458e60c6b7142453df695e20f6d5';
+        // const appId = 'faf14366'; //key two 
+        // const appKey = '8453458e60c6b7142453df695e20f6d5'; //app two
 
->>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
+        const appId = 'faf14366'; //key three 
+        const appKey = '8453458e60c6b7142453df695e20f6d5'; //app three
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
           .then((res) => {
