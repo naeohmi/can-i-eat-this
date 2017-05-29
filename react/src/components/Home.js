@@ -67,28 +67,40 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <form className="upc-photo-input">
-          <label>Take a photo of the barcode from your camera:</label>
-
-          <WebcamCapture />
-
-        </form>
-        <form 
-          className="upc-text-input"
-          onSubmit={this.handleCreate}>
-          
-          <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
-          
-          <input
-            type="text"
-            placeholder="Look up by barcode"
-            ref="barcode"
-            className="barcode"
-            />
-          <button className="searchProduct">Search</button>
-          <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
-        </form>
+        <div className="containerHome">
+          <div className="introHome">
+            <h1 className="title">Can I Eat This?</h1>
+            <p className="introParagraph">Lorem ipsum dolor sit amet, his causae melius 
+            nostrud id. Dolorum facilisi ei sit. At movet malorum nominati vim. An vix recusabo comprehensam, 
+            agam legimus has ei, ea tation neglegentur vim.
+            <br/>
+            Eam omnium lucilius ea, nec id graecis splendide appellantur, quo cotidieque 
+            disputando eu. At probatus explicari forensibus mel, ad per homero scriptorem efficiantur, ei duo iisque 
+            abhorreant. At summo forensibus eam, sint verear minimum nam an. An nam omittam electram, 
+            an his recteque cotidieque, cu vim incorrupte scriptorem.</p>
+          </div>
+        <div className="inputOptions">
+          <form className="upc-photo-input">
+            <label className="labelMessage1">Take a photo of the barcode from your camera:</label>
+            <WebcamCapture />
+          </form>
+          <form 
+            className="upc-text-input"
+            onSubmit={this.handleCreate}>
+            
+            <label className="labelMessage2">Or enter the 12 digit Universal Product Code (UPC):</label><br/>
+            <input
+              type="text"
+              placeholder="Look up by barcode"
+              ref="barcode"
+              className="barcode"
+              />
+            <button className="searchProduct">Search</button>
+            <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
+          </form>
+        </div>
       </div>
+    </div>
     );
   }
 };
