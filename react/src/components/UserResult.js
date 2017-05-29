@@ -13,7 +13,11 @@ class UserResult extends Component{
 }
 
     console.log(issues);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
     const images=["/images/eggs.png","/images/fish.png","/images/milk.png","/images/peanuts.png","/images/sesame.png","/images/shellfish.png","/images/soy.png","/images/treenuts.png","/images/wheat.png"];
     let fact , advice;
     console.log(this.props.finding)
@@ -23,6 +27,20 @@ class UserResult extends Component{
         advice="allergy warning: This product is not for you";
         console.log("allergy"+issues[i+1]+"contained food"+d)
       }
+<<<<<<< HEAD
+=======
+
+    const images=["/images/eggs.png","/images/fish.png","/images/milk.png",
+                  "/images/peanuts.png","/images/sesame.png","/images/shellfish.png",
+                  "/images/soy.png","/images/treenuts.png","/images/wheat.png"];
+    let fact, advice;
+    let result=this.props.finding.map((d,i) => {
+      
+      if(issues[i]===d && d===true)
+        advice="Allergy warning: This product is not for you";
+>>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
+=======
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
       else
         advice=" ";
       if(d)
