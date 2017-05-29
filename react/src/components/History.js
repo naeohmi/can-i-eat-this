@@ -39,12 +39,10 @@ this.userhistory();
   render() {
     return (
       <div className="history">
-		<h2>History</h2>
-			<table className="tableHistory">
-			
+		    <h2>History</h2>
+			   <table className="tableHistory">
 					<Row objArray={this.state.objArray}/>
-	  		
-	  		</table>
+	  		 </table>
       </div>
     );
   }

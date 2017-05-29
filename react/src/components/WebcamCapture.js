@@ -3,7 +3,7 @@ import Webcam from 'react-webcam';
 import axios from 'axios';
 // import base64Img from 'base64-img';
 import Cloud from 'cloudinary';
-
+window.data = ""
 
 class WebcamCapture extends Component {
     constructor(props) {
@@ -11,11 +11,15 @@ class WebcamCapture extends Component {
         this.state = {
             screenshot: null,
             imgUrl: null,
+            upcFromPhoto: undefined
         }
-        this.handleClick = this.handleClick.bind(this);
         this.ocr = this.ocr.bind(this);
-        // this.convert64ToImg = this.convert64ToImg.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.afterPhoto = this.afterPhoto.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
+
     ocr(photo) {
       console.log('ocr has awoken!', photo);
     //   console.log(`ocr() here: ${this.state.screenshot}`);
@@ -26,9 +30,15 @@ class WebcamCapture extends Component {
         .then((res) => {
             // console.log(res);
             let upcFromPhoto = res.data.ParsedResults[0].ParsedText;
-            console.log(`yay! from pic: ${upcFromPhoto}`);
+            console.log(`yay! from pic: ${upcFromPhoto}`)
+            if(upcFromPhoto){return upcFromPhoto}
         })
-
+            .then(data => {
+                this.setState({
+                    upcFromPhoto: data
+            })
+                window.data = data;
+            })
     }
     handleClick(event) {
         event.preventDefault();
@@ -36,14 +46,6 @@ class WebcamCapture extends Component {
         this.setState({
             screenshot
         })
-            // console.log(`after handleclick ${screenshot}`);
-
-        // if (this.state.screenshot != null) {
-        //     console.log(`after handleclick ${screenshot}`);
-        //     this.ocr(screenshot);
-        // } else {
-        //     console.log('nah');
-        // }
 
         // console.log(`handleClick() here: ${this.state.screenshot}`);
         // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
@@ -62,9 +64,9 @@ class WebcamCapture extends Component {
                     console.log("result", result.url);
                     var imgUrl = result.url;
                     innerThis.ocr(imgUrl);
-                            // innerThis.setState({
-                            //     imgUrl
-                            // })
+                            innerThis.setState({
+                                imgUrl
+                            })
                 } else {
                     console.log(`err: ${err}`);
                 }
@@ -74,23 +76,45 @@ class WebcamCapture extends Component {
         convert64ToImg(screenshot);
     }
 
-    // convert64ToImg(photo64) {
-    //     // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
-    //     Cloud.config({
-    //         cloud_name: "dlhmylaz8",
-    //         api_key: "524257979483418",
-    //         api_secret: "T4Om9-7dWkG9YWplUDMtEbEHu6M",
-    //     })
-    //     Cloud.uploader.upload(photo64, function(result, err) {
-    //         if (result) {
-    //             console.log("result", result.url);
-    //             let imgUrl = result.url;
-    //         } else {
-    //             console.log(`err: ${err}`);
-    //         }
-    //     });
+    handleChange(event) {
+        let info = event.target.value
+        this.setState({
+            upcFromPhoto: info
+        })
+    }
 
-    // }
+    handleSubmit(event) {
+        this.setState({
+            upcFromPhoto: event.target.value
+        })
+        event.preventDefault();
+    }
+
+    afterPhoto() {
+        if (this.state.upcFromPhoto) {
+            return (
+                <div className="div-check-upc">
+                    <label>Is this number correct?</label>
+                    <form onSubmit={this.handleSubmit}>
+                        <input
+                            type="text"
+                            value={this.state.upcFromPhoto}
+                            ref="check-upc"
+                            />
+                        <input
+                            className="check-upc-from-photo"
+                            type="submit"
+                            value="submit"
+                            onChange={(e) => this.handleChange(e)}
+
+                            />
+                        </form>
+                    </div>
+            )
+        }
+     }
+
+
 
     render() {
         return (
@@ -108,8 +132,9 @@ class WebcamCapture extends Component {
 
             <div className="sceenshot">
                 {this.state.screenshot ? <img src={this.state.screenshot} alt="webcam" /> : null}
+                {this.afterPhoto()}
             </div>
-            </div>
+        </div>
         </div>
             );
       }
