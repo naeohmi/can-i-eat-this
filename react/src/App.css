@@ -218,7 +218,7 @@ td {
 	text-align: center;
 }
 
-.savePreferences, .editPreferences {
+.savePreferences, .editPreferences, .findUser {
     width: auto;
 	padding: 7px 20px;
     font-size: 16px;
@@ -229,7 +229,7 @@ td {
 	background-color: #D92821;
 }
 
-.savePreferences:hover, .editPreferences:hover {
+.savePreferences:hover, .editPreferences:hover, .findUser:hover {
 	background-color: #FF241C;
 }
 
@@ -381,7 +381,7 @@ img.thumbnail{
 	.row {
 	display: block;
 	}
-	.savePreferences, .editPreferences {
+	.savePreferences, .editPreferences, .findUser {
 	margin: 0px 5%;
 	width: 40%;
 	}

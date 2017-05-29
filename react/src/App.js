@@ -31,9 +31,10 @@ class App extends Component {
     this.updateCheckboxes = this.updateCheckboxes.bind(this);
     this.changeState = this.changeState.bind(this);
     this.grabData = this.grabData.bind(this);
+    this.readAllergies = this.readAllergies.bind(this);
   }
 
-   grabData(productBrand,upc, productName, ingredientList, ingredientString) {
+   grabData(productBrand, upc, productName, ingredientList, ingredientString) {
      this.setState({
         upc: upc,
         productName: productName,
@@ -78,7 +79,7 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
-      console.log("First time user, record added:");
+      // console.log("First time user, record added:");
       console.log(res);
       })
     .catch((error) => {
@@ -87,27 +88,29 @@ class App extends Component {
   }
 
   // Read an existing user profile.
-  readAllergies() {
-    axios.get('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid)
-      .then((res) => {
-      var issues = res.data.data;
-      console.log("Reading from database the following object:");
-      console.log(issues);
-      this.setState ({
-        issues: issues
-      })
-      return issues;
-    })
-  }
+  readAllergies(userid) {
+  // console.log(userid);
+  axios.get('https://caneatthis.herokuapp.com/api/allergies/' + userid)
+    .then((res) => {
+    var issues = [res.data.data.eggsallergy, res.data.data.fishallergy,
+                  res.data.data.milkallergy, res.data.data.peanutsallergy, 
+                  res.data.data.sesame, res.data.data.shellfish,
+                  res.data.data.soy, res.data.data.treenuts,
+                  res.data.data.wheat]
+    this.setState ({
+      readOnly: true,
+      issues: issues
+     })
+    }
+  )}
   
   // When user click the edit button, change from readOnly true to false.
-  changeState(readOnly){
-    this.readAllergies();
-    this.setState({
+  changeState(readOnly) {
+    this.setState ({
+      issues: [],
       readOnly: readOnly
-    }, function() {
-       console.log("The state of readOnly has been changed to " + this.state.readOnly);
-    });
+    })
+    // console.log("The state of readOnly has been changed to " + this.state.readOnly);
   }
 
   // Updating current user preferences/issues.
@@ -140,7 +143,7 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
-      console.log("Existing user, record updated:");
+      // console.log("Existing user, record updated:");
       console.log(res);
       })
     .catch((error) => {
@@ -164,6 +167,7 @@ class App extends Component {
                  issues={this.state.issues}
                  readOnly={this.state.readOnly}
                  changeState={this.changeState}
+                 readAllergies={this.readAllergies}
                  />) }/>
           <Route path="/result" exact component={() => (<Result 
                  upc={this.state.upc}
