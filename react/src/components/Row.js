@@ -37,6 +37,7 @@ class Row extends Component{
               <td className="prod">{d.product}</td>
               <td className="advice">{advice}</td>
               <td className="action" onClick={this.handleClick.bind(this,d.id)}  > x </td>
+              <td className="thumbnail" ><center><img className="thumbnail" alt="thumbnail" src={d.img}/></center></td>
           </tr> 
       )
   });
@@ -47,6 +48,7 @@ class Row extends Component{
           <th className="titleRow">Product</th>
           <th className="titleRow">Can I eat this</th>
           <th className="titleRow">Action</th>
+          <th className="titleRow">Picture</th>
         </tr>
         {result}
       </tbody>
