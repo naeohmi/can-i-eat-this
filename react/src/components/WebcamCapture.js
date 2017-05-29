@@ -17,6 +17,26 @@ class WebcamCapture extends Component {
         // this.convert64ToImg = this.convert64ToImg.bind(this);
     };
 
+    handleClick(event) {
+        event.preventDefault();
+        const screenshot = this.webcam.getScreenshot()
+        // this.setState({
+        //     screenshot
+        // })
+        console.log(`after handleclick ${screenshot}`);
+        // console.log(`handleClick() here: ${this.state.screenshot}`);
+        this.ocr(screenshot);
+
+        // setTimeout(function() {
+        //     this.setState({screenshot: 1})
+        //     }.bind(this), 3000);
+
+        this.setState({
+            screenshot
+        })
+        console.log(<img alt="barcode" src="this.state.screenshot" />);
+    }
+
     ocr(photo) {
       console.log('ocr has awoken!', photo);
     //   console.log(`ocr() here: ${this.state.screenshot}`);

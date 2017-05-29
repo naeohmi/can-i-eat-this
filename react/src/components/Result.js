@@ -507,6 +507,7 @@ this.userPref();
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand=this.state.productBrand;
+    var result;
 
     return (
            <div className="resultContainer">
