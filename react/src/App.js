@@ -88,27 +88,26 @@ class App extends Component {
 
   // Read an existing user profile.
   readAllergies() {
-    axios.get('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid)
-      .then((res) => {
-      var issues = res.data.data;
+  axios.get('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid)
+    .then((res) => {
+    var issues = res.data.data;
       console.log("Reading from database the following object:");
       console.log(issues);
-      this.setState ({
-        issues: issues
-      })
-      return issues;
     })
   }
   
   // When user click the edit button, change from readOnly true to false.
-  changeState(readOnly){
-    this.readAllergies();
-    this.setState({
-      readOnly: readOnly
-    }, function() {
-       console.log("The state of readOnly has been changed to " + this.state.readOnly);
-    });
-  }
+  changeState(readOnly) {
+  axios.get('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid)
+    .then((res) => {
+    var issues = res.data.data;
+       this.setState ({
+         issues: issues,
+         readOnly: readOnly
+       })
+       // console.log("The state of readOnly has been changed to " + this.state.readOnly);
+     })
+   }
 
   // Updating current user preferences/issues.
   updateCheckboxes(userid, issues, readOnly) {
