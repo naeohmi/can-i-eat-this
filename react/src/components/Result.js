@@ -46,6 +46,10 @@ class Result extends Component {
       }
         ,function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
          var finding = this.filter()
          this.setState({finding:finding});
          this.grabProductImage()
@@ -73,6 +77,7 @@ class Result extends Component {
 }
 
 
+<<<<<<< HEAD
 =======
          this.filter()
          // this.grabProductImage()
@@ -90,6 +95,9 @@ class Result extends Component {
     //   });
     // }
 >>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
+=======
+
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
 
     userPref() {
     let targetURL = "https://caneatthis.herokuapp.com/api/allergies/"+this.state.userid;
@@ -164,6 +172,7 @@ class Result extends Component {
         result= true ;
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       
         
 =======
@@ -171,8 +180,9 @@ class Result extends Component {
         console.log("you can eat that");
       }
 >>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
+=======
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
 
-  
     if(this.search('Catfish').length !== 0){
         console.log("donot eat it")
         fish= true ;
@@ -284,14 +294,16 @@ class Result extends Component {
         result= true ;
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       
 =======
       else
         console.log("you can eat that");
     }
 >>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
+=======
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
     
- 
       if(this.search('milk').length !== 0){
         console.log("donot eat it");
         milk= true ;
@@ -417,6 +429,7 @@ class Result extends Component {
         result= true ;
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
       
       
       if(this.search('wheat').length !== 0){
@@ -429,6 +442,10 @@ class Result extends Component {
       console.log("user with wheat allergy")
       if(this.search('Wheat').length !== 0){
 >>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
+=======
+   
+      if(this.search('wheat').length !== 0){
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
         console.log("donot eat it") ; 
         wheat= true ;
         result= true ;
@@ -517,11 +534,16 @@ class Result extends Component {
 
   componentDidMount(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 this.userPref();
 
 =======
     this.userPref();
 >>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
+=======
+
+    this.userPref();
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
 }
 
   render() {
@@ -529,6 +551,7 @@ this.userPref();
     var Name = this.state.productName;
     var productBrand=this.state.productBrand;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     return (
            <div className="resultContainer">
@@ -564,6 +587,9 @@ this.userPref();
                 </div>
                 </div>
 =======
+=======
+
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
   return (
   <div className="resultContainer">
     <div className="result">
@@ -583,10 +609,13 @@ this.userPref();
     </div>
 
     <div className="productPic">
-      <a href="http://placehold.it"><img src="http://placehold.it/300x300" alt="Product"/></a>
+      <UserResult finding={this.state.finding} issues={this.state.issues}/>
     </div>
    </div>
+<<<<<<< HEAD
 >>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
+=======
+>>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
 
     <div className="prodResult">
       <div className="ingredient">
