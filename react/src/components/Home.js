@@ -33,8 +33,8 @@ class Home extends Component {
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-        const appId = '30b6d41b';
-        const appKey = 'c334fe810b4d85dd339fb8229c2763da';
+        const appId = 'bf4d4714';
+        const appKey = '09b92398885352afcdd13377eacd7e5c';
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
