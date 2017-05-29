@@ -45,10 +45,13 @@ class Result extends Component {
         productName:this.props.productName,
       }
         ,function() {
-          this.grabProductImage();
-      });
-      var finding = this.filter();
+  //there was a merge conflict here
+         var finding = this.filter()
          this.setState({finding:finding});
+         this.grabProductImage()
+      });
+      console.log(this.search('almond'));
+
     }
 
     //Make an axios call to grab image
@@ -60,9 +63,13 @@ class Result extends Component {
     .then((res) => {
         if (res.data.product.image_url) {
             var image = res.data.product.image_url;
-            this.setState({ image: image }
-            ,function() {this.addproduct()
-              });
+
+            this.setState({ image: image });
+//this was a merge conflict with esraa and master
+//             this.setState({ image: image }
+//             ,function() {this.addproduct()
+//               });
+
             console.log(this.state.image);
         } else {
             console.log("empty");
@@ -102,6 +109,7 @@ class Result extends Component {
       soy: this.state.soy,
       treenuts:this.state.treenuts,
       wheat:this.state.wheat,
+
       img:this.state.image,
       result:this.state.result
       })
@@ -139,102 +147,211 @@ class Result extends Component {
     var finding=[];
   console.log("I'm filtering");
   
-  
+
       if(this.search('egg').length !== 0){
         console.log("donot eat it");
         eggs= true ;
+        result= true ;
+
       }
        if(this.search('Mayonnaise').length !== 0){
         console.log("donot eat it");
         eggs= true ;
+        result= true ;
       }
     if(this.search('Catfish').length !== 0){
         console.log("donot eat it")
         fish= true ;
+        result= true ;
       }
+     }
        if(this.search('fish').length !== 0){
         console.log("donot eat it")
         fish= true ;
+        result= true ;
+
       }
        if(this.search('Bass').length !== 0){
         console.log("donot eat it")
         fish= true ;
+        result= true ;
       }
        if(this.search('Cod').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Anchovies').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Flounder').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Grouper').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Haddock').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Hake').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Halibut').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Herring').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Mahi').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Perch').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Pike').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Pollock').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Salmon').length !== 0){
         console.log("donot eat it");
         fish= true ;
+result= true ;
       }
        if(this.search('Swordfish').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Sole').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Snapper').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
         if(this.search('Tilapia').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Trout').length !== 0){
         console.log("donot eat it")
         fish= true ;
+result= true ;
       }
        if(this.search('Tuna').length !== 0){
         console.log("donot eat it")
         fish= true ;
+        result= true ;
+      }
+      
+    
+ //this is all new from branch Esraa
+      if(this.search('milk').length !== 0){
+        console.log("donot eat it");
+        milk= true ;
+        result= true ;
+      }
+       if(this.search('Butter').length !== 0){
+        console.log("donot eat it");
+        milk= true ;
+        result= true ;
+      }
+       if(this.search('Cheese').length !== 0){
+        console.log("donot eat it");
+        milk= true ;
+        result= true ;
+      }
+       if(this.search('Cream').length !== 0){
+        console.log("donot eat it");
+        milk= true ;
+        result= true ;
+      }
+       if(this.search('Ghee').length !== 0){
+        console.log("donot eat it");
+        milk= true ;
+        result= true ;
+      }
+       if(this.search('Yogurt').length !== 0){
+        console.log("donot eat it");
+        milk= true ;
+        result= true ;
+      }
+      
+      
+      if(this.search('peanut').length !== 0) {
+        console.log("donot eat it");
+        peanuts= true;
+        result=true;
+      }
+       if(this.search('nut').length !== 0){
+        console.log("donot eat it");
+        peanuts= true;
+        result=true;
+      }
+      
+        
+      if(this.search('sesame').length !== 0){
+        console.log("donot eat it");
+        sesame= true ;
+        result= true ;
+      }
+       if(this.search('Tahini').length !== 0){
+        console.log("donot eat it");
+        sesame= true ;
+        result= true ;
+      }
+      
+        
+          if(this.search('soy').length !== 0){
+            console.log("donot eat it");
+            soy= true ;
+            result= true ;
+          }
+           if(this.search('miso').length !== 0){
+            console.log("donot eat it");
+            soy= true ;
+            result= true ;
+          }
+           if(this.search('Edamame').length !== 0){
+            console.log("donot eat it");
+            soy= true ;
+            result= true ;
+          }
+           if(this.search('Tofu').length !== 0){
+            console.log("donot eat it");
+            soy= true ;
+            result= true ;
+          }
+          
+    
       }
 
       if(this.search('milk').length !== 0){
@@ -310,105 +427,107 @@ class Result extends Component {
       if(this.search('almond').length !== 0){
         console.log("donot eat it")
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Cashew').length !== 0){
         console.log("donot eat it");
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Chestnut').length !== 0){
         console.log("donot eat it");
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Hazelnut').length !== 0){
         console.log("donot eat it");
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Macadamia').length !== 0){
         console.log("donot eat it");
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Pecan').length !== 0){
         console.log("donot eat it")
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Pine').length !== 0){
         console.log("donot eat it")
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Pistachio').length !== 0){
         console.log("donot eat it")
         treenuts= true ;
-        
+result= true ;
       }
        if(this.search('Walnut').length !== 0){
         console.log("donot eat it")
         treenuts= true ;
-        
+result= true ;
       }
       
       
       if(this.search('wheat').length !== 0){
         console.log("donot eat it") ; 
         wheat= true ;
-        
+result= true ;
       }
        if(this.search('Bread').length !== 0){
         console.log("donot eat it")
         wheat= true ;
-        
+result= true ;
       }
        if(this.search('Bulgur').length !== 0){
         console.log("donot eat it")
         wheat= true ;
-        
+result= true ;
       }
        if(this.search('Couscous').length !== 0){
         console.log("donot eat it")
         wheat= true ;
-        
+result= true ;
       }
       
        
       if(this.search('Barnacle').length !== 0){
         console.log("donot eat it");
         shellfish= true ;
-        
+result= true ;
       }
        if(this.search('Crab').length !== 0){
         console.log("donot eat it");
         shellfish= true ;
-        
+result= true ;
       }
        if(this.search('Crawfish').length !== 0){
         console.log("donot eat it");
         shellfish= true ;
-        
+result= true ;
       }
        if(this.search('Krill').length !== 0){
         console.log("donot eat it");
         shellfish= true ;
-        
+result= true ;
       }
        if(this.search('Lobster').length !== 0){
         console.log("donot eat it");
         shellfish= true ;
-        
+result= true ;
       }
        if(this.search('Prawns').length !== 0){
         console.log("donot eat it");
         shellfish= true ;
-        
+result= true ;
       }
        if(this.search('Shrimp').length !== 0){
         console.log("donot eat it");
         shellfish= true ;
+result= true ;
+       }
         
       }
       if(this.state.issues["eggsallergy"]===true && eggs===true){
@@ -460,6 +579,11 @@ class Result extends Component {
         wheat: wheat,
         result: result,
         finding:finding,
+      }
+        ,function() {
+
+        this.addproduct()
+
       });
    return finding;
  }
@@ -475,6 +599,9 @@ this.userPref();
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand=this.state.productBrand;
+
+    var result;
+
 
   return (
   <div className="resultContainer">
