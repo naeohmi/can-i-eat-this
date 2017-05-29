@@ -99,6 +99,7 @@ class App extends Component {
                   res.data.data.wheat]
     this.setState ({
       readOnly: true,
+      userid: userid,
       issues: issues
      })
     }
