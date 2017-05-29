@@ -53,7 +53,7 @@ class Profile extends Component {
 
   // Call the method that turns readOnly false.
   handleEdit() {
-  	// console.log('User press edit button.');
+  	// console.log('User press the edit button.');
 	this.props.changeState(false);
   }
 
