@@ -43,9 +43,10 @@ class Result extends Component {
         upc: this.props.upc,
         productName:this.props.productName,
       }
-        ,function() {
-          this.grabProductImage();
-      });
+      //   ,function() {
+      //     this.grabProductImage();
+      // }
+      );
       var finding = this.filter();
          this.setState({finding:finding});
     }
@@ -59,9 +60,11 @@ class Result extends Component {
     .then((res) => {
         if (res.data.product.image_url) {
             var image = res.data.product.image_url;
+            console.log(image);
             this.setState({ image: image }
-            ,function() {this.addproduct()
-              });
+            // ,function() {this.addproduct()
+            //   }
+              );
             console.log(this.state.image);
         } else {
             console.log("empty");
@@ -81,8 +84,13 @@ class Result extends Component {
       this.setState({issues})
        console.log(this.state.issues)
     }).then(()=>{
+      this.grabProductImage()
+    })
+    .then(()=>{
       this.grabData();
-      
+    })
+    .then(()=>{
+      this.addproduct()
     })
   }
 
