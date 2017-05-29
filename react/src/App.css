@@ -7,6 +7,12 @@ body {
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed%7CUbuntu+Mono:400,400i,700,700i%7CUbuntu:300,300i,400,400i,500,500i,700,700i');
 
+h1 {
+	font-size: 40px;
+	font-family: 'Ubuntu', sans-serif;
+	color: #003B5E;
+}
+
 h2 {
 	font-size: 30px;
 	text-align: center;
@@ -122,9 +128,59 @@ input[type=text] {
 	background-color: #FF241C;
 }
 
+.introHome {
+	padding: 10px 50px;
+}
+
+.inputOptions {
+	display: flex;
+	margin: 0px 50px 50px 50px;
+	border: 1px solid #FFFFFF;
+}
+
+.upc-photo-input {
+	flex: 1;
+	padding: 10px;
+	background: #b2b0b0;
+    background: -webkit-linear-gradient(#dddddd, #b2b0b0); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#dddddd, #b2b0b0); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#dddddd, #b2b0b0); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#dddddd, #b2b0b0); /* Standard syntax */
+}
+
+.upc-text-input {
+	flex: 1;
+    background: -webkit-linear-gradient(#dddddd, #b2b0b0); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#dddddd, #b2b0b0); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#dddddd, #b2b0b0); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#dddddd, #b2b0b0); /* Standard syntax */
+	padding: 200px 0px;
+}
+
+.introParagraph {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 18px;
+	padding: 20px;
+}
+
+.labelMessage1, .labelMessage2 {
+	font-family: 'Ubuntu Mono', monospace;
+	color: #2c2d2d;
+	font-size: 18px;
+}
+
+.displayR {
+	font-family: 'Ubuntu Mono', monospace;
+	font-size: 20px;
+	padding: 0;
+	color: #2c2d2d;
+}
+
 .displayResult {
 	float: none;
 	padding: 0;
+	text-align: center;
+	flex: 1;
 }
 
 .displayResult a {
@@ -327,9 +383,91 @@ img.thumbnail{
 	text-align: center;
 }
 
+/* Icons */
+
+.footer {
+	background-color: #212121;
+	padding: 10px;
+}
+
+.icons img {
+	width: 100px;
+	height: 100px;
+}
+
+.iconsS img {
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	animation-name: resizeS;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+.iconsM img {
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	animation-name: resizeM;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+
+.iconsL img {
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	animation-name: resizeL;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes resizeS {
+    from {
+    	width: 70px;
+    	height: 70px;
+    	padding: 5px;
+    }
+    to {
+    	width: 50px;
+    	height: 50px;
+    	padding: 15px;
+    }
+}
+
+@keyframes resizeM {
+    from {
+    	width: 70px;
+    	height: 70px;
+    	padding: 5px;
+    }
+    to {
+    	width: 60px;
+    	height: 60px;
+    	padding: 10px;
+    }
+}
+
+@keyframes resizeL {
+    from {
+    	width: 50px;
+    	height: 50px;
+    	padding: 15px;
+    }
+    to {
+    	width: 70px;
+    	height: 70px;
+    	padding: 5px;
+    }
+}
+
 /* Mobile */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 667px) {
 	h1 {
 	font-size: 28px;
 	}
@@ -350,11 +488,13 @@ img.thumbnail{
 	}
 	.nav {
 	height: auto;
+	display: block;
 	}
 	.logo img {
 	float: none;
 	display: block;
 	position: relative;
+	padding: 0 38%;
 	}
 	nav {
 	display: block;	
@@ -416,9 +556,28 @@ img.thumbnail{
 	display: block;
 	width: 100%;
 	}
-}
-
-.icons img {
-	width: 100px;
-	height: 100px;
+	.inputOptions {
+	display: block;
+	margin: 0px;
+	border: none;
+	}
+	.upc-photo-input {
+	background: #b2b0b0;
+	display: block;
+	padding: 20px 0;
+	}	
+	.upc-text-input {
+	background: #dddddd;
+	display: block;
+	padding: 20px 0;
+	}	
+	.labelMessage1, .labelMessage2 {
+	font-size: 16px;
+	}
+	.displayR {
+	margin: 0;
+	}
+	.footer {
+	padding: 0px;
+	}
 }

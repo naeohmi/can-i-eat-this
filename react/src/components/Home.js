@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import WebcamCapture from './WebcamCapture';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer'
 
 class Home extends Component {
   constructor(props) {
@@ -67,13 +68,12 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <div className="containerHome">
           <div className="introHome">
             <h1 className="title">Can I Eat This?</h1>
             <p className="introParagraph">Lorem ipsum dolor sit amet, his causae melius 
             nostrud id. Dolorum facilisi ei sit. At movet malorum nominati vim. An vix recusabo comprehensam, 
             agam legimus has ei, ea tation neglegentur vim.
-            <br/>
+            <br/><br/>
             Eam omnium lucilius ea, nec id graecis splendide appellantur, quo cotidieque 
             disputando eu. At probatus explicari forensibus mel, ad per homero scriptorem efficiantur, ei duo iisque 
             abhorreant. At summo forensibus eam, sint verear minimum nam an. An nam omittam electram, 
@@ -96,10 +96,14 @@ class Home extends Component {
               className="barcode"
               />
             <button className="searchProduct">Search</button>
-            <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
+
+              <div className="displayR">
+              <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
+              </div>
           </form>
+
         </div>
-      </div>
+    <Footer />
     </div>
     );
   }
