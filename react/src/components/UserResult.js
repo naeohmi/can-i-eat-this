@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 class UserResult extends Component{
- constructor(props) {
+
+  constructor(props) {
    super(props)
  }
   render() {
@@ -51,4 +52,5 @@ class UserResult extends Component{
    )
  }
 };
+
 export default UserResult;

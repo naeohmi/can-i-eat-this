@@ -1,7 +1,6 @@
 body {
 	margin: 0 auto;
-	background-color: #F2F0EF;
-	align: center;
+	background: #F2F0EF;
 }
 
 /* Text */
@@ -16,10 +15,15 @@ h2 {
 }
 
 h3 {
-	font-size: 28px;
+	font-size: 30px;
 	margin: 10px 0;
 	color: #003B5E;
 	font-family: helvetica;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+h4 {
+	font-size: 30px;
 	font-family: 'Ubuntu Condensed', sans-serif;
 }
 
@@ -33,6 +37,10 @@ h6 {
 
 p {
 	font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+	color: #0880C6;
 }
 
 /* Navigation Component */
@@ -94,6 +102,10 @@ input[type=text] {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.renderViewResult {
+	width: 100%;
+}
+
 .searchProduct {
 	width: auto;
 	padding: 7px 10px;
@@ -119,12 +131,11 @@ input[type=text] {
 	text-decoration: none;
 }
 
-/* Webcam */
-
 /* Result Component */
 
 .result {
 	display: flex;
+	padding: 20px;
 }
 
 .right {
@@ -143,8 +154,26 @@ input[type=text] {
 	background-color: #F7F7F7;
 }
 
+.ing {
+	padding: 10px;
+}
+
 .tableResult {
 	border: 1px solid #D1D1D1;
+}
+
+.prodResult {
+	display: flex;
+	background-color: #e0dbdb;
+}
+
+.ingredient {
+	flex: 1.5;
+}
+
+.finalResult {
+	flex: 2;
+	background-color: #f4f4f4;
 }
 
 th {
@@ -162,6 +191,15 @@ td {
 
 .profile {
 	padding: 10px 50px;
+}
+
+
+.paragraph {
+	font-size: 18px;
+	font-family: 'Ubuntu Mono', monospace;
+	color: #2c2d2d;
+	text-align: center;
+	padding: 10px;
 }
 
 .row {
@@ -195,11 +233,13 @@ td {
 	background-color: #FF241C;
 }
 
-input[type=checkbox] {
+input[type=checkbox] {	
 	width: 40px 10px;
 	margin: 10px 10px;
+	height: 20px;
 	background: #FCFFF4;
-    border-radius: 4px;
+    border-radius: 10px;
+    font-size: 10em;
 }
 
 /* History */
@@ -209,36 +249,76 @@ input[type=checkbox] {
 }
 
 .tableHistory {
-	margin: 0 auto;
+	margin: 0px auto;
 	text-align: center;
-}
-
-th.history {
-	border: 1px solid black;
-	width: 500px;
+	padding: 20px;
+	background-color: #f2f2f2;
+	width: 90%;
+	border: 1px solid #FFFFFF;
 }
 
 .historyRow tr {
-	border: 1px solid black;
-	width: 500px;
 	text-align: left;
 	padding: 30px;
 }
-.result{
-  display: flex;
-  text-align: center;
-  margin: 0 auto;
-}
-.productPic{
-  flex:1;
-}
-.resultTable{
-  flex:2;
-  height: 300px;
-}
-.resultcontainer img{
-   display: block;
 
+.result{
+	display: flex;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.productPic{
+	flex: 1;
+}
+
+.resultTable{
+	flex: 2;
+	height: 300px;
+}
+
+.resultcontainer img {
+	display: block;
+}
+
+.titleRow {
+	font-size: 28px;
+	color: #001928;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.action {
+	text-align: center;
+	font-size: 18px;
+	width: 20px;
+	height: 30px;
+	color: #D92821;
+}
+
+.action:hover {
+	color: #FF241C;
+}
+
+.prod {
+	font-size: 18px;
+	font-family: 'Ubuntu', sans-serif;
+	flex: 3;
+	padding: 0px 20px;
+	color: #373738;
+}
+img.thumbnail{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+
+
+.advice {
+	font-size: 18px;
+	font-family: 'Ubuntu', sans-serif;
+	flex: 2;
+	padding: 0px 20px;
+	color: #373738;
 }
 
 /* 404 Page */
@@ -250,6 +330,24 @@ th.history {
 /* Mobile */
 
 @media only screen and (max-width: 500px) {
+	h1 {
+	font-size: 28px;
+	}
+	h2 {
+	font-size: 26px;
+	}
+	h3 {
+	font-size: 24px;
+	}
+	h4 {
+	font-size: 18px;	
+	}
+	h6 {
+	font-size: 18px;
+	}
+	p {
+	font-size: 16px;
+	}
 	.nav {
 	height: auto;
 	}
@@ -268,21 +366,54 @@ th.history {
 	padding: 0px;
 	}
 	ul > li {
-	  display: block;
-	  padding: 10px 20px;
+	display: block;
+	padding: 10px 20px;
+	}
+	th {
+	font-size: 16px;
+	}
+	.productPic{
+	display: block;
 	}
 	.profile {
-	  padding: 10px 0px;
+	padding: 10px 0px;
 	}
 	.row {
-	  display: block;
+	display: block;
 	}
 	.savePreferences, .editPreferences {
-	  margin: 0px 5%;
-	  width: 40%;
+	margin: 0px 5%;
+	width: 40%;
 	}
 	.image404 {
-	  width: 100%;
-	  height: auto;
+	width: 100%;
+	height: auto;
+	}
+	.history {
+	padding: 0px;
+	}
+	.tableHistory {
+	margin: 0px auto;
+	text-align: center;
+	padding: 0px;
+	width: 100%;
+	}
+	.prod, .advice, .historyRow tr {
+	padding: 0px;
+	margin: 0;
+	width: 100%;
+	font-size: 16px;
+	}
+	.action {
+	padding: 0px;
+	margin: 0;
+	}
+	.titleRow {
+	padding: 10;
+	font-size: 22px;
+	}
+	.result, .resultTable, .productPic, .prodResult {
+	display: block;
+	width: 100%;
 	}
 }

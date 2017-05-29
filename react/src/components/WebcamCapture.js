@@ -125,7 +125,7 @@ class WebcamCapture extends Component {
            )
        }
     }
- 
+
    render() {
        return (
            <div className="container">
@@ -148,6 +148,6 @@ class WebcamCapture extends Component {
        </div>
            );
      }
-};
+  };
  
 export default WebcamCapture;
