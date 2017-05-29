@@ -246,8 +246,6 @@ input[type=checkbox] {
 
 .history {
 	padding: 10px 0px;
-	height: 600px;
-	overflow: scroll;
 }
 
 .tableHistory {
@@ -322,32 +320,27 @@ input[type=checkbox] {
 .errorMessage {
 	text-align: center;
 }
-img.thumbnail{
-	height: 100px;
-	width: 100px;
-	text-align: center;
-}
 
 /* Mobile */
 
 @media only screen and (max-width: 500px) {
 	h1 {
-	font-size: 22px;
+	font-size: 28px;
 	}
 	h2 {
-	font-size: 18px;
+	font-size: 26px;
 	}
 	h3 {
-	font-size: 16px;
+	font-size: 24px;
 	}
 	h4 {
-	font-size: 14px;	
+	font-size: 18px;	
 	}
 	h6 {
-	font-size: 12px;
+	font-size: 18px;
 	}
 	p {
-	font-size: 12px;
+	font-size: 16px;
 	}
 	.nav {
 	height: auto;
@@ -373,6 +366,9 @@ img.thumbnail{
 	th {
 	font-size: 16px;
 	}
+	.productPic{
+	display: block;
+	}
 	.profile {
 	padding: 10px 0px;
 	}
@@ -396,11 +392,19 @@ img.thumbnail{
 	padding: 0px;
 	width: 100%;
 	}
-	.titleRow, .prod, .advice, .action, .historyRow tr {
-	padding: 0;
+	.prod, .advice, .historyRow tr {
+	padding: 0px;
 	margin: 0;
 	width: 100%;
-	font-size: 14px;
+	font-size: 16px;
+	}
+	.action {
+	padding: 0px;
+	margin: 0;
+	}
+	.titleRow {
+	padding: 10;
+	font-size: 22px;
 	}
 	.result, .resultTable, .productPic, .prodResult {
 	display: block;

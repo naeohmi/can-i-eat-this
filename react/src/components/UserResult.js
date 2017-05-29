@@ -20,7 +20,7 @@ class UserResult extends Component{
     let result=this.props.finding.map((d,i) => {
     //console.log("contained food"+ d)
       if(issues[i+1]===true && d===true){
-        advice="allergy warning: This product is not for you";
+        advice="Allergy warning: This product is not for you";
         console.log("allergy"+issues[i+1]+"contained food"+d)
       }
       else
