@@ -31,6 +31,7 @@ class App extends Component {
     this.updateCheckboxes = this.updateCheckboxes.bind(this);
     this.changeState = this.changeState.bind(this);
     this.grabData = this.grabData.bind(this);
+    this.readAllergies = this.readAllergies.bind(this);
   }
 
    grabData(productBrand, upc, productName, ingredientList, ingredientString) {
@@ -87,21 +88,17 @@ class App extends Component {
   }
 
   // Read an existing user profile.
-  readAllergies() {
-  axios.get('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid)
+  readAllergies(userid) {
+  // console.log(userid);
+  axios.get('https://caneatthis.herokuapp.com/api/allergies/' + userid)
     .then((res) => {
     var issues = [res.data.data.eggsallergy, res.data.data.fishallergy,
                   res.data.data.milkallergy, res.data.data.peanutsallergy, 
                   res.data.data.sesame, res.data.data.shellfish,
                   res.data.data.soy, res.data.data.treenuts,
                   res.data.data.wheat]
-    for (let i = 0; i < issues.length; i += 1){
-      if(issues[i] === undefined) {
-        issues[i] = false;
-        return issues;
-      }}
-    console.log(issues);
     this.setState ({
+      readOnly: true,
       issues: issues
      })
     }
@@ -170,6 +167,7 @@ class App extends Component {
                  issues={this.state.issues}
                  readOnly={this.state.readOnly}
                  changeState={this.changeState}
+                 readAllergies={this.readAllergies}
                  />) }/>
           <Route path="/result" exact component={() => (<Result 
                  upc={this.state.upc}

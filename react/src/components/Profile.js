@@ -54,6 +54,12 @@ class Profile extends Component {
   	}
   }
 
+  findUserID(event) {
+	let userid = this.refs.findUserID.value;
+	console.log("Getting information from the user id: " + userid);
+	this.props.readAllergies(userid);
+  }
+
   // Call the method that turns readOnly false.
   handleEdit() {
   	// console.log('User press the edit button.');
@@ -260,6 +266,16 @@ class Profile extends Component {
 		</form>
 		  <div className="buttons">
 			{this.renderEdit()}
+		  </div>
+		  <div className="buttons">
+		  <p className="paragraph">This is for authorized developers only!</p>
+		  	<input
+            type="text"
+            placeholder="Find a user ID"
+            ref="findUserID"
+            className="findUserID"
+            />
+			<button className="findUser" onClick={this.findUserID.bind(this)}>Find User</button>
 		  </div>
       </div>
     );
