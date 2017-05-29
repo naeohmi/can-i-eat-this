@@ -10,6 +10,7 @@ class Profile extends Component {
     this.handleEdit = this.handleEdit.bind(this)
   }
 
+  // When user click save button:
   userPreferences(event){
   event.preventDefault();
 
@@ -30,7 +31,7 @@ class Profile extends Component {
 	    // console.log(issues);
 
 	    // Passing the array "issues" to the seletedCheckboxesAdd method.	
-	    this.props.selectedCheckboxesAdd(userid, issues, true);
+	    this.props.addCheckboxes(userid, issues, true);
 	  	}
 
   	// Else, if user have an already userid:
@@ -46,7 +47,7 @@ class Profile extends Component {
 	        this.refs.wheat.checked ]
 
 	    // Passing the array "issues" to the seletedCheckboxesUpdate method.	
-	    this.props.selectedCheckboxesUpdate(userid, issues, true);
+	    this.props.updateCheckboxes(userid, issues, true);
   	}
   }
 
