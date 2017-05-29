@@ -14,27 +14,20 @@ class Footer extends Component {
        "/images/icons/soy-color.png",
        "/images/icons/treenut-color.png",
        "/images/icons/wheat-color.png",
+       "/images/logo.png",
        ];
     return (
       <div className="footer">
-        <div className="logo">
-          <a href="/"><img src="/images/logo.png" alt="Logo" /></a>
-        </div>
-    	  <nav>
-    	     <ul>
-                <span className="icons"><img src={images[0]} alt="allergen-icon" /></span>
-                <span className="icons"><img src={images[1]} alt="allergen-icon" /></span>
-    	       <li className="navLi"><Link to="/">Home</Link></li>
-                <span className="icons"><img src={images[2]} alt="allergen-icon" /></span>
-                <span className="icons"><img src={images[4]} alt="allergen-icon" /></span>
-    	       <li className="navLi"><NavLink to="/profile">Profile</NavLink></li>
-                <span className="icons"><img src={images[5]} alt="allergen-icon" /></span>
-                <span className="icons"><img src={images[6]} alt="allergen-icon" /></span>
-    	       <li className="navLi"><NavLink to="/history">History</NavLink></li>
-                <span className="icons"><img src={images[7]} alt="allergen-icon" /></span>
-                <span className="icons"><img src={images[8]} alt="allergen-icon" /></span>
-          </ul>
-    	  </nav>
+          <span className="iconsS"><img src={images[0]} alt="allergen-icon" /></span>
+          <span className="iconsM"><img src={images[1]} alt="allergen-icon" /></span>
+          <span className="iconsL"><img src={images[2]} alt="allergen-icon" /></span>
+          <span className="iconsM"><img src={images[3]} alt="allergen-icon" /></span>
+          <span className="iconsS"><img src={images[4]} alt="allergen-icon" /></span>
+          <span className="iconsM"><img src={images[5]} alt="allergen-icon" /></span>
+          <span className="iconsL"><img src={images[6]} alt="allergen-icon" /></span>
+          <span className="iconsM"><img src={images[7]} alt="allergen-icon" /></span>
+          <span className="iconsS"><img src={images[8]} alt="allergen-icon" /></span>
+          <span className="iconsM"><img src={images[9]} alt="allergen-icon" /></span>
 	    </div>
     );
   }

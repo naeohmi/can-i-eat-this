@@ -134,7 +134,7 @@ input[type=text] {
 
 .inputOptions {
 	display: flex;
-	margin: 0px 50px;
+	margin: 0px 50px 50px 50px;
 	border: 1px solid #FFFFFF;
 }
 
@@ -170,10 +170,10 @@ input[type=text] {
 }
 
 .displayR {
+	font-family: 'Ubuntu Mono', monospace;
 	font-size: 20px;
-	display: flex;
-	padding: 0px;
-	background-color: #efefef;
+	padding: 0;
+	color: #2c2d2d;
 }
 
 .displayResult {
@@ -383,6 +383,88 @@ img.thumbnail{
 	text-align: center;
 }
 
+/* Icons */
+
+.footer {
+	background-color: #212121;
+	padding: 10px;
+}
+
+.icons img {
+	width: 100px;
+	height: 100px;
+}
+
+.iconsS img {
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	animation-name: resizeS;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+.iconsM img {
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	animation-name: resizeM;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+
+.iconsL img {
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	animation-name: resizeL;
+	animation-delay: 0s;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes resizeS {
+    from {
+    	width: 70px;
+    	height: 70px;
+    	padding: 5px;
+    }
+    to {
+    	width: 50px;
+    	height: 50px;
+    	padding: 15px;
+    }
+}
+
+@keyframes resizeM {
+    from {
+    	width: 70px;
+    	height: 70px;
+    	padding: 5px;
+    }
+    to {
+    	width: 60px;
+    	height: 60px;
+    	padding: 10px;
+    }
+}
+
+@keyframes resizeL {
+    from {
+    	width: 50px;
+    	height: 50px;
+    	padding: 15px;
+    }
+    to {
+    	width: 70px;
+    	height: 70px;
+    	padding: 5px;
+    }
+}
+
 /* Mobile */
 
 @media only screen and (max-width: 667px) {
@@ -495,9 +577,7 @@ img.thumbnail{
 	.displayR {
 	margin: 0;
 	}
-}
-
-.icons img {
-	width: 100px;
-	height: 100px;
+	.footer {
+	padding: 0px;
+	}
 }

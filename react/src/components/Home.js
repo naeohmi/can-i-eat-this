@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import WebcamCapture from './WebcamCapture';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer'
 
 class Home extends Component {
   constructor(props) {
@@ -95,11 +96,14 @@ class Home extends Component {
               className="barcode"
               />
             <button className="searchProduct">Search</button>
+
+              <div className="displayR">
+              <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
+              </div>
           </form>
+
         </div>
-        <div className="displayR">
-        <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
-        </div>
+    <Footer />
     </div>
     );
   }
