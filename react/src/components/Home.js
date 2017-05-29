@@ -28,31 +28,20 @@ class Home extends Component {
       this.refs.barcode.value = "Only 12 digits";  
       else
       this.getIngred(this.refs.barcode.value);
+
     }
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-<<<<<<< HEAD
-<<<<<<< HEAD
         const appId = 'bf4d4714';
         const appKey = '09b92398885352afcdd13377eacd7e5c';
-=======
-        const appId = 'faf14366';
-        const appKey = '8453458e60c6b7142453df695e20f6d5';
->>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
-=======
-
-        const appId = 'faf14366';
-        const appKey = '8453458e60c6b7142453df695e20f6d5';
-
->>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
-          .then((res) => {
-            let productBrand = res.data.brand_name;
-            let ingredientListRes = res.data.nf_ingredient_statement;
-            let ingredientListArr = ingredientListRes.split(" ");
-            console.log(`${ingredientListArr}`)
+            .then((res) => {
+              let productBrand = res.data.brand_name;
+              let ingredientListRes = res.data.nf_ingredient_statement;
+              let ingredientListArr = ingredientListRes.split(" ");
+              console.log(`${ingredientListArr}`)
               this.setState({
                 upc: upc,
                 productName: res.data.item_name,
@@ -62,25 +51,9 @@ class Home extends Component {
               })
               // console.log(ingredientListArr);
               this.props.grabData(
-                this.state.productBrand, this.state.upc, 
-                this.state.productName, this.state.ingredientList, 
-                this.state.ingredientString
-              );
-        })
-  }
-
-  renderViewResult() {
-    let upc = this.state.upc;
-
-    // Supposed to be !== to display "Result" link only when we have a upc, 
-    // but doesn't work.
-      if (upc === undefined) {
-      return (
-        <ul className="displayResult">
-          <li><NavLink to="/result">View Results!</NavLink></li>
-        </ul>
-      )
-    } 
+                  this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString
+                );
+            });
   }
 
   render() {
@@ -105,10 +78,8 @@ class Home extends Component {
             className="barcode"
             />
           <button className="searchProduct">Search</button>
+          <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
         </form>
-        <div className="renderViewResult">
-        {this.renderViewResult()}
-        </div>
       </div>
     );
   }

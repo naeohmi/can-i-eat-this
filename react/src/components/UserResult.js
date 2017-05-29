@@ -4,20 +4,17 @@ class UserResult extends Component{
   constructor(props) {
     console.log(props) 
     super(props)
+    this.state = {
+    }
   }
+
   render() {
     var issues= [];
     var Obj=this.props.issues;
     for (var prop in Obj) {
-    issues.push(Obj[prop]);
+   issues.push(Obj[prop]);
 }
-
     console.log(issues);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
     const images=["/images/eggs.png","/images/fish.png","/images/milk.png","/images/peanuts.png","/images/sesame.png","/images/shellfish.png","/images/soy.png","/images/treenuts.png","/images/wheat.png"];
     let fact , advice;
     console.log(this.props.finding)
@@ -27,20 +24,6 @@ class UserResult extends Component{
         advice="allergy warning: This product is not for you";
         console.log("allergy"+issues[i+1]+"contained food"+d)
       }
-<<<<<<< HEAD
-=======
-
-    const images=["/images/eggs.png","/images/fish.png","/images/milk.png",
-                  "/images/peanuts.png","/images/sesame.png","/images/shellfish.png",
-                  "/images/soy.png","/images/treenuts.png","/images/wheat.png"];
-    let fact, advice;
-    let result=this.props.finding.map((d,i) => {
-      
-      if(issues[i]===d && d===true)
-        advice="Allergy warning: This product is not for you";
->>>>>>> 77d49bcd1dcf9b80716ce7f7818e5cbe24331861
-=======
->>>>>>> c8951c80c64dafcc9d34ba6a7d1066292d00e576
       else
         advice=" ";
       if(d)
@@ -48,26 +31,27 @@ class UserResult extends Component{
         else
         fact="✖︎ The product does not contain";
 
-    return( 
-      <tr key={i} >
-        <td >{fact}</td>
-        <td ><img src={images[i]} alt="allergies" /></td>
-        <td >{advice}</td>
-      </tr> 
-    );
-   }
-  )
+      return( 
+              <tr key={i} >
+              <td >{fact}</td>
+              <td ><img src={images[i]} alt="allergies" /></td>
+              <td >{advice}</td>
+              </tr> 
+            )
+          }
+  );
 
     return (
       <center>
-       <table>
-        <tbody className="historyRow">
-         {result}
-        </tbody>
-       </table>
-      </center>
-     );
-    }
-   }
+      <table>
+      <tbody className="historyRow">
+           {result}
+      </tbody>
+    </table>
+    </center>
+    )
+}
+}
+
 
 export default UserResult;
