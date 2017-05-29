@@ -1,6 +1,6 @@
 body {
 	margin: 0 auto;
-	background: #F2F0EF; /* For browsers that do not support gradients */
+	background: #F2F0EF;
 }
 
 /* Text */
@@ -131,8 +131,6 @@ input[type=text] {
 	text-decoration: none;
 }
 
-/* Webcam */
-
 /* Result Component */
 
 .result {
@@ -173,7 +171,7 @@ input[type=text] {
 	flex: 1.5;
 }
 
-.finalresult {
+.finalResult {
 	flex: 2;
 	background-color: #f4f4f4;
 }
@@ -326,6 +324,24 @@ input[type=checkbox] {
 /* Mobile */
 
 @media only screen and (max-width: 500px) {
+	h1 {
+	font-size: 22px;
+	}
+	h2 {
+	font-size: 18px;
+	}
+	h3 {
+	font-size: 16px;
+	}
+	h4 {
+	font-size: 14px;	
+	}
+	h6 {
+	font-size: 12px;
+	}
+	p {
+	font-size: 12px;
+	}
 	.nav {
 	height: auto;
 	}
@@ -344,21 +360,43 @@ input[type=checkbox] {
 	padding: 0px;
 	}
 	ul > li {
-	  display: block;
-	  padding: 10px 20px;
+	display: block;
+	padding: 10px 20px;
+	}
+	th {
+	font-size: 16px;
 	}
 	.profile {
-	  padding: 10px 0px;
+	padding: 10px 0px;
 	}
 	.row {
-	  display: block;
+	display: block;
 	}
 	.savePreferences, .editPreferences {
-	  margin: 0px 5%;
-	  width: 40%;
+	margin: 0px 5%;
+	width: 40%;
 	}
 	.image404 {
-	  width: 100%;
-	  height: auto;
+	width: 100%;
+	height: auto;
+	}
+	.history {
+	padding: 0px;
+	}
+	.tableHistory {
+	margin: 0px auto;
+	text-align: center;
+	padding: 0px;
+	width: 100%;
+	}
+	.titleRow, .prod, .advice, .action, .historyRow tr {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 14px;
+	}
+	.result, .resultTable, .productPic, .prodResult {
+	display: block;
+	width: 100%;
 	}
 }
