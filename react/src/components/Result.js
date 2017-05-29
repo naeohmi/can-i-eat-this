@@ -45,6 +45,7 @@ class Result extends Component {
         productName:this.props.productName,
       }
         ,function() {
+
          var finding = this.filter()
          this.setState({finding:finding});
          this.grabProductImage()
@@ -70,6 +71,7 @@ class Result extends Component {
       console.log(error);
     });
 }
+
 
 
 
@@ -112,15 +114,11 @@ class Result extends Component {
   }
 
 
-
-
  search(query) {
   return this.state.ingredientList.filter(function(el) {
       return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
   })
 }
-
-
 
 
   filter(){
@@ -149,10 +147,7 @@ class Result extends Component {
         eggs= true ;
         result= true ;
       }
-      
-        
 
-  
     if(this.search('Catfish').length !== 0){
         console.log("donot eat it")
         fish= true ;
@@ -263,9 +258,7 @@ class Result extends Component {
         fish= true ;
         result= true ;
       }
-      
     
- 
       if(this.search('milk').length !== 0){
         console.log("donot eat it");
         milk= true ;
@@ -390,8 +383,7 @@ class Result extends Component {
         treenuts= true ;
         result= true ;
       }
-      
-      
+   
       if(this.search('wheat').length !== 0){
         console.log("donot eat it") ; 
         wheat= true ;
@@ -479,54 +471,57 @@ class Result extends Component {
    return finding;
  }
 
-
   componentDidMount(){
-this.userPref();
 
+    this.userPref();
 }
-
 
   render() {
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand=this.state.productBrand;
 
-    return (
-           <div className="resultContainer">
-              <div className="result">
-                <div className="resultTable">
-                  <table>
-                   <tbody>
-                    <tr>
-                      <td><h2>Product Name:</h2></td>
-                      <td><h4>{Name}</h4></td>
-                    </tr>
-                    <tr>
-                      <td><h2>Product Brand:</h2></td>
-                      <td><h4>{productBrand}</h4></td>
-                    </tr>
-                     </tbody>
-                   </table>
-                  </div>
-                 <div className="productPic">
-                    <img src={this.state.image} alt="Product"/>
-                 </div>
-                </div>
-                <br/>
-                <div className="Ingredient">
-                  <h2>Ingredient</h2>
-                  <div>{ing}</div>
-                </div>
-                <br/>
-                <div className="finalresult">
-                  <h2>result</h2>
-                  <UserResult finding={this.state.finding} issues={this.state.issues}/>
-                  <div></div>
-                </div>
-                </div>
 
-                );
+  return (
+  <div className="resultContainer">
+    <div className="result">
+    <div className="resultTable">
+        <table>
+        <tbody>
+          <tr>
+            <td><h2>Product Name:</h2></td>
+            <td><h4>{Name}</h4></td>
+          </tr>
+          <tr>
+            <td><h2>Product Brand:</h2></td>
+            <td><h4>{productBrand}</h4></td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <div className="productPic">
+      <UserResult finding={this.state.finding} issues={this.state.issues}/>
+    </div>
+   </div>
+
+    <div className="prodResult">
+      <div className="ingredient">
+        <h2>Ingredient</h2>
+      <div className="ing">{ing}</div>
+    </div>
+
+    <div className="finalresult">
+      <h2>Result</h2>
+      <UserResult finding={this.state.finding} issues={this.state.issues}/>
+      <div></div>
+    </div>
+
+  </div>
+</div>
+
+    );
   }
-};
+}
 
 export default Result;

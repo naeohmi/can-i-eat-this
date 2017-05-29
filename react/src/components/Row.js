@@ -32,29 +32,26 @@ class Row extends Component{
         advice="yes you can eat it";
         else
           advice="No you can Not eat it";
-      return( 
-              <tr key={d.id} >
-              <td >{d.product}</td>
-              <td >{advice}</td>
-              <td onClick={this.handleClick.bind(this,d.id)}  > x </td>
-              </tr> 
-
-            )
+      return ( 
+          <tr key={d.id} >
+              <td className="prod">{d.product}</td>
+              <td className="advice">{advice}</td>
+              <td className="action" onClick={this.handleClick.bind(this,d.id)}  > x </td>
+          </tr> 
+      )
   });
 
     return (
-
       <tbody className="historyRow">
         <tr>
-          <th>Product</th>
-          <th>Can I eat this</th>
-          <th> </th>
+          <th className="titleRow">Product</th>
+          <th className="titleRow">Can I eat this</th>
+          <th className="titleRow">Action</th>
         </tr>
         {result}
       </tbody>
-
-    )
-}
+    );
+  }
 }
 
 
