@@ -1,10 +1,6 @@
 body {
 	margin: 0 auto;
 	background: #F2F0EF; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#d1cfcf, #ffffff); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#d1cfcf, #ffffff); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#d1cfcf, #ffffff); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#d1cfcf, #ffffff); /* Standard syntax (must be last) */
 }
 
 /* Text */
@@ -104,6 +100,10 @@ input[type=text] {
     margin: 5px;
     font-size: 16px;
     font-family: 'Ubuntu', sans-serif;
+}
+
+.renderViewResult {
+	width: 100%;
 }
 
 .searchProduct {
