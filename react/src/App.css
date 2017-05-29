@@ -417,3 +417,8 @@ img.thumbnail{
 	width: 100%;
 	}
 }
+
+.icons img {
+	width: 100px;
+	height: 100px;
+}

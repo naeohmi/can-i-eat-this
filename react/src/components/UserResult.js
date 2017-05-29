@@ -12,7 +12,17 @@ class UserResult extends Component{
    }
    //console.log(issues);
   
-   const images=["/images/eggs.png","/images/fish.png","/images/milk.png","/images/peanuts.png","/images/sesame.png","/images/shellfish.png","/images/soy.png","/images/treenuts.png","/images/wheat.png"];
+   const images=[
+       "/images/icons/egg-color.png",
+       "/images/icons/fish-color.png",
+       "/images/icons/milk-color.png",
+       "/images/icons/icons-blackandwhite/peanut-bw.png",
+       "/images/icons/sesame-color.png",
+       "/images/icons/shellfish-color.png",
+       "/images/icons/soy-color.png",
+       "/images/icons/treenut-color.png",
+       "/images/icons/wheat-color.png",
+       ];
    let fact , advice;
    console.log(this.props.finding)
   
@@ -34,7 +44,7 @@ class UserResult extends Component{
      return (
        <tr key={i} >
          <td >{fact}</td>
-         <td ><img src={images[i]} alt="allergies" /></td>
+         <td className="icons"><img src={images[i]} alt="allergies" /></td>
          <td >{advice}</td>
        </tr>
        )
