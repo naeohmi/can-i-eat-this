@@ -306,6 +306,12 @@ input[type=checkbox] {
 	padding: 0px 20px;
 	color: #373738;
 }
+img.thumbnail{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+
 
 .advice {
 	font-size: 18px;
