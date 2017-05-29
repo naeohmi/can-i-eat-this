@@ -96,6 +96,16 @@ class Profile extends Component {
     return (
       <div className="profile">
        <h2>User Preferences</h2>
+       <div className="buttons">
+       <p className="paragraph">Have a userid? Retrieve your data here!</p>
+       		<input
+            type="text"
+            placeholder="Get my data!"
+            ref="findUserID"
+            className="findUserID"
+            />
+       <button className="findUser" onClick={this.findUserID.bind(this)}>Find</button>
+       </div>
        <p className="paragraph">Please, select the allergens that you would like to avoid.</p>
 		<form onSubmit={this.userPreferences}>
 		<div className="row">
@@ -286,16 +296,6 @@ class Profile extends Component {
 		</form>
 		  <div className="buttons">
 			{this.renderEdit()}
-		  </div>
-		  <div className="buttons">
-		  <p className="paragraph">This is for authorized developers only!</p>
-		  	<input
-            type="text"
-            placeholder="Find a user ID"
-            ref="findUserID"
-            className="findUserID"
-            />
-			<button className="findUser" onClick={this.findUserID.bind(this)}>Find User</button>
 		  </div>
       </div>
     );
