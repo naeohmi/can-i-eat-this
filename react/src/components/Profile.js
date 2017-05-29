@@ -81,6 +81,17 @@ class Profile extends Component {
   }
 
   render() {
+		   const images=[
+       "/images/icons/egg-color.png",
+       "/images/icons/fish-color.png",
+       "/images/icons/milk-color.png",
+       "/images/icons/icons-blackandwhite/peanut-bw.png",
+       "/images/icons/sesame-color.png",
+       "/images/icons/shellfish-color.png",
+       "/images/icons/soy-color.png",
+       "/images/icons/treenut-color.png",
+       "/images/icons/wheat-color.png",
+       ];
   	// console.log(this.props.issues[0]);
     return (
       <div className="profile">
@@ -91,18 +102,20 @@ class Profile extends Component {
 		<div className="column">
 		  <h3><input className="issuesCheckbox" type="checkbox" name="egg" ref="egg" 
 		  checked={this.props.issues[0]} readOnly={this.props.readOnly}/>Egg</h3>
+			<span className="icons"><img src={images[0]} alt="egg-allergen-icon" /></span>
 		    <h6>
-		    Albumin<br/>
-			Egg<br/>
-			Eggnog<br/>
-			Lysozyme<br/>
-			Mayonnaise<br/>
-			Meringue<br/>
-			Ovalbumin<br/>
-			Surimi<br/>
-			</h6>
+					Albumin<br/>
+					Egg<br/>
+					Eggnog<br/>
+					Lysozyme<br/>
+					Mayonnaise<br/>
+					Meringue<br/>
+					Ovalbumin<br/>
+					Surimi<br/>
+				</h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="sesame" ref="sesame" 
 		  checked={this.props.issues[4]} readOnly={this.props.readOnly}/>Sesame</h3>
+			<span className="icons"><img src={images[4]} alt="sesame-allergen-icon" /></span>
 		    <h6>
 		    Benne, benne seed, benniseed<br/>
 		    Gingelly<br/>
@@ -122,6 +135,7 @@ class Profile extends Component {
 		    </h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="wheat" ref="wheat" 
 		  checked={this.props.issues[8]} readOnly={this.props.readOnly}/>Wheat</h3>
+			<span className="icons"><img src={images[8]} alt="wheat-allergen-icon" /></span>
 		    <h6>
 		    Breed crumbs<br/>
 		    Bulgur<br/>
@@ -138,6 +152,7 @@ class Profile extends Component {
 		    </h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="peanuts" ref="peanuts" 
 		  checked={this.props.issues[3]} readOnly={this.props.readOnly}/>Peanuts</h3>
+			<span className="icons"><img src={images[3]} alt="peanuts-allergen-icon" /></span>
 		  	<h6>
 		    Artificial nuts<br/>
 		    nuts<br/>
@@ -148,6 +163,7 @@ class Profile extends Component {
 		<div className="column">
 		  <h3><input className="issuesCheckbox" type="checkbox" name="fish" ref="fish" 
 		  checked={this.props.issues[1]} readOnly={this.props.readOnly}/>Fish</h3>
+			<span className="icons"><img src={images[1]} alt="fish-allergen-icon" /></span>
 		    <h6>
 		    Anchovies<br/>
 			Bass<br/>
@@ -174,6 +190,7 @@ class Profile extends Component {
 			</h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="treenuts" ref="treenuts" 
 		  checked={this.props.issues[7]} readOnly={this.props.readOnly}/>Tree nuts</h3>
+			<span className="icons"><img src={images[7]} alt="treenut-allergen-icon" /></span>
 		    <h6>
 			Almond<br/>
 			Beechnut<br/>
@@ -201,6 +218,7 @@ class Profile extends Component {
 		<div className="column">
 	      <h3><input className="issuesCheckbox" type="checkbox" name="milk" ref="milk" 
 	      checked={this.props.issues[2]} readOnly={this.props.readOnly}/>Milk</h3>
+				<span className="icons"><img src={images[2]} alt="milk-allergen-icon" /></span>
 	        <h6>
 			Butter<br/>
 			Buttermilk<br/>
@@ -232,6 +250,7 @@ class Profile extends Component {
 			</h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="shellfish" ref="shellfish" 
 		  checked={this.props.issues[5]} readOnly={this.props.readOnly}/>Shell Fish</h3>
+			<span className="icons"><img src={images[5]} alt="shellfish-allergen-icon" /></span>
 		    <h6>
 		  	Barnacle<br/>
 		    Crab<br/>
@@ -243,6 +262,7 @@ class Profile extends Component {
 		    </h6>
 		  <h3><input className="issuesCheckbox" type="checkbox" name="soy" ref="soy" 
 		  checked={this.props.issues[6]} readOnly={this.props.readOnly}/>Soy</h3>
+			<span className="icons"><img src={images[6]} alt="soy-allergen-icon" /></span>
 		    <h6>
 		  	Edamame<br/>
 		    Miso<br/>
