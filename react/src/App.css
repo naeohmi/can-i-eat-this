@@ -235,11 +235,13 @@ td {
 	background-color: #FF241C;
 }
 
-input[type=checkbox] {
+input[type=checkbox] {	
 	width: 40px 10px;
 	margin: 10px 10px;
+	height: 20px;
 	background: #FCFFF4;
-    border-radius: 4px;
+    border-radius: 10px;
+    font-size: 10em;
 }
 
 /* History */
