@@ -1,26 +1,73 @@
 import React, { Component } from 'react';
 
+console.log('Profile.js is working.');
+
 class Profile extends Component {
   constructor(props){
     super(props)
     // console.log(this.props.issues);
     this.userPreferences = this.userPreferences.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
   }
 
   userPreferences(event){
-    event.preventDefault();
+  event.preventDefault();
 
-    // Creating an array of true/false results, in alphabetical order.
-    let issues = 
-    	[ this.refs.egg.checked, this.refs.fish.checked,
-    	this.refs.milk.checked, this.refs.peanuts.checked,
-    	this.refs.sesame.checked, this.refs.treenuts.checked,
-    	this.refs.shellfish.checked, this.refs.soy.checked,
-    	this.refs.wheat.checked ]
-    
-    // console.log(issues);
-    // Passing the array "issues" to the seletedCheckboxes method.	
-    this.props.selectedCheckboxes(issues);
+  	// If user is saving information for first time (meaning that have no userid):
+  	if(this.props.userid === undefined) {
+
+	    // Then, generates a random userid.
+		let userid = Math.floor((Math.random() * 99999999) + 1);
+
+	    // Creating an array of true/false results, in alphabetical order.
+	    // True means checked, while false is not checked.
+		let issues =
+	        [ this.refs.egg.checked, this.refs.fish.checked,
+	        this.refs.milk.checked, this.refs.peanuts.checked,
+	        this.refs.sesame.checked, this.refs.shellfish.checked,
+	        this.refs.soy.checked, this.refs.treenuts.checked,
+	        this.refs.wheat.checked ]
+	    // console.log(issues);
+
+	    // Passing the array "issues" to the seletedCheckboxesAdd method.	
+	    this.props.selectedCheckboxesAdd(userid, issues, true);
+	  	}
+
+  	// Else, if user have an already userid:
+  	else {
+	  	// Passing the current state (basically no change in userid.)
+	  	let userid = this.props.userid;
+
+	  	let issues =
+	        [ this.refs.egg.checked, this.refs.fish.checked,
+	        this.refs.milk.checked, this.refs.peanuts.checked,
+	        this.refs.sesame.checked, this.refs.shellfish.checked,
+	        this.refs.soy.checked, this.refs.treenuts.checked,
+	        this.refs.wheat.checked ]
+
+	    // Passing the array "issues" to the seletedCheckboxesUpdate method.	
+	    this.props.selectedCheckboxesUpdate(userid, issues, true);
+  	}
+  }
+
+  // Call the method that turns readOnly false.
+  handleEdit() {
+  	// console.log('User press edit button.');
+	this.props.changeState(false);
+  }
+
+  renderSave() {
+  	if(this.props.readOnly === false) {
+  	  return (
+  	  	<button className="savePreferences">Save</button>
+  	)}
+  }
+
+  renderEdit() {
+  	if(this.props.readOnly === true) {
+  	  return (
+  	  	<button className="editPreferences" onClick={this.handleEdit}>Edit</button>
+  	)}
   }
 
   render() {
@@ -28,58 +75,69 @@ class Profile extends Component {
     return (
       <div className="profile">
        <h2>User Preferences</h2>
-       <p>Please, select the allergens that you would like to avoid.</p>
+       <p className="paragraph">Please, select the allergens that you would like to avoid.</p>
 		<form onSubmit={this.userPreferences}>
 		<div className="row">
 		<div className="column">
-		  <h3><input type="checkbox" name="peanuts" ref="peanuts" 
-		  checked={this.props.issues[3]} readOnly/>Peanuts</h3>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="egg" ref="egg" 
+		  checked={this.props.issues[0]} readOnly={this.props.readOnly}/>Egg</h3>
+		    <h6>
+		    Albumin<br/>
+			Egg<br/>
+			Eggnog<br/>
+			Lysozyme<br/>
+			Mayonnaise<br/>
+			Meringue<br/>
+			Ovalbumin<br/>
+			Surimi<br/>
+			</h6>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="sesame" ref="sesame" 
+		  checked={this.props.issues[4]} readOnly={this.props.readOnly}/>Sesame</h3>
+		    <h6>
+		    Benne, benne seed, benniseed<br/>
+		    Gingelly<br/>
+		    Gomasio<br/>
+		    Halvah<br/>
+		    Sesame flour<br/>
+		    Sesame oil<br/>
+		    Sesame paste<br/>
+		    Sesame salt<br/>
+		    Sesame seed<br/>
+		    Sesamol<br/>
+		    Sesamum indicum<br/>
+		    Sesemolina<br/>
+		   	Sim sim<br/>
+		    Tahini, Tahina, Tehina<br/>
+		    Til<br/>
+		    </h6>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="wheat" ref="wheat" 
+		  checked={this.props.issues[8]} readOnly={this.props.readOnly}/>Wheat</h3>
+		    <h6>
+		    Breed crumbs<br/>
+		    Bulgur<br/>
+		    Cereal extract<br/>
+		    Club wheat<br/>
+		    Couscous<br/>
+		    Cracker meal<br/>
+		    Durun<br/>
+		    Einkorn<br/>
+		    Emmer<br/>
+		    Farina<br/>
+		    Flour<br/>
+		    Hydrolyzed wheat protein<br/>
+		    </h6>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="peanuts" ref="peanuts" 
+		  checked={this.props.issues[3]} readOnly={this.props.readOnly}/>Peanuts</h3>
 		  	<h6>
 		    Artificial nuts<br/>
 		    nuts<br/>
 		    Mandelonas<br/>
 		    Peanut <br/>
 			</h6>
-		  <h3><input type="checkbox" name="treenuts" ref="treenuts" 
-		  checked={this.props.issues[7]} readOnly/>Tree nuts</h3>
-		    <h6>
-			Almond<br/>
-			Beechnut<br/>
-			Butternut<br/>
-			Cashew<br/>
-			Chestnut<br/>
-			Hazelnut<br/>
-			Macadamia<br/>
-			Nangai nut<br/>
-			Natural nut extract<br/>
-			Nut butters<br/>
-			Nut meal<br/>
-			Nut milk<br/>
-			Nut paste<br/>
-			Pecan<br/>
-			Pesto<br/>
-			Pili nut<br/>
-			Pine nut<br/>
-			Pistachio<br/>
-			Praline<br/>
-			Shea nut<br/>
-			Walnut<br/>
-			</h6>
-		  <h3><input type="checkbox" name="shellfish" ref="shellfish" 
-		  checked={this.props.issues[5]} readOnly/>Shell Fish</h3>
-		    <h6>
-		  	Barnacle<br/>
-		    Crab<br/>
-		    Crawfish<br/>
-		    Krill<br/>
-		    Lobster<br/>
-		    Prawns<br/>
-		    Shrimp<br/>
-		    </h6>
 		</div>
 		<div className="column">
-		  <h3><input type="checkbox" name="fish" ref="fish" 
-		  checked={this.props.issues[1]} readOnly/>Fish</h3>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="fish" ref="fish" 
+		  checked={this.props.issues[1]} readOnly={this.props.readOnly}/>Fish</h3>
 		    <h6>
 		    Anchovies<br/>
 			Bass<br/>
@@ -104,57 +162,35 @@ class Profile extends Component {
 			Trout<br/>
 			Tuna<br/>
 			</h6>
-		  <h3><input type="checkbox" name="sesame" ref="sesame" 
-		  checked={this.props.issues[4]} readOnly/>Sesame</h3>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="treenuts" ref="treenuts" 
+		  checked={this.props.issues[7]} readOnly={this.props.readOnly}/>Tree nuts</h3>
 		    <h6>
-		    Benne, benne seed, benniseed<br/>
-		    Gingelly<br/>
-		    Gomasio<br/>
-		    Halvah<br/>
-		    Sesame flour<br/>
-		    Sesame oil<br/>
-		    Sesame paste<br/>
-		    Sesame salt<br/>
-		    Sesame seed<br/>
-		    Sesamol<br/>
-		    Sesamum indicum<br/>
-		    Sesemolina<br/>
-		   	Sim sim<br/>
-		    Tahini, Tahina, Tehina<br/>
-		    Til<br/>
-		    </h6>
-		  <h3><input type="checkbox" name="wheat" ref="wheat" 
-		  checked={this.props.issues[8]} readOnly/>Wheat</h3>
-		    <h6>
-		    Breed crumbs<br/>
-		    Bulgur<br/>
-		    Cereal extract<br/>
-		    Club wheat<br/>
-		    Couscous<br/>
-		    Cracker meal<br/>
-		    Durun<br/>
-		    Einkorn<br/>
-		    Emmer<br/>
-		    Farina<br/>
-		    Flour<br/>
-		    Hydrolyzed wheat protein<br/>
-		    </h6>
+			Almond<br/>
+			Beechnut<br/>
+			Butternut<br/>
+			Cashew<br/>
+			Chestnut<br/>
+			Hazelnut<br/>
+			Macadamia<br/>
+			Nangai nut<br/>
+			Natural nut extract<br/>
+			Nut butters<br/>
+			Nut meal<br/>
+			Nut milk<br/>
+			Nut paste<br/>
+			Pecan<br/>
+			Pesto<br/>
+			Pili nut<br/>
+			Pine nut<br/>
+			Pistachio<br/>
+			Praline<br/>
+			Shea nut<br/>
+			Walnut<br/>
+			</h6>
 		</div>
 		<div className="column">
-		  <h3><input type="checkbox" name="egg" ref="egg" 
-		  checked={this.props.issues[0]} readOnly/>Egg</h3>
-		    <h6>
-		    Albumin<br/>
-			Egg<br/>
-			Eggnog<br/>
-			Lysozyme<br/>
-			Mayonnaise<br/>
-			Meringue<br/>
-			Ovalbumin<br/>
-			Surimi<br/>
-			</h6>
-	      <h3><input type="checkbox" name="milk" ref="milk" 
-	      checked={this.props.issues[2]} readOnly/>Milk</h3>
+	      <h3><input className="issuesCheckbox" type="checkbox" name="milk" ref="milk" 
+	      checked={this.props.issues[2]} readOnly={this.props.readOnly}/>Milk</h3>
 	        <h6>
 			Butter<br/>
 			Buttermilk<br/>
@@ -184,8 +220,19 @@ class Profile extends Component {
 			Whey<br/>
 			Yogurt<br/>
 			</h6>
-		  <h3><input type="checkbox" name="soy" ref="soy" 
-		  checked={this.props.issues[6]} readOnly/>Soy</h3>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="shellfish" ref="shellfish" 
+		  checked={this.props.issues[5]} readOnly={this.props.readOnly}/>Shell Fish</h3>
+		    <h6>
+		  	Barnacle<br/>
+		    Crab<br/>
+		    Crawfish<br/>
+		    Krill<br/>
+		    Lobster<br/>
+		    Prawns<br/>
+		    Shrimp<br/>
+		    </h6>
+		  <h3><input className="issuesCheckbox" type="checkbox" name="soy" ref="soy" 
+		  checked={this.props.issues[6]} readOnly={this.props.readOnly}/>Soy</h3>
 		    <h6>
 		  	Edamame<br/>
 		    Miso<br/>
@@ -203,8 +250,13 @@ class Profile extends Component {
 		    </h6>
 		</div>
 		</div>
-		<button className="savePreferences">Save</button>
+		  <div className="buttons">
+		    {this.renderSave()}
+		  </div>
 		</form>
+		  <div className="buttons">
+			{this.renderEdit()}
+		  </div>
       </div>
     );
   }

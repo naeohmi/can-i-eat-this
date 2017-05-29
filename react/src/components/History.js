@@ -9,7 +9,8 @@ class History extends Component {
           userid: 123456,
           result: [],
           product: [],
-          id:[]
+          id:[],
+          img:" "
         }
          this.userhistory = this.userhistory.bind(this);
      }
@@ -17,6 +18,7 @@ class History extends Component {
     let targetURL = "https://caneatthis.herokuapp.com/api/information/"+this.state.userid;
         axios.get(targetURL)
     .then((res) => {
+      console.log(res);
       var objArray=res.data.data;
       this.setState({objArray})
        var result = objArray.map(function(a) {return a.result;});
@@ -25,6 +27,8 @@ class History extends Component {
         this.setState({id})
         var product = objArray.map(function(a) {return a.product;});
         this.setState({product})
+        var img = objArray.map(function(a) {return a.img;});
+        this.setState({img})
     })
     .then((res) => {
     console.log(this.state.product)
@@ -39,12 +43,10 @@ this.userhistory();
   render() {
     return (
       <div className="history">
-		<h2>History</h2>
-			<table>
-			
+		    <h2>History</h2>
+			   <table className="tableHistory">
 					<Row objArray={this.state.objArray}/>
-	  		
-	  		</table>
+	  		 </table>
       </div>
     );
   }
