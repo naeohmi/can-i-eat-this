@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Result from './components/Result';
 import History from './components/History';
+import Footer from './components/Footer';
 import FourOFour from './components/Four_o_Four';
 import {
         BrowserRouter as Router,
@@ -179,6 +180,7 @@ class App extends Component {
                  />) }/>
           <Route path="/history" exact component={() => (<History />) }/>
           <Route path="/*" component={() => (<FourOFour />) }/>
+          <Footer />
         </Switch>
     </div>
     </Router>
