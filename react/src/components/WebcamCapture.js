@@ -3,7 +3,7 @@ import Webcam from 'react-webcam';
 import axios from 'axios';
 // import base64Img from 'base64-img';
 import Cloud from 'cloudinary';
-
+window.data = ""
 
 class WebcamCapture extends Component {
     constructor(props) {
@@ -11,31 +11,14 @@ class WebcamCapture extends Component {
         this.state = {
             screenshot: null,
             imgUrl: null,
+            upcFromPhoto: undefined
         }
-        this.handleClick = this.handleClick.bind(this);
         this.ocr = this.ocr.bind(this);
-        // this.convert64ToImg = this.convert64ToImg.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.afterPhoto = this.afterPhoto.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
-
-    handleClick(event) {
-        event.preventDefault();
-        const screenshot = this.webcam.getScreenshot()
-        // this.setState({
-        //     screenshot
-        // })
-        console.log(`after handleclick ${screenshot}`);
-        // console.log(`handleClick() here: ${this.state.screenshot}`);
-        this.ocr(screenshot);
-
-        // setTimeout(function() {
-        //     this.setState({screenshot: 1})
-        //     }.bind(this), 3000);
-
-        this.setState({
-            screenshot
-        })
-        console.log(<img alt="barcode" src="this.state.screenshot" />);
-    }
 
     ocr(photo) {
       console.log('ocr has awoken!', photo);
@@ -47,10 +30,17 @@ class WebcamCapture extends Component {
         .then((res) => {
             // console.log(res);
             let upcFromPhoto = res.data.ParsedResults[0].ParsedText;
-            console.log(`yay! from pic: ${upcFromPhoto}`);
+            console.log(`yay! from pic: ${upcFromPhoto}`)
+            if(upcFromPhoto){return upcFromPhoto}
         })
-
+            .then(data => {
+                this.setState({
+                    upcFromPhoto: data
+            })
+                window.data = data;
+            })
     }
+    
     handleClick(event) {
         event.preventDefault();
         const screenshot = this.webcam.getScreenshot()
@@ -75,9 +65,9 @@ class WebcamCapture extends Component {
                     console.log("result", result.url);
                     var imgUrl = result.url;
                     innerThis.ocr(imgUrl);
-                            // innerThis.setState({
-                            //     imgUrl
-                            // })
+                            innerThis.setState({
+                                imgUrl
+                            })
                 } else {
                     console.log(`err: ${err}`);
                 }
@@ -86,6 +76,44 @@ class WebcamCapture extends Component {
         // this.ocr(this.state.imgUrl);
         convert64ToImg(screenshot);
     }
+
+    handleChange(event) {
+        let info = event.target.value
+        this.setState({
+            upcFromPhoto: info
+        })
+    }
+
+    handleSubmit(event) {
+        this.setState({
+            upcFromPhoto: event.target.value
+        })
+        event.preventDefault();
+    }
+
+    afterPhoto() {
+        if (this.state.upcFromPhoto) {
+            return (
+                <div className="div-check-upc">
+                    <label>Is this number correct?</label>
+                    <form onSubmit={this.handleSubmit}>
+                        <input
+                            type="text"
+                            value={this.state.upcFromPhoto}
+                            ref="check-upc"
+                            />
+                        <input
+                            className="check-upc-from-photo"
+                            type="submit"
+                            value="submit"
+                            onChange={(e) => this.handleChange(e)}
+
+                            />
+                        </form>
+                    </div>
+            )
+        }
+     }
 
     render() {
         return (
@@ -103,8 +131,9 @@ class WebcamCapture extends Component {
 
             <div className="sceenshot">
                 {this.state.screenshot ? <img src={this.state.screenshot} alt="webcam" /> : null}
+                {this.afterPhoto()}
             </div>
-            </div>
+        </div>
         </div>
             );
       }

@@ -28,20 +28,25 @@ class Home extends Component {
       this.refs.barcode.value = "Only 12 digits";  
       else
       this.getIngred(this.refs.barcode.value);
-
     }
 
     getIngred(upc) {
         console.log(`getIngred woke: ${upc}`);
-        const appId = '30b6d41b';
-        const appKey = 'c334fe810b4d85dd339fb8229c2763da';
+        // const appId = 'bf4d4714'; //key one
+        // const appKey = '09b92398885352afcdd13377eacd7e5c'; //app one
+
+        // const appId = 'faf14366'; //key two 
+        // const appKey = '8453458e60c6b7142453df695e20f6d5'; //app two
+
+        const appId = 'faf14366'; //key three 
+        const appKey = '8453458e60c6b7142453df695e20f6d5'; //app three
         
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
-            .then((res) => {
-              let productBrand = res.data.brand_name;
-              let ingredientListRes = res.data.nf_ingredient_statement;
-              let ingredientListArr = ingredientListRes.split(" ");
-              console.log(`${ingredientListArr}`)
+          .then((res) => {
+            let productBrand = res.data.brand_name;
+            let ingredientListRes = res.data.nf_ingredient_statement;
+            let ingredientListArr = ingredientListRes.split(" ");
+            console.log(`${ingredientListArr}`)
               this.setState({
                 upc: upc,
                 productName: res.data.item_name,
@@ -51,24 +56,40 @@ class Home extends Component {
               })
               // console.log(ingredientListArr);
               this.props.grabData(
-                  this.state.productBrand,this.state.upc, this.state.productName, this.state.ingredientList, this.state.ingredientString
-                );
-            });
+                this.state.productBrand, this.state.upc, 
+                this.state.productName, this.state.ingredientList, 
+                this.state.ingredientString
+              );
+        })
+  }
+
+  renderViewResult() {
+    let upc = this.state.upc;
+
+    // Supposed to be !== to display "Result" link only when we have a upc, 
+    // but doesn't work.
+      if (upc === undefined) {
+      return (
+        <ul className="displayResult">
+          <li><NavLink to="/result">View Results!</NavLink></li>
+        </ul>
+      )
+    } 
   }
 
   render() {
     return (
       <div className="home">
-		    <form className="upc-photo-input">
-      	  <label>Take a photo of the barcode from your camera:</label>
+        <form className="upc-photo-input">
+          <label>Take a photo of the barcode from your camera:</label>
 
           <WebcamCapture />
 
-      	</form>
-		    <form 
+        </form>
+        <form 
           className="upc-text-input"
           onSubmit={this.handleCreate}>
-	        
+          
           <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
           
           <input
@@ -78,8 +99,10 @@ class Home extends Component {
             className="barcode"
             />
           <button className="searchProduct">Search</button>
-          <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
         </form>
+        <div className="renderViewResult">
+        {this.renderViewResult()}
+        </div>
       </div>
     );
   }
