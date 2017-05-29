@@ -33,7 +33,7 @@ class App extends Component {
     this.grabData = this.grabData.bind(this);
   }
 
-   grabData(productBrand,upc, productName, ingredientList, ingredientString) {
+   grabData(productBrand, upc, productName, ingredientList, ingredientString) {
      this.setState({
         upc: upc,
         productName: productName,
@@ -78,7 +78,7 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
-      console.log("First time user, record added:");
+      // console.log("First time user, record added:");
       console.log(res);
       })
     .catch((error) => {
@@ -101,6 +101,9 @@ class App extends Component {
         return issues;
       }}
     console.log(issues);
+    this.setState ({
+      issues: issues
+     })
     }
   )}
   
@@ -143,7 +146,7 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
-      console.log("Existing user, record updated:");
+      // console.log("Existing user, record updated:");
       console.log(res);
       })
     .catch((error) => {

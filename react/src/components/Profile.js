@@ -19,6 +19,7 @@ class Profile extends Component {
 
 	    // Then, generates a random userid.
 		let userid = Math.floor((Math.random() * 99999999) + 1);
+		console.log("User id: " + userid);
 
 	    // Creating an array of true/false results, in alphabetical order.
 	    // True means checked, while false is not checked.
@@ -28,9 +29,9 @@ class Profile extends Component {
 	        this.refs.sesame.checked, this.refs.shellfish.checked,
 	        this.refs.soy.checked, this.refs.treenuts.checked,
 	        this.refs.wheat.checked ]
-	    // console.log(issues);
+	    console.log(issues);
 
-	    // Passing the array "issues" to the seletedCheckboxesAdd method.	
+	    // Passing the array "issues" to the addCheckboxes method.	
 	    this.props.addCheckboxes(userid, issues, true);
 	  	}
 
@@ -38,6 +39,7 @@ class Profile extends Component {
   	else {
 	  	// Passing the current state (basically no change in userid.)
 	  	let userid = this.props.userid;
+		console.log("User id: " + userid);
 
 	  	let issues =
 	        [ this.refs.egg.checked, this.refs.fish.checked,
@@ -45,8 +47,9 @@ class Profile extends Component {
 	        this.refs.sesame.checked, this.refs.shellfish.checked,
 	        this.refs.soy.checked, this.refs.treenuts.checked,
 	        this.refs.wheat.checked ]
+	    console.log(issues);
 
-	    // Passing the array "issues" to the seletedCheckboxesUpdate method.	
+	    // Passing the array "issues" to the updateCheckboxes method.	
 	    this.props.updateCheckboxes(userid, issues, true);
   	}
   }
