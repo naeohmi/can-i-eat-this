@@ -1,7 +1,6 @@
 body {
 	margin: 0 auto;
-	background-color: #F2F0EF;
-	align: center;
+	background: #F2F0EF; /* For browsers that do not support gradients */
 }
 
 /* Text */
@@ -16,10 +15,15 @@ h2 {
 }
 
 h3 {
-	font-size: 28px;
+	font-size: 30px;
 	margin: 10px 0;
 	color: #003B5E;
 	font-family: helvetica;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+h4 {
+	font-size: 30px;
 	font-family: 'Ubuntu Condensed', sans-serif;
 }
 
@@ -33,6 +37,10 @@ h6 {
 
 p {
 	font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+	color: #0880C6;
 }
 
 /* Navigation Component */
@@ -94,6 +102,10 @@ input[type=text] {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.renderViewResult {
+	width: 100%;
+}
+
 .searchProduct {
 	width: auto;
 	padding: 7px 10px;
@@ -144,6 +156,10 @@ input[type=text] {
 	background-color: #F7F7F7;
 }
 
+.ing {
+	padding: 10px;
+}
+
 .tableResult {
 	border: 1px solid #D1D1D1;
 }
@@ -179,6 +195,15 @@ td {
 	padding: 10px 50px;
 }
 
+
+.paragraph {
+	font-size: 18px;
+	font-family: 'Ubuntu Mono', monospace;
+	color: #2c2d2d;
+	text-align: center;
+	padding: 10px;
+}
+
 .row {
 	display: flex;
 	background-color: #FFFFFF;
@@ -210,11 +235,13 @@ td {
 	background-color: #FF241C;
 }
 
-input[type=checkbox] {
+input[type=checkbox] {	
 	width: 40px 10px;
 	margin: 10px 10px;
+	height: 20px;
 	background: #FCFFF4;
-    border-radius: 4px;
+    border-radius: 10px;
+    font-size: 10em;
 }
 
 /* History */
@@ -228,12 +255,8 @@ input[type=checkbox] {
 	text-align: center;
 	padding: 20px;
 	background-color: #f2f2f2;
-	width: 100%;
-}
-
-th.history {
-	border: 1px solid black;
-	width: 100%;
+	width: 90%;
+	border: 1px solid #FFFFFF;
 }
 
 .historyRow tr {
@@ -269,14 +292,13 @@ th.history {
 .action {
 	text-align: center;
 	font-size: 18px;
-	background-color: #D92821;
 	width: 20px;
 	height: 30px;
-	color: #FFFFFF;
+	color: #D92821;
 }
 
 .action:hover {
-	background-color: #FF241C;
+	color: #FF241C;
 }
 
 .prod {

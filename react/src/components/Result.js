@@ -397,7 +397,7 @@ class Result extends Component {
   
     if(this.state.issues["wheatsallergy"]){
       console.log("user with wheat allergy")
-      if(this.search('wheat').length !== 0){
+      if(this.search('Wheat').length !== 0){
         console.log("donot eat it") ; 
         wheat= true ;
         result= true ;
