@@ -468,43 +468,42 @@ class Result extends Component {
        var Name = this.state.productName;
        var productBrand = this.state.productBrand;
  
- return (
-     <div className="resultContainer">
-       <div className="result">
-       <div className="resultTable">
-           <table>
-           <tbody>
-             <tr>
-               <td><h2>Product Name:</h2></td>
-               <td><h4>{Name}</h4></td>
-             </tr>
-             <tr>
-               <td><h2>Product Brand:</h2></td>
-               <td><h4>{productBrand}</h4></td>
-             </tr>
-           </tbody>
-           </table>
-       </div>
- 
-       <div className="productPic">
-         <img src={this.state.image} alt="Product"/>
-       </div>
-     </div>
-       <div className="prodResult">
-         <div className="ingredient">
-           <h2>Ingredient</h2>
-         <div className="ing">{ing}</div>
-       </div>
- 
-       <div className="finalresult">
-         <h2>Result</h2>
-         <UserResult finding={this.state.finding} issues={this.state.issues}/>
-         <div></div>
-       </div>
- 
-     </div>
-   </div>
- 
+      return (
+        <div className="resultContainer">
+          <div className="result">
+          <div className="resultTable">
+              <table>
+              <tbody>
+                <tr>
+                  <td><h2>Product Name:</h2></td>
+                  <td><h4>{Name}</h4></td>
+                </tr>
+                <tr>
+                  <td><h2>Product Brand:</h2></td>
+                  <td><h4>{productBrand}</h4></td>
+                </tr>
+              </tbody>
+              </table>
+          </div>
+    
+          <div className="productPic">
+            <img src={this.state.image} alt="Product"/>
+          </div>
+        </div>
+          <div className="prodResult">
+            <div className="ingredient">
+              <h2>Ingredient</h2>
+            <div className="ing">{ing}</div>
+          </div>
+    
+          <div className="finalresult">
+            <h2>Result</h2>
+            <UserResult finding={this.state.finding} issues={this.state.issues}/>
+            <div></div>
+          </div>
+    
+        </div>
+      </div>  
    );
  }
 }
