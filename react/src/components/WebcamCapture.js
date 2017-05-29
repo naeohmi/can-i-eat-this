@@ -40,6 +40,7 @@ class WebcamCapture extends Component {
                 window.data = data;
             })
     }
+    
     handleClick(event) {
         event.preventDefault();
         const screenshot = this.webcam.getScreenshot()
@@ -113,8 +114,6 @@ class WebcamCapture extends Component {
             )
         }
      }
-
-
 
     render() {
         return (

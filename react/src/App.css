@@ -248,6 +248,8 @@ input[type=checkbox] {
 
 .history {
 	padding: 10px 0px;
+	height: 600px;
+	overflow: scroll;
 }
 
 .tableHistory {
@@ -320,6 +322,11 @@ input[type=checkbox] {
 /* 404 Page */
 
 .errorMessage {
+	text-align: center;
+}
+img.thumbnail{
+	height: 100px;
+	width: 100px;
 	text-align: center;
 }
 
