@@ -56,7 +56,8 @@ Step 5: In history, the user can save their past products searched and preferenc
 
 - As a user, I want to use the app in the browser and on a mobile device.
 
-- As a user, I want to see cute icons for each of my allergen preferences. Like this: ![fish-logo](./images/fish-color.png)  ![milk-icon](./images/milk-color.png)  ![treenut-logo](./images/treenut-color.png)  ![egg-logo](./images/egg-color.png)
+- As a user, I want to see cute icons for each of my allergen preferences.
+Like this: ![fish-logo](./images/fish-color.png)  ![milk-icon](./images/milk-color.png)  ![treenut-logo](./images/treenut-color.png)  ![egg-logo](./images/egg-color.png)
 
 - As a user, I want to add and edit the ingredients I am careful about in my User Profile.
 
