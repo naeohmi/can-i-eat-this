@@ -24,9 +24,9 @@ class WebcamCapture extends Component {
      console.log('ocr has awoken!', photo);
    //   console.log(`ocr() here: ${this.state.screenshot}`);
      const apiKey = "cfb3a32bd888957";
-     const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for testing, this will be the screenshot data URL from WebcamCapture
+    //  const photoUrl = "http://i.imgur.com/wgXuL7s.jpg"; //hard code for testing, this will be the screenshot data URL from WebcamCapture
  
-     axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photoUrl}`)
+     axios.get(`https://api.ocr.space/parse/imageurl?apikey=${apiKey}&url=${photo}`)
        .then((res) => {
            // console.log(res);
            //grabs just the text from the OCR JSON response returned
