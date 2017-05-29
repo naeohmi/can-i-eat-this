@@ -42,8 +42,6 @@ Step 1: Users register their dietary restrictions on the user preferences page a
 	-	Shellfish
 	-	Sesame
 
-![milk-icon](./images/milk-color.png)
-
 Step 2: Users quickly and easily take a picture of the barcode of a food item to check the ingredients. Using Optical Character Recognition (OCR) the app checks if any of the ingredients from the product match with any of the saved user preferences. 
 
 Step 4: The app displays the results of the thorough ingredient check (over 60 keywords for each) and indicates whether the user can eat the item or not. Rendering each of the unique allergen issues and whether they are present in the product or not.
@@ -58,17 +56,15 @@ Step 5: In history, the user can save their past products searched and preferenc
 
 - As a user, I want to use the app in the browser and on a mobile device.
 
+- As a user, I want to see cute icons for each of my allergen preferences. Like this: ![fish-logo](./images/fish-color.png)  ![milk-icon](./images/milk-color.png)  ![treenut-logo](./images/treenut-color.png)  ![egg-logo](./images/egg-color.png)
+
 - As a user, I want to add and edit the ingredients I am careful about in my User Profile.
 
 - As a user, I want to quickly and easily take a picture of the product's barcode then and immediately see if the product contains any ingredients I don't want.
 
-![treenut-logo](./images/treenut-color.png)
-
 - As a user, I want the option to write the barcode (maybe is the user's preferred way for security reasons, or camera doesn't work, etc), and immediately see if the product contains any ingredients I don't want.
 
 - As a user, I want to 'red flag' ingredients I am careful about. Such as items I am allergic to examples include: peanuts, gluten, dairy, etc. 
-
-![fish-logo](./images/fish-color.png)
 
 - As a user, when I enter the product barcode, I want to know if I'm using the wrong number of digits or letters by mistake.
 
