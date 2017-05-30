@@ -70,14 +70,20 @@ class Home extends Component {
       <div className="home">
           <div className="introHome">
             <h1 className="title">Can I Eat This?</h1>
-            <p className="introParagraph">Lorem ipsum dolor sit amet, his causae melius 
-            nostrud id. Dolorum facilisi ei sit. At movet malorum nominati vim. An vix recusabo comprehensam, 
-            agam legimus has ei, ea tation neglegentur vim.
-            <br/><br/>
-            Eam omnium lucilius ea, nec id graecis splendide appellantur, quo cotidieque 
-            disputando eu. At probatus explicari forensibus mel, ad per homero scriptorem efficiantur, ei duo iisque 
-            abhorreant. At summo forensibus eam, sint verear minimum nam an. An nam omittam electram, 
-            an his recteque cotidieque, cu vim incorrupte scriptorem.</p>
+            <h2>An app for people who care about the ingredients in their food!</h2>
+             <p className="introParagraph"> 
+              <br />
+              <b>Step 1: </b> Users register their dietary restrictions on the user preferences page and can save issues. Such as allergic to peanuts, lactose intolerant, gluten-free, allergic to shellfish, or other specific dietary restrictions.
+              <br />
+              <br />
+              <b>Step 2: </b> Users quickly and easily take a picture of the barcode of a food item to check the ingredients. Using Optical Character Recognition (OCR) the app checks if any of the ingredients from the product match with any of the saved user preferences.
+              <br />
+              <br />
+              <b>Step 3: </b> The app displays the results of the thorough ingredient check (over 60 keywords for each) and indicates whether the user can eat the item or not. Rendering each of the unique allergen issues and whether they are present in the product or not.
+              <br />
+              <br />
+              <b>Step 4: </b> In history, the user can save their past products searched and preferences, stored in an external database.
+            </p>
           </div>
         <div className="inputOptions">
           <form className="upc-photo-input">
