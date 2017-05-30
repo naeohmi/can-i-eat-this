@@ -82,10 +82,10 @@ class Result extends Component {
         this.setState({ issues })
         console.log(this.state.issues)
       }).then(() => {
-        this.grabProductImage()
+        this.grabData()
       })
       .then(() => {
-        this.grabData();
+        this.grabProductImage();
       })
       .then(() => {
         this.addProduct()

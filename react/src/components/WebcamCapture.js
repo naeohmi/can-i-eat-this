@@ -63,21 +63,22 @@ class WebcamCapture extends Component {
            let innerThis = this;
            // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
            //cloudinary header from naeohmi profile
-        //    Cloud.config({
-        //        cloud_name: "dlhmylaz8",
-        //        api_key: "524257979483418",
-        //        api_secret: "T4Om9-7dWkG9YWplUDMtEbEHu6M",
-        //    })
-           //cloudinary header from heroku profile
            Cloud.config({
-               cloud_name: "hknybtv4v",
-               api_key: "412636665797488",
-               api_secret: "SfCXpbKH1RMdmpXl0XTxXgn-LrE",
+               cloud_name: "dlhmylaz8",
+               api_key: "524257979483418",
+               api_secret: "T4Om9-7dWkG9YWplUDMtEbEHu6M",
            })
+        //    //cloudinary header from heroku profile
+        //    Cloud.config({
+        //        cloud_name: "hknybtv4v",
+        //        api_key: "412636665797488",
+        //        api_secret: "SfCXpbKH1RMdmpXl0XTxXgn-LrE",
+        //    })
            //uploads photo user took to cloudinary
            Cloud.uploader.upload(photo64, function(result, err) {
                //grabs the photos new unique URL from cloudinary
                console.log('cloudinary up');
+               
                if (result) {
                    console.log("result", result.url);
                    var imgUrl = result.url;
