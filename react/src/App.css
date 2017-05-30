@@ -179,15 +179,22 @@ input[type=text] {
 	color: #2c2d2d;
 }
 
-.displayResult {
+.displayResult  a {
+	font-family: 'Ubuntu Mono', monospace;
 	float: none;
-	padding: 0;
+	padding: 10px;
 	text-align: center;
 	flex: 1;
+	text-decoration: none;
+	background-color: yellow;
+	font-size: 2em;
+	transition: 1s;
+	color: black;
 }
 
-.displayResult a {
-	text-decoration: none;
+.displayResult a:hover {
+	color: white;
+	text-transform: uppercase;
 }
 
 /* Result Component */
