@@ -22,9 +22,9 @@ class Row extends Component {
     var result = this.props.objArray.map((d) => {
 
       if (!d.result)
-        advice = "yes you can eat it";
+        advice = "Yes you can eat!";
       else
-        advice = "No you can Not eat it";
+        advice = "No you can't eat!";
       return (
         <tr key={d.id} >
           <td className="prod">{d.product}</td>

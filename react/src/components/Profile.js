@@ -99,7 +99,7 @@ class Profile extends Component {
 			<div className="profile">
 				<h2 className="title">User Preferences</h2>
 				<div className="buttons">
-					<p className="paragraph">Have a userid? Retrieve your data here!</p>
+					<p className="paragraph">Input your userid here to retrieve your data!</p>
 					<input
 						type="text"
 						placeholder="Get my data!"
