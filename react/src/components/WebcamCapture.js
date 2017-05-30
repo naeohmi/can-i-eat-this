@@ -62,11 +62,17 @@ class WebcamCapture extends Component {
            //because this is a method within a function, I needed to save the 'this' that I wanted
            let innerThis = this;
            // base64Img.img(`${screenshot}`, '', 'screenshot', function(err, filepath) {});
-           //cloudinary header
+           //cloudinary header from naeohmi profile
+        //    Cloud.config({
+        //        cloud_name: "dlhmylaz8",
+        //        api_key: "524257979483418",
+        //        api_secret: "T4Om9-7dWkG9YWplUDMtEbEHu6M",
+        //    })
+           //cloudinary header from heroku profile
            Cloud.config({
-               cloud_name: "dlhmylaz8",
-               api_key: "524257979483418",
-               api_secret: "T4Om9-7dWkG9YWplUDMtEbEHu6M",
+               cloud_name: "hknybtv4v",
+               api_key: "412636665797488",
+               api_secret: "SfCXpbKH1RMdmpXl0XTxXgn-LrE",
            })
            //uploads photo user took to cloudinary
            Cloud.uploader.upload(photo64, function(result, err) {
