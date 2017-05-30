@@ -197,7 +197,6 @@ Database hosted on Heroku:
 - https://caneatthis.herokuapp.com
 - To access the products information: https://caneatthis.herokuapp.com/api/information
 - To access the user issues: https://caneatthis.herokuapp.com/api/allergies
-
 - GitHub of database: https://github.com/esraa2525/canieatthis
 
 ### Download Project & Install
