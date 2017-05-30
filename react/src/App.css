@@ -11,6 +11,8 @@ h1 {
 	font-size: 40px;
 	font-family: 'Ubuntu', sans-serif;
 	color: #003B5E;
+	text-shadow: 1px 1px 1px #000, 3px 3px 5px #0880C6;
+	text-transform: uppercase;
 }
 
 h2 {
@@ -161,6 +163,7 @@ input[type=text] {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 18px;
 	padding: 20px;
+	text-align: left;
 }
 
 .labelMessage1, .labelMessage2 {
@@ -580,4 +583,12 @@ img.thumbnail{
 	.footer {
 	padding: 0px;
 	}
+}
+
+.title {
+	font-size: 3em;
+	font-family: 'Ubuntu', sans-serif;
+	color: #003B5E;
+	text-shadow: 1px 1px 1px #000, 3px 3px 5px #0880C6;
+	text-transform: uppercase;
 }
