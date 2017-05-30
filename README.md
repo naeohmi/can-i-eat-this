@@ -1,7 +1,7 @@
 <a name="goback">
 
 # Project 3 (Can I Eat This?)
-## Live: https://canieatthis3.herokuapp.com/
+## Live: https://icaneatthis.herokuapp.com
 
 ![app-logo](./images/logo.png)
 
@@ -28,7 +28,7 @@
 
 An app for people who care about the ingredients in their food!
 
-Step 1: Users register their dietary restrictions on the user preferences page and can save issues. Such as allergic to peanuts, lactose intolerant, gluten-free, allergic to shellfish, or other specific dietary restrictions. 
+Step 1: Users register their dietary restrictions on the user preferences page and can save their issues. Such as allergies to peanuts or shellfish, lactose intolerant, gluten-free, or other specific dietary restrictions. 
 
 -	Current allergen list:
 
@@ -57,7 +57,7 @@ Step 5: In history, the user can save their past products searched and preferenc
 - As a user, I want to use the app in the browser and on a mobile device.
 
 - As a user, I want to see cute icons for each of my allergen preferences.
-Like this: ![fish-logo](./images/fish-color.png)  ![milk-icon](./images/milk-color.png)  ![treenut-logo](./images/treenut-color.png)  ![egg-logo](./images/egg-color.png)
+- Like this: ![fish-logo](./images/fish-color.png)  ![milk-icon](./images/milk-color.png)  ![treenut-logo](./images/treenut-color.png)  ![egg-logo](./images/egg-color.png)
 
 - As a user, I want to add and edit the ingredients I am careful about in my User Profile.
 
@@ -191,7 +191,7 @@ Like this: ![fish-logo](./images/fish-color.png)  ![milk-icon](./images/milk-col
 
 ## SEE THE PROJECT:
 
-### Live Deployment of App: https://canieatthis3.herokuapp.com/
+### Live Deployment of App: https://icaneatthis.herokuapp.com
 
 Database hosted on Heroku:
 - https://caneatthis.herokuapp.com

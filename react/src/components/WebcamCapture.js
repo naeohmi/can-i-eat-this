@@ -71,6 +71,7 @@ class WebcamCapture extends Component {
            //uploads photo user took to cloudinary
            Cloud.uploader.upload(photo64, function(result, err) {
                //grabs the photos new unique URL from cloudinary
+               console.log('cloudinary up');
                if (result) {
                    console.log("result", result.url);
                    var imgUrl = result.url;
