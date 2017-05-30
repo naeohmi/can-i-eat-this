@@ -104,7 +104,7 @@ class Home extends Component {
             <button className="searchProduct">Search</button>
 
               <div className="displayR">
-              <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
+              <ul className="displayResult"><li><NavLink to="/result">Click to view results!</NavLink></li></ul>
               </div>
           </form>
 
