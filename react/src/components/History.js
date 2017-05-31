@@ -24,6 +24,7 @@ class History extends Component {
       .then((res) => {
         console.log(res);
         let objArray = res.data.data;
+        console.log(objArray);
         //sets the state for the object array
         this.setState({
           objArray
