@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 class UserResult extends Component{
  
-  constructor(props) {
-    console.log(props) 
-    super(props)
-    this.state = {
-    }
-  }
-
   render() {
     var issues= [];
     var Obj=this.props.issues;
