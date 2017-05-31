@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import UserResult from './UserResult';
 import $ from 'jquery'; 
+import FourOFour from './Four_o_Four';
 class Result extends Component {
 
   constructor(props) {
@@ -389,9 +390,16 @@ class Result extends Component {
     this.userPref();
   }
   render() {
+
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand = this.state.productBrand;
+
+    if (this.props.productName === undefined) {
+      return (
+          <FourOFour />
+        )
+     } else {
 
     return (
       <div className="resultContainer">
@@ -432,6 +440,7 @@ class Result extends Component {
       </div>
 
     );
+  }
   }
 }
 
