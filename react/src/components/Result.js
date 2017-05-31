@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import UserResult from './UserResult';
-
+import $ from 'jquery'; 
 class Result extends Component {
 
   constructor(props) {
@@ -55,24 +55,35 @@ class Result extends Component {
   //Make an axios call to grab image
   //external API call to get image for each product logged
   grabProductImage() {
-    axios.get(`http://world.openfoodfacts.org/api/v0/product/${this.state.upc}.json`)
+    var image;
+    $.ajax({url: "http://api.walmartlabs.com/v1/search?apiKey=nreuk5qdfbhbmwheh4emmhf7&query="+this.props.upc,
+     jsonp: "callback",
+      dataType: "jsonp",
+       success: function(response) {
+        if(response.totalResults>0){
+        console.log(response.items["0"].largeImage);
+        image = response.items["0"].largeImage;
+        this.setState({ image: image },function() {this.addProduct()
+        });
+      }
+      else
+      console.log("empty");
+      this.addProduct()
 
-      .then((res) => {
-        if (res.data.product.image_url) {
-          var image = res.data.product.image_url;
-          console.log(image);
-          this.setState({ image: image }
-            // ,function() {this.addProduct()
-            //   }
-          );
-          console.log(this.state.image);
-        } else {
-          console.log("empty");
-        }
-      }).catch((error) => {
-        console.log(error);
-      });
-  }
+  }.bind(this)})
+      // .then((res) => {.items["0"].affiliateAddToCartUrl
+      //   // if (res.data.product.image_url) {
+      //   //   var image = res.data.product.image_url;
+      //     console.log(image);
+      //   //   this.setState({ image: image }
+        //     // ,function() {this.addProduct()
+        //     //   }
+        //   );
+        //   console.log(this.state.image);
+        // } else {
+        //   console.log("empty");
+        // }
+      }
   //checks the user issues logged from database and saves them in state
   userPref() {
     let targetURL = `https://caneatthis.herokuapp.com/api/allergies/${this.state.userid}`;
@@ -87,9 +98,9 @@ class Result extends Component {
       .then(() => {
         this.grabProductImage();
       })
-      .then(() => {
-        this.addProduct()
-      })
+      // .then(() => {
+      //   this.addProduct()
+      // })
   }
   //adds the product info from state to the database
   addProduct() {
@@ -402,7 +413,7 @@ class Result extends Component {
           </div>
 
           <div className="productPic">
-            <img src={this.state.image} alt="Product" />
+            <img className="productPic" src={this.state.image} alt="Product" />
           </div>
         </div>
         <div className="prodResult">
