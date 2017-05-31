@@ -1,12 +1,15 @@
 <a name="goback">
 
 # Project 3 (Can I Eat This?)
+## Live: https://icaneatthis.herokuapp.com
+
+![app-logo](./images/logo.png)
 
 </a>
 
-### Group 7: Esraa, Francheska, Naomi
+### Team: Esraa, Francheska, Naomi
 
-## Table of Content
+## Table of Contents
 
 1. [App description](#appdescription)
 2. [User Stories](#userstories)
@@ -14,43 +17,68 @@
 4. [Wireframes Mobile Version](#wireframesmobile)
 5. [Visual representation of the database](#database)
 6. [Pseudocode](#pseudocode)
-7. [Workflow](#workflow)
+7. [APP flowChart](#workflow)
 8. [ERD or other visual representation of your database](#database)
 9. [Technologies used](#technologies)
 10. [Ways to see the project](#project)
 
 <a name="appdescription">
 
-## App description
+## APP DESCRIPTION:
 
-An app for people who care about the ingredients they're buying! Quickly and easily take a picture of the ingredient list or barcode of a product such as cereal, snacks, or pretty much anything, and the app will give you more information about each ingredient from that long and hard to read list of ingredients.
+An app for people who care about the ingredients in their food!
 
-If you have any kind of allergies, dietary restrictions, such as gluten-free, vegetarian, lactose-intolerant, or cultural preferences such as Halal or Kosher you can easily log in, build a user profile, and save your unique preferences.
+Step 1: Users register their dietary restrictions on the user preferences page and can save their issues. Such as allergies to peanuts or shellfish, lactose intolerant, gluten-free, or other specific dietary restrictions. 
+
+-	Current allergen list:
+
+	-	Peanut
+	-	Tree Nuts
+	-	Milk (lactose intolerant)
+	-	Egg
+	-	Wheat (gluten-free)
+	-	Soy
+	-	Fish
+	-	Shellfish
+	-	Sesame
+
+Step 2: Users quickly and easily take a picture of the barcode of a food item to check the ingredients. Using Optical Character Recognition (OCR) the app checks if any of the ingredients from the product match with any of the saved user preferences. 
+
+Step 4: The app displays the results of the thorough ingredient check (over 60 keywords for each) and indicates whether the user can eat the item or not. Rendering each of the unique allergen issues and whether they are present in the product or not.
+
+Step 5: In history, the user can save their past products searched and preferences, stored in an external database. 
+
 </a>
 
 <a name="userstories">
 
-## User Stories
+## USER STORIES:
 
-- As a user, I want to use the app in the mobile and/or browser.
+- As a user, I want to use the app in the browser and on a mobile device.
 
-- As a user, I want to add and edit the ingredients I am careful about in the User Profile.
+- As a user, I want to see cute icons for each of my allergen preferences.
+- Like this: ![fish-logo](./images/fish-color.png)  ![milk-icon](./images/milk-color.png)  ![treenut-logo](./images/treenut-color.png)  ![egg-logo](./images/egg-color.png)
 
-- As a user, I want to quickly and easily take a picture of the info section of a product, and immediately see if the product contains any ingredients I don't want to buy. 
+- As a user, I want to add and edit the ingredients I am careful about in my User Profile.
 
-- As a user, I want the option to write the barcode (maybe is the user's preferred way for security reasons, or camera doesn't work, etc), and immediately see if the product contains any ingredients I don't want to buy.
+- As a user, I want to quickly and easily take a picture of the product's barcode then and immediately see if the product contains any ingredients I don't want.
 
-- As a user, I want to 'red flag' ingredients I am careful about. Such as items I am allergic to examples include: peanuts, gluten, dairy, etc. and/or culturally/religiously specific items examples include: Halal, Kosher, vegetarian, etc..
+- As a user, I want the option to write the barcode (maybe is the user's preferred way for security reasons, or camera doesn't work, etc), and immediately see if the product contains any ingredients I don't want.
 
-- As a user, I want a history of all the products I already look up, and be able to delete it.
+- As a user, I want to 'red flag' ingredients I am careful about. Such as items I am allergic to examples include: peanuts, gluten, dairy, etc. 
 
-- As a user, I want to login to my account where I can save my unique preferences and ingredient list in a user profile.
+- As a user, when I enter the product barcode, I want to know if I'm using the wrong number of digits or letters by mistake.
+
+- As a user, I want an editable history of all the products I already looked up.
+
+- As a user, I want to see the product picture (if available) and see the list of ingredients.
 
 </a>
 
 <a name="wireframesweb">
 
-## Wireframes (Web Version)
+## WIREFRAMES:
+## (Web/Browser Version)
 
 ### Here is the initial thinking we started with:
 
@@ -72,7 +100,7 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 <a name="wireframesmobile">
 
-## Wireframes (Mobile Version)
+## (Mobile Version)
 
 ### Homepage, Scan Barcode and Product Info:
 ![mobile1-3](./images/mobile1-3.png)
@@ -84,28 +112,29 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 <a name="pseudocode">
 
-## Pseudocode
+## PSEUDOCODE:
 
-</a>
+1. Grab the item barcode (by scanning the UPC number, or write it in an input field)
+2. Validate the barcode, 12 digits number
+3. Make an axios call to find the product information (product name, ingredients)
+4. Use the barcode to call another API for the picture 
+5. Get the user list of allergies from the database
+6. Compare the product ingredients the user’s allergies 
+7. Store the comparison information from the two APIs to database 
+8. Display the picture of the product if found or use a placeholder
+9. Allow the user to change their list of issues, after clicking on the profile page
+10. Display the previously selected issues and allow the user to modify selections 
+11. If the user wants to see the previously searched items, allow user to click on History page
+12. Allow the user to delete a product by clicking on X
+13. For wrong links, 404 page is available.
 
-<a name="workflow">
-
-## Workflow
-
-1. Grab the item barcode (by scanning the UPC number, or write it in an input field).
-2. Make an axios call to find the product information (product name, ingredients).
-3. Save the product information in the database.
-4. Get the user allergies information, and save it the database.
-5. Compare the product ingredients with the user allergies, and generate a result.
-6. Display the result to the user.
-
-![workflow](./images/workflow.jpeg)
-
+![workflow](./images/workflow1.png)
+![workflow](./images/workflow2.png)
 </a>
 
 <a name="database">
 
-## ERD or other visual representation of your database
+## ERD/VISUAL REPRESENTATION OF DATABASE:
 
 ![database](./images/database.png)
 
@@ -113,55 +142,72 @@ If you have any kind of allergies, dietary restrictions, such as gluten-free, ve
 
 <a name="technologies">
 
-## Technologies used
+## TECHNOLOGIES USED:
 
 ### Core Stack:
 
-- HTML
-- CSS
-- JavaScript
-- jQuery
 - React
 - Node
 - Express
 - PostgreSQL
-- Postman
+- HTML
+- CSS
+- JavaScript
+- jQuery
 - Heroku
-- GitHub
+- Git
 
 ### Middleware:
 
 - nodemon
 - pg-promise
-- Axios
-- AuthO
-- React-Routers
+- axios
+- react-routers
+- cors
+- react-webcam
+- react-base64-img
 - CSS Frameworks
-- and more...
 
 ### APIs:
 
-- Google Cloud Optical Character Recognition (OCR) API
-- Get information of the product: https://www.nutritionix.com
-- Get image of the product:
+- Optical Character Recognition (OCR) API
+- Nutritionix API
+- Open Food Facts API
+- Cloudinary API
+
+### Also
+
+- ZenHub (project boards)
+- Balsamiq (wireframes)
+- Lucidchart (app/project flow)
+- Slack (communication)
+- Postman (API and DB testing)
+- Ice-cream (for sanity :)
 
 </a>
 
 <a name="project">
 
-## Ways to see the project
+## SEE THE PROJECT:
+
+### Live Deployment of App: https://icaneatthis.herokuapp.com
+
+Database hosted on Heroku:
+- https://caneatthis.herokuapp.com
+- To access the products information: https://caneatthis.herokuapp.com/api/information
+- To access the user issues: https://caneatthis.herokuapp.com/api/allergies
+- GitHub of database: https://github.com/esraa2525/canieatthis
 
 ### Download Project & Install
 
 1. Git clone or download this project
-2. Create a PostgreSQL database called 'TBD'
-3. On your terminal, navigate to the models folder and run `psql  -f TBD.sql`
-4. Make sure to npm install nodemon --save
-5. Run nodemon, and app should be available on localhost:3000
+2. Make sure to `npm install`
+3. Cd to the `react` folder
+4. Run `npm start` and app should be available on localhost:3000
 
-### Live Deployment Here: 
+Thanks :) 
 
-URL 
+![app-logo](./images/logo.png)
 
 </a>
 

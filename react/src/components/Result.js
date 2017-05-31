@@ -394,14 +394,13 @@ class Result extends Component {
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand = this.state.productBrand;
+
     if (this.props.productName === undefined) {
       return (
           <FourOFour />
         )
      } else {
-      
-     
-    
+
     return (
       <div className="resultContainer">
         <div className="result">

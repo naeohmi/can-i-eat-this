@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import WebcamCapture from './WebcamCapture';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer'
 
 class Home extends Component {
   constructor(props) {
@@ -67,28 +68,49 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <form className="upc-photo-input">
-          <label>Take a photo of the barcode from your camera:</label>
+          <div className="introHome">
+            <h1 className="title">Can I Eat This?</h1>
+            <h2>An app for people who care about the ingredients in their food!</h2>
+             <p className="introParagraph"> 
+              <br />
+              <b>Step 1: </b> Users register their dietary restrictions on the user preferences page and can save issues. Such as allergic to peanuts, lactose intolerant, gluten-free, allergic to shellfish, or other specific dietary restrictions.
+              <br />
+              <br />
+              <b>Step 2: </b> Users quickly and easily take a picture of the barcode of a food item to check the ingredients. Using Optical Character Recognition (OCR) the app checks if any of the ingredients from the product match with any of the saved user preferences.
+              <br />
+              <br />
+              <b>Step 3: </b> The app displays the results of the thorough ingredient check (over 60 keywords for each) and indicates whether the user can eat the item or not. Rendering each of the unique allergen issues and whether they are present in the product or not.
+              <br />
+              <br />
+              <b>Step 4: </b> In history, the user can save their past products searched and preferences, stored in an external database.
+            </p>
+          </div>
+        <div className="inputOptions">
+          <form className="upc-photo-input">
+            <label className="labelMessage1">Take a photo of the barcode from your camera:</label>
+            <WebcamCapture />
+          </form>
+          <form 
+            className="upc-text-input"
+            onSubmit={this.handleCreate}>
+            
+            <label className="labelMessage2">Or enter the 12 digit Universal Product Code (UPC):</label><br/>
+            <input
+              type="text"
+              placeholder="Look up by barcode"
+              ref="barcode"
+              className="barcode"
+              />
+            <button className="searchProduct">Search</button>
 
-          <WebcamCapture />
+              <div className="displayR">
+              <ul className="displayResult"><li><NavLink to="/result">Click to view results!</NavLink></li></ul>
+              </div>
+          </form>
 
-        </form>
-        <form 
-          className="upc-text-input"
-          onSubmit={this.handleCreate}>
-          
-          <label>Or enter the 12 digit Universal Product Code (UPC):</label><br/>
-          
-          <input
-            type="text"
-            placeholder="Look up by barcode"
-            ref="barcode"
-            className="barcode"
-            />
-          <button className="searchProduct">Search</button>
-          <ul className="displayResult"><li><NavLink to="/result">View Results!</NavLink></li></ul>
-        </form>
-      </div>
+        </div>
+    <Footer />
+    </div>
     );
   }
 };

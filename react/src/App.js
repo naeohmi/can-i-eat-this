@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Result from './components/Result';
 import History from './components/History';
+import Footer from './components/Footer';
 import FourOFour from './components/Four_o_Four';
 import {
         BrowserRouter as Router,
@@ -27,13 +28,14 @@ class App extends Component {
       ingredientString: " ",
       userid: undefined
     }
-    this.selectedCheckboxesAdd = this.selectedCheckboxesAdd.bind(this);
-    this.selectedCheckboxesUpdate = this.selectedCheckboxesUpdate.bind(this);
+    this.addCheckboxes = this.addCheckboxes.bind(this);
+    this.updateCheckboxes = this.updateCheckboxes.bind(this);
     this.changeState = this.changeState.bind(this);
     this.grabData = this.grabData.bind(this);
+    this.readAllergies = this.readAllergies.bind(this);
   }
 
-   grabData(productBrand,upc, productName, ingredientList , ingredientString) {
+   grabData(productBrand, upc, productName, ingredientList, ingredientString) {
      this.setState({
         upc: upc,
         productName: productName,
@@ -49,7 +51,8 @@ class App extends Component {
       });
     }
 
-  selectedCheckboxesAdd(userid, issues, readOnly) {
+  // Getting user data for the first time.
+  addCheckboxes(userid, issues, readOnly) {
     // console.log(issues);
     this.setState({ 
       userid: userid,
@@ -60,29 +63,6 @@ class App extends Component {
     // Calling the method to make a post to the database.
     this.addAllergies();
     });
-  }
-
-  selectedCheckboxesUpdate(userid, issues, readOnly) {
-    // console.log(issues);
-    // Changing the state of the issues array.
-    this.setState({ 
-      userid: userid,
-      issues: issues,
-      readOnly: readOnly
-    }, function() {
-    // console.log(this.state.issues);
-    // Calling the method to make a put to the database.
-    this.updateAllergies();
-    });
-  }
-
-  // Read an existing profile.
-  readAllergies() {
-    axios.get('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid)
-      .then((res) => {
-      var issues = res.data.data;
-      console.log(issues);
-    })
   }
 
   addAllergies(){
@@ -100,11 +80,53 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
-      console.log("First time user, record added:");
+      // console.log("First time user, record added:");
       console.log(res);
       })
     .catch((error) => {
       console.log(error);
+    });
+  }
+
+  // Read an existing user profile.
+  readAllergies(userid) {
+  // console.log(userid);
+  axios.get('https://caneatthis.herokuapp.com/api/allergies/' + userid)
+    .then((res) => {
+    var issues = [res.data.data.eggsallergy, res.data.data.fishallergy,
+                  res.data.data.milkallergy, res.data.data.peanutsallergy, 
+                  res.data.data.sesame, res.data.data.shellfish,
+                  res.data.data.soy, res.data.data.treenuts,
+                  res.data.data.wheat]
+    this.setState ({
+      readOnly: true,
+      userid: userid,
+      issues: issues
+     })
+    }
+  )}
+  
+  // When user click the edit button, change from readOnly true to false.
+  changeState(readOnly) {
+    this.setState ({
+      issues: [],
+      readOnly: readOnly
+    })
+    // console.log("The state of readOnly has been changed to " + this.state.readOnly);
+  }
+
+  // Updating current user preferences/issues.
+  updateCheckboxes(userid, issues, readOnly) {
+    // console.log(issues);
+    // Changing the state of the issues array.
+    this.setState({ 
+      userid: userid,
+      issues: issues,
+      readOnly: readOnly
+    }, function() {
+    // console.log(this.state.issues);
+    // Calling the method to make a put to the database.
+    this.updateAllergies();
     });
   }
 
@@ -123,21 +145,11 @@ class App extends Component {
       wheatallergy: this.state.issues[8] === true ? true : false
       })
     .then((res) => {
-      console.log("Existing user, record updated:");
+      // console.log("Existing user, record updated:");
       console.log(res);
       })
     .catch((error) => {
       console.log(error);
-    });
-  }
-
-  // For editing purposes.
-  changeState(readOnly){
-    this.setState({
-      issues: [],
-      readOnly: readOnly
-    }, function() {
-       console.log("The state of readOnly has been changed to " + this.state.readOnly);
     });
   }
 
@@ -151,12 +163,13 @@ class App extends Component {
                  grabData={this.grabData}
                  />) }/>
           <Route path="/profile" exact component={() => (<Profile 
-                 selectedCheckboxesAdd={this.selectedCheckboxesAdd}
-                 selectedCheckboxesUpdate={this.selectedCheckboxesUpdate}
+                 addCheckboxes={this.addCheckboxes}
+                 updateCheckboxes={this.updateCheckboxes}
                  userid={this.state.userid}
                  issues={this.state.issues}
                  readOnly={this.state.readOnly}
                  changeState={this.changeState}
+                 readAllergies={this.readAllergies}
                  />) }/>
           <Route path="/result" exact component={() => (<Result 
                  upc={this.state.upc}
@@ -167,6 +180,7 @@ class App extends Component {
                  />) }/>
           <Route path="/history" exact component={() => (<History />) }/>
           <Route path="/*" component={() => (<FourOFour />) }/>
+          <Footer />
         </Switch>
     </div>
     </Router>
