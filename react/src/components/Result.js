@@ -119,7 +119,6 @@ class Result extends Component {
       treenuts: this.state.treenuts,
       wheat: this.state.wheat,
       img: this.state.image,
-      result: this.state.result
     })
       .then((res) => {
         console.log(res);
