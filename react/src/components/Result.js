@@ -70,26 +70,26 @@ class Result extends Component {
       else
       console.log("empty");
       this.addProduct()
+         
+//merge conflict here with branch esraa and branch naeohmi - need to resolve
 
-<<<<<<< HEAD
-      .then((res) => {
-        if (res.data.product.image_url) {
-          var image = res.data.product.image_url;
-          console.log(image);
-          this.setState({ image: image }
-            ,function() {
-              this.addProduct()
-            }
-          );
-          console.log(this.state.image);
-        } else {
-          console.log("empty");
-        }
-      }).catch((error) => {
-        console.log(error);
-      });
-  }
-=======
+//       .then((res) => {
+//         if (res.data.product.image_url) {
+//           var image = res.data.product.image_url;
+//           console.log(image);
+//           this.setState({ image: image }
+//             ,function() {
+//               this.addProduct()
+//             }
+//           );
+//           console.log(this.state.image);
+//         } else {
+//           console.log("empty");
+//         }
+//       }).catch((error) => {
+//         console.log(error);
+//       });
+//   }
   }.bind(this)})
       // .then((res) => {.items["0"].affiliateAddToCartUrl
       //   // if (res.data.product.image_url) {
@@ -104,7 +104,7 @@ class Result extends Component {
         //   console.log("empty");
         // }
       }
->>>>>>> 2fc59c2aee130b2e5282c0d60b1b5c298550ded7
+
   //checks the user issues logged from database and saves them in state
   userPref() {
     let targetURL = `https://caneatthis.herokuapp.com/api/allergies/${this.state.userid}`;
@@ -120,15 +120,7 @@ class Result extends Component {
         this.grabProductImage();
         this.addProduct()
       })
-<<<<<<< HEAD
-      .then(() => {
-        // this.addProduct()
-      })
-=======
-      // .then(() => {
-      //   this.addProduct()
-      // })
->>>>>>> 2fc59c2aee130b2e5282c0d60b1b5c298550ded7
+
   }
   //adds the product info from state to the database
   addProduct() {
