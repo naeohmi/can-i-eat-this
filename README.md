@@ -73,6 +73,7 @@ Step 5: In history, the user can save their past products searched and preferenc
 
 - As a user, I want to see the product picture (if available) and see the list of ingredients.
 
+- As a user, I want to edit my allergen preferences in the profile page and get an updated history page.
 </a>
 
 <a name="wireframesweb">
