@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import UserResult from './UserResult';
-
+import $ from 'jquery'; 
+import FourOFour from './Four_o_Four';
 class Result extends Component {
 
   constructor(props) {
@@ -55,8 +56,22 @@ class Result extends Component {
   //Make an axios call to grab image
   //external API call to get image for each product logged
   grabProductImage() {
-    axios.get(`http://world.openfoodfacts.org/api/v0/product/${this.state.upc}.json`)
+    var image;
+    $.ajax({url: "http://api.walmartlabs.com/v1/search?apiKey=nreuk5qdfbhbmwheh4emmhf7&query="+this.props.upc,
+     jsonp: "callback",
+      dataType: "jsonp",
+       success: function(response) {
+        if(response.totalResults>0){
+        console.log(response.items["0"].largeImage);
+        image = response.items["0"].largeImage;
+        this.setState({ image: image },function() {this.addProduct()
+        });
+      }
+      else
+      console.log("empty");
+      this.addProduct()
 
+<<<<<<< HEAD
       .then((res) => {
         if (res.data.product.image_url) {
           var image = res.data.product.image_url;
@@ -74,6 +89,22 @@ class Result extends Component {
         console.log(error);
       });
   }
+=======
+  }.bind(this)})
+      // .then((res) => {.items["0"].affiliateAddToCartUrl
+      //   // if (res.data.product.image_url) {
+      //   //   var image = res.data.product.image_url;
+      //     console.log(image);
+      //   //   this.setState({ image: image }
+        //     // ,function() {this.addProduct()
+        //     //   }
+        //   );
+        //   console.log(this.state.image);
+        // } else {
+        //   console.log("empty");
+        // }
+      }
+>>>>>>> 2fc59c2aee130b2e5282c0d60b1b5c298550ded7
   //checks the user issues logged from database and saves them in state
   userPref() {
     let targetURL = `https://caneatthis.herokuapp.com/api/allergies/${this.state.userid}`;
@@ -89,9 +120,15 @@ class Result extends Component {
         this.grabProductImage();
         this.addProduct()
       })
+<<<<<<< HEAD
       .then(() => {
         // this.addProduct()
       })
+=======
+      // .then(() => {
+      //   this.addProduct()
+      // })
+>>>>>>> 2fc59c2aee130b2e5282c0d60b1b5c298550ded7
   }
   //adds the product info from state to the database
   addProduct() {
@@ -110,7 +147,6 @@ class Result extends Component {
       treenuts: this.state.treenuts,
       wheat: this.state.wheat,
       img: this.state.image,
-      result: this.state.result
     })
       .then((res) => {
         console.log(res);
@@ -381,9 +417,16 @@ class Result extends Component {
     this.userPref();
   }
   render() {
+
     var ing = this.state.ingredientString;
     var Name = this.state.productName;
     var productBrand = this.state.productBrand;
+
+    if (this.props.productName === undefined) {
+      return (
+          <FourOFour />
+        )
+     } else {
 
     return (
       <div className="resultContainer">
@@ -405,7 +448,7 @@ class Result extends Component {
           </div>
 
           <div className="productPic">
-            <img src={this.state.image} alt="Product" />
+            <img className="productPic" src={this.state.image} alt="Product" />
           </div>
         </div>
         <div className="prodResult">
@@ -424,6 +467,7 @@ class Result extends Component {
       </div>
 
     );
+  }
   }
 }
 

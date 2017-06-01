@@ -164,7 +164,6 @@ Step 5: In history, the user can save their past products searched and preferenc
 - axios
 - react-routers
 - cors
-- bluebird
 - react-webcam
 - react-base64-img
 - CSS Frameworks

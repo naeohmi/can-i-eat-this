@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 class UserResult extends Component{
 
-  constructor(props) {
-   super(props)
- }
   render() {
    var issues= [];
    var Obj=this.props.issues;
