@@ -91,7 +91,7 @@ class App extends Component {
   // Read an existing user profile.
   readAllergies(userid) {
   // console.log(userid);
-  axios.get('https://caneatthis.herokuapp.com/api/allergies/' + userid)
+  axios.get(`https://caneatthis.herokuapp.com/api/allergies/${userid}`)
     .then((res) => {
     var issues = [res.data.data.eggsallergy, res.data.data.fishallergy,
                   res.data.data.milkallergy, res.data.data.peanutsallergy, 
@@ -132,7 +132,7 @@ class App extends Component {
 
   updateAllergies(){
     // console.log(this.state.issues);
-    axios.put('https://caneatthis.herokuapp.com/api/allergies/' + this.state.userid, {
+    axios.put(`https://caneatthis.herokuapp.com/api/allergies/${this.state.userid}`, {
       userid: this.state.userid,
       eggsallergy: this.state.issues[0] === true ? true : false,
       fishallergy: this.state.issues[1] === true ? true : false,
