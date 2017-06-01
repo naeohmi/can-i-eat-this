@@ -178,8 +178,7 @@ class App extends Component {
                  productBrand={this.state.productBrand}
                  ingredientString={this.state.ingredientString}
                  />) }/>
-          <Route path="/history" exact component={() => (<History
-                issues={this.state.issues} />) }/>
+          <Route path="/history" exact component={() => (<History />) }/>
           <Route path="/*" component={() => (<FourOFour />) }/>
           <Footer />
         </Switch>
