@@ -62,8 +62,9 @@ class Result extends Component {
           var image = res.data.product.image_url;
           console.log(image);
           this.setState({ image: image }
-            // ,function() {this.addProduct()
-            //   }
+            ,function() {
+              this.addProduct()
+            }
           );
           console.log(this.state.image);
         } else {
@@ -86,13 +87,15 @@ class Result extends Component {
       })
       .then(() => {
         this.grabProductImage();
+        this.addProduct()
       })
       .then(() => {
-        this.addProduct()
+        // this.addProduct()
       })
   }
   //adds the product info from state to the database
   addProduct() {
+    console.log(this.state.userid + this.props.productName + this.props.upc + this.state.eggs + this.state.fish + this.state.milk + this.state.peanuts + this.state.sesame + this.state.shellfish + this.state.soy + this.state.treenuts + this.state.wheat + this.state.image + this.state.result )
     axios.post('https://caneatthis.herokuapp.com/api/information/', {
       userid: this.state.userid,
       product: this.props.productName,

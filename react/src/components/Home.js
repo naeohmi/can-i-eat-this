@@ -38,13 +38,9 @@ class Home extends Component {
         // const appId = 'bf4d4714'; //key one
         // const appKey = '09b92398885352afcdd13377eacd7e5c'; //app one
 
-        // const appId = 'faf14366'; //key two 
-        // const appKey = '8453458e60c6b7142453df695e20f6d5'; //app two
+        const appId = 'faf14366'; //key two 
+        const appKey = '8453458e60c6b7142453df695e20f6d5'; //app two
 
-        const appId = 'bf4d4714'; //key three 
-        const appKey = '09b92398885352afcdd13377eacd7e5c'; //app three
-
-        
         axios.get(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=${appId}&appKey=${appKey}`)
             .then((res) => {
               let productBrand = res.data.brand_name;
