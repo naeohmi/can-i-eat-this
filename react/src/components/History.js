@@ -6,6 +6,16 @@ class History extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      barcode: undefined,
+      eggs: undefined,
+      fish: undefined,
+      milk: undefined,
+      peanuts: undefined,
+      sesame: undefined,
+      shellfish: undefined,
+      soy:undefined,
+      treenuts:undefined,
+      wheat:undefined,
       objArray: [],
       userid: 123456, //hard coded for now, will update after Auth 
       result: [],
@@ -17,6 +27,7 @@ class History extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   //grabs the user history from the database
+
   userhistory() {
     let targetURL = `https://caneatthis.herokuapp.com/api/information/${this.state.userid}`
     //make axios call to database
@@ -29,42 +40,13 @@ class History extends Component {
         this.setState({
           objArray
         });
-        let result = objArray.map(function (a) {
-          return a.result;
-        });
-        //sets the state for the result
-        this.setState({
-          result
-        })
-        //maps through the object array
-        let id = objArray.map(function (a) {
-          return a.id;
-        });
-        //sets the state of the ID
-        this.setState({
-          id
-        })
-        //again for the product
-        let product = objArray.map(function (a) {
-          return a.product;
-        });
-        this.setState({
-          product
-        })
-        //again for the image
-        let img = objArray.map(function (a) {
-          return a.img;
-        });
-        this.setState({
-          img
-        })
-      })
-      .then((res) => {
-        console.log(this.state.product)
-        console.log(this.state.result)
-        console.log(this.state.id)
+        
       })
   }
+
+  
+
+
   //calls the method after loading
   componentDidMount() {
     this.userhistory();
