@@ -70,7 +70,26 @@ class Result extends Component {
       else
       console.log("empty");
       this.addProduct()
+         
+//merge conflict here with branch esraa and branch naeohmi - need to resolve
 
+//       .then((res) => {
+//         if (res.data.product.image_url) {
+//           var image = res.data.product.image_url;
+//           console.log(image);
+//           this.setState({ image: image }
+//             ,function() {
+//               this.addProduct()
+//             }
+//           );
+//           console.log(this.state.image);
+//         } else {
+//           console.log("empty");
+//         }
+//       }).catch((error) => {
+//         console.log(error);
+//       });
+//   }
   }.bind(this)})
       // .then((res) => {.items["0"].affiliateAddToCartUrl
       //   // if (res.data.product.image_url) {
@@ -85,6 +104,7 @@ class Result extends Component {
         //   console.log("empty");
         // }
       }
+
   //checks the user issues logged from database and saves them in state
   userPref() {
     let targetURL = `https://caneatthis.herokuapp.com/api/allergies/${this.state.userid}`;
@@ -98,13 +118,13 @@ class Result extends Component {
       })
       .then(() => {
         this.grabProductImage();
+        this.addProduct()
       })
-      // .then(() => {
-      //   this.addProduct()
-      // })
+
   }
   //adds the product info from state to the database
   addProduct() {
+    console.log(this.state.userid + this.props.productName + this.props.upc + this.state.eggs + this.state.fish + this.state.milk + this.state.peanuts + this.state.sesame + this.state.shellfish + this.state.soy + this.state.treenuts + this.state.wheat + this.state.image + this.state.result )
     axios.post('https://caneatthis.herokuapp.com/api/information/', {
       userid: this.state.userid,
       product: this.props.productName,

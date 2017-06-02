@@ -35,7 +35,7 @@ class WebcamCapture extends Component {
            //ensures there actually is data returned
            if(upcFromPhoto){
                return upcFromPhoto
-           }
+            }
            })
            //sets the state with the barcode from photo
            .then(data => {
@@ -104,10 +104,10 @@ class WebcamCapture extends Component {
    }
    //user edit barcode from photo state change on submit
    handleSubmit(event) {
+       event.preventDefault();
        this.setState({
            upcFromPhoto: event.target.value
        })
-       event.preventDefault();
    }
    //after user takes photo, conduct the OCR and show user the barcode number to double check that its correct before grabbing product info
    afterPhoto() {
@@ -118,15 +118,14 @@ class WebcamCapture extends Component {
                    <form onSubmit={this.handleSubmit}>
                        <input
                            type="text"
-                           value={this.state.upcFromPhoto}
+                           defaultValue={this.state.upcFromPhoto}
                            ref="check-upc"
+                           onChange={(e) => this.handleChange(e)}
                            />
                        <input
                            className="check-upc-from-photo"
                            type="submit"
                            value="submit"
-                           onChange={(e) => this.handleChange(e)}
- 
                            />
                        </form>
                    </div>
