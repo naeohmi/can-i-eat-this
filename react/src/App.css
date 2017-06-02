@@ -608,3 +608,7 @@ img.thumbnail{
 	text-shadow: 1px 1px 1px #000, 3px 3px 5px #0880C6;
 	text-transform: uppercase;
 }
+
+.green {
+	color: green;
+}

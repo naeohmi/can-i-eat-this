@@ -89,7 +89,7 @@ class Row extends Component {
       advice = "No you can't eat!";
 
 
-
+    
 
       // display the food problems
       eggs= d.eggs===true? "✔️":"✖︎";
