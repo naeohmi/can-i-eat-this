@@ -1,7 +1,7 @@
 <a name="goback">
 
 # Project 3 (Can I Eat This?)
-## Live: https://icaneatthis.herokuapp.com
+## Live: https://ciethis.herokuapp.com
 
 ![app-logo](./images/logo.png)
 
@@ -191,7 +191,7 @@ Step 5: In history, the user can save their past products searched and preferenc
 
 ## SEE THE PROJECT:
 
-### Live Deployment of App: https://icaneatthis.herokuapp.com
+### Live Deployment of App: https://ciethis.herokuapp.com
 
 Database hosted on Heroku:
 - https://caneatthis.herokuapp.com
