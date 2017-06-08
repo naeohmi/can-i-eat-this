@@ -57,7 +57,7 @@ class Result extends Component {
   //external API call to get image for each product logged
   grabProductImage() {
     var image;
-    $.ajax({url: "http://api.walmartlabs.com/v1/search?apiKey=nreuk5qdfbhbmwheh4emmhf7&query="+this.props.upc,
+    $.ajax({url: "https://api.walmartlabs.com/v1/search?apiKey=nreuk5qdfbhbmwheh4emmhf7&query="+this.props.upc,
      jsonp: "callback",
       dataType: "jsonp",
        success: function(response) {
