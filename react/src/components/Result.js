@@ -57,7 +57,7 @@ class Result extends Component {
   //external API call to get image for each product logged
   grabProductImage() {
     var image;
-    $.ajax({url: "http://api.walmartlabs.com/v1/search?apiKey=nreuk5qdfbhbmwheh4emmhf7&query="+this.props.upc,
+    $.ajax({url: "https://api.walmartlabs.com/v1/search?apiKey=nreuk5qdfbhbmwheh4emmhf7&query="+this.props.upc,
      jsonp: "callback",
       dataType: "jsonp",
        success: function(response) {
@@ -107,7 +107,7 @@ class Result extends Component {
 
   //checks the user issues logged from database and saves them in state
   userPref() {
-    let targetURL = `https://caneatthis.herokuapp.com/api/allergies/${this.state.userid}`;
+    let targetURL = `https://can-i-eat-this-api.herokuapp.com/api/allergies/${this.state.userid}`;
     axios.get(targetURL)
       .then((res) => {
         var issues = res.data.data;
@@ -118,14 +118,14 @@ class Result extends Component {
       })
       .then(() => {
         this.grabProductImage();
-        this.addProduct()
+        //this.addProduct()
       })
 
   }
   //adds the product info from state to the database
   addProduct() {
     console.log(this.state.userid + this.props.productName + this.props.upc + this.state.eggs + this.state.fish + this.state.milk + this.state.peanuts + this.state.sesame + this.state.shellfish + this.state.soy + this.state.treenuts + this.state.wheat + this.state.image + this.state.result )
-    axios.post('https://caneatthis.herokuapp.com/api/information/', {
+    axios.post('https://can-i-eat-this-api.herokuapp.com/api/information/', {
       userid: this.state.userid,
       product: this.props.productName,
       barcode: this.props.upc,

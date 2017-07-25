@@ -17,7 +17,7 @@ class Row extends Component {
     let ans = window.confirm(`Are you sure that you want to delete product number:${key}`)
     console.log(ans)
     if (ans) {
-      let targetURL = `https://caneatthis.herokuapp.com/api/information/${key}`;
+      let targetURL = `https://can-i-eat-this-api.herokuapp.com/api/allergies/${key}`;
       axios.delete(targetURL)
         .then((res) => {
           alert("The product was deleted successfully")
@@ -28,7 +28,7 @@ class Row extends Component {
   //get user:123456 allergies from the database
 
   userPref() {
-    let targetURL = `https://caneatthis.herokuapp.com/api/allergies/${this.state.userid}`;
+    let targetURL = `https://can-i-eat-this-api.herokuapp.com/api/allergies/${this.state.userid}`;
     axios.get(targetURL)
       .then((res) => {
         var issues = res.data.data;

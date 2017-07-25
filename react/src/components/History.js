@@ -29,7 +29,7 @@ class History extends Component {
   //grabs the user history from the database
 
   userhistory() {
-    let targetURL = `https://caneatthis.herokuapp.com/api/information/${this.state.userid}`
+    let targetURL = `https://can-i-eat-this-api.herokuapp.com/api/information/${this.state.userid}`
     //make axios call to database
     axios.get(targetURL)
       .then((res) => {
